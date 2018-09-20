@@ -138,6 +138,10 @@
     },
     mounted(){
 
+      window.document.oncontextmenu = function (e) {
+        e.preventDefault();
+      };
+
       var startX = 0, startY = 0;
 
       function touchStart(e) {
