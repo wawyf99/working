@@ -1,6 +1,8 @@
 .show{
   padding-top: 0.3rem;
   padding-bottom: 0.65rem;
+  position: relative;
+  z-index: 1;
 }
 .show>div{
   display: none;
@@ -93,4 +95,48 @@
 }
 .show .ui-show-step4 span{
   color: cornflowerblue;
+}
+.show .ui-show-step5 .ui-show-alert{
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 5rem;
+  text-align: center;
+  background: #FFFFFF;
+  height: 3.3rem;
+  border-radius: 0.07rem;
+}
+.show .ui-show-step5 .ui-show-cen{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  background: #444;
+  opacity: 0.6;
+  top: 0;
+}
+.show .ui-show-step5 .ui-show-alert .alert-title{
+  font-size: 0.25rem;
+  margin-top: 0.6rem;
+  line-height: 0.35rem;
+}
+.show .ui-show-step5 .ui-show-alert .alert-content{
+  font-size: 0.25rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+.show .ui-show-step5 .ui-show-alert .alert-content span{
+  color: red;
+  font-size: 0.35rem;
+  font-weight: bold;
+}
+.show .ui-show-step5 .ui-show-alert .alert-btn{
+  font-size: 0.3rem;
+  border-top: 1px solid #EEE;
+  line-height: 0.62rem;
+  color: #008000;
 }

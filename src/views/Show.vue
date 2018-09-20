@@ -36,6 +36,16 @@
       <div class="ui-show-step4" ref="go7">
         你被"<span>群主</span>"移除群聊
       </div>
+
+      <div class="ui-show-step5" ref="go8">
+        <div class="ui-show-cen" @click="modalbox"></div>
+        <div class="ui-show-alert" ref="alertBox">
+          <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
+          <div class="alert-content">当前群人数<span>321</span>人</div>
+          <div class="alert-btn" @click="toggles">好的</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -44,8 +54,13 @@
   @import '../assets/style/show.less';
 </style>
 <script>
+  import { Alert, XDialog } from 'vux'
   export default {
     name: 'Show',
+    components: {
+      Alert,
+      XDialog
+    },
     data () {
       return {
         now: ''
@@ -56,6 +71,15 @@
       this.go();
     },
     methods:{
+      //点击模态框
+      modalbox(){
+        this.$refs.alertBox.style.display = 'block';
+      },
+      //点击弹框关闭
+      toggles(){
+        this.$refs.alertBox.style.display = 'none';
+      },
+      //获取当前时间
       getNowTime(){
         var myDate = new Date();
         var _minutes = '';
@@ -65,18 +89,19 @@
         }else{
           _minutes = myDate.getMinutes();
         }
-
         var _time = myDate.getHours()+":"+ _minutes;
         this.now = _time;
       },
+      //开始流程
       go(){
         let self = this;
         var _i = 1;
-        document.body.scrollTop = '10';
         var s = setInterval(() => {
+          console.log(_i);
           switch (_i) {
             case 1:
               self.$refs.go1.style.display = 'block';
+              self.$refs.go8.style.display = 'block';
               break;
             case 2:
               self.$refs.go2.style.display = 'block';
@@ -97,12 +122,14 @@
               self.$refs.go7.style.display = 'block';
               break;
             case 8:
+
+              break;
+            case 9:
               clearInterval(s);
               break;
           }
           _i ++;
           var _top = document.documentElement.scrollHeight || document.body.scrollHeight;
-          //alert(_top);
           document.documentElement.scrollTop =  _top;
           document.body.scrollTop =  _top;
         },800)
