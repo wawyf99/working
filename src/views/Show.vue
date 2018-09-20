@@ -141,6 +141,7 @@
     mounted(){
 
       var overscroll = function(el) {
+        console.log(el);
         el.addEventListener('touchstart', function() {
           var top = el.scrollTop
             , totalScroll = el.scrollHeight
