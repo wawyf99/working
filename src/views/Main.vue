@@ -3,7 +3,7 @@
     <Header></Header>
     <div class="main">
       <div class="ui-logo"></div>
-      <div class="ui-title">这是一个测试</div>
+      <div class="ui-title">这是一个测试a !!!</div>
       <div class="ui-num">352人</div>
     </div>
     <Footer></Footer>
