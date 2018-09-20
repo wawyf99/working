@@ -139,32 +139,26 @@
       }
     },
     mounted(){
+
       document.getElementById('show').addEventListener('touchmove', function(evt) {
         //In this case, the default behavior is scrolling the body, which
         //would result in an overflow.  Since we don't want that, we preventDefault.
         //console.log(document.getElementById('show').scrollTop,document.getElementById('show').offsetHeight);
 
-        var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
-
-        if(evt.offsetHeight < evt.scrollHeight){
+        if(evt.offsetHeight < evt.scrollHeight)
           evt._isScroller = true;
-        }
+      })
+
+      document.body.addEventListener('touchmove', function(evt) {
+        //In this case, the default behavior is scrolling the body, which
+        //would result in an overflow.  Since we don't want that, we preventDefault.
+        var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
 
         if(a < 10){
           evt.preventDefault()
         }
 
-        /*var _top = document.documentElement.scrollHeight || document.body.scrollHeight;
-        console.log(_top);
-        if(_top<10){
-          evt.preventDefault()
-        }*/
-
-        /*if(!document.getElementById('show')._isScroller) {
-          evt.preventDefault()
-        }*/
-      })
-
+      });
 
     }
   }
