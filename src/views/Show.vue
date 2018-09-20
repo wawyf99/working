@@ -1,5 +1,5 @@
 <template>
-  <div id="show">
+  <div class="shows">
     <div class="show">
       <div class="ui-show-step1" ref="go1">{{now}}</div>
       <div class="ui-show-step2" ref="go2">"<span>亦柔</span>"邀请你加入了群聊，群聊参与人还有: 这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德</div>
@@ -163,7 +163,7 @@
             evt._isScroller = true;
         });
       }
-      overscroll(document.getElementById('show'));
+      overscroll(document.querySelector('.shows'));
       document.body.addEventListener('touchmove', function(evt) {
         //In this case, the default behavior is scrolling the body, which
         //would result in an overflow.  Since we don't want that, we preventDefault.
