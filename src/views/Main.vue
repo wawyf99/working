@@ -25,7 +25,7 @@
       }
     },
     created() {
-      //this.getApi();
+      this.getApi();
     },
     methods:{
       getApi(){

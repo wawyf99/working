@@ -3,8 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-/*import ajax from './utils/ajax';
-import global from './utils/global'*/
+import ajax from './utils/ajax';
+import global from './utils/global'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import {ToastPlugin, ConfirmPlugin, AlertPlugin } from 'vux'
 
@@ -16,8 +16,8 @@ Vue.use(AlertPlugin)
 Vue.config.productionTip = false
 
 //全局api请求地址类
-/*Vue.use(global);
-Vue.use(ajax);*/
+Vue.use(global);
+Vue.use(ajax);
 
 Vue.use(VueAwesomeSwiper);
 /* eslint-disable no-new */
