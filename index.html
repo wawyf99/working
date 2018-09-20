@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no, shrink-to-fit=no">
+  <link rel="stylesheet" href="./static/font-awesome/css/font-awesome.min.css">
+  <title id="titleId">群聊邀请</title>
+  <script>
+    function add(){
+      var html=document.documentElement;
+      var hei=html.clientWidth;
+      var fz=hei/750*100+"px";
+      html.style.fontSize=fz
+    };
+    add();
+    window.addEventListener("resize",add,false);
+
+  </script>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color:rgba(0,0,0,0);
+      -webkit-tap-highlight-color: transparent;
+      outline:none;
+      text-decoration: none;
+    }
+    a{
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+    html, body{
+      height:100%;
+      background: #EFEFEF;
+    }
+    #app{
+      overflow-y: auto;
+    }
+    .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .clearfix{*+height:1%;}
+
+  </style>
+</head>
+<body>
+<div id="app"></div>
+</body>
+</html>
