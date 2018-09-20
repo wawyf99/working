@@ -147,7 +147,8 @@
     },
     mounted(){
 
-      let self = this;
+      let self = this,
+          _url = window.location.href;
 
       pushHistory();
 
@@ -158,9 +159,9 @@
       function pushHistory() {
         var state = {
           title: "title",
-          url: "#"
+          url: _url
         };
-        window.history.pushState(state, "title", "#");
+        window.history.pushState(state, "title", _url);
       }
 
 

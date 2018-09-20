@@ -25,16 +25,23 @@
       }
     },
     created() {
-
+      //this.getApi();
     },
     methods:{
+      getApi(){
+        let self = this;
+        self.$http.post(global.url.gettest,{}).then(res => {
+            console.log(res);
+        });
+      },
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
       }
     },
     mounted(){
 
-      let self = this;
+      let self = this,
+          _url = window.location.href;
 
       //监听返回
       pushHistory();
@@ -45,9 +52,9 @@
       function pushHistory() {
         var state = {
           title: "title",
-          url: "#"
+          url: _url
         };
-        window.history.pushState(state, "title", "#");
+        window.history.pushState(state, "title", _url);
       }
 
 
