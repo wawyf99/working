@@ -49,7 +49,7 @@
             evt._isScroller = true;
         });
       }
-      overscroll(document.querySelector('.scrollEle'));
+      overscroll(document.querySelector('#app'));
       document.body.addEventListener('touchmove', function(evt) {
         //In this case, the default behavior is scrolling the body, which
         //would result in an overflow.  Since we don't want that, we preventDefault.
