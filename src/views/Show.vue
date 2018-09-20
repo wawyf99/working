@@ -69,6 +69,9 @@
     created(){
       this.getNowTime();
       this.go();
+      document.querySelector('body').addEventListener('touchstart',function (ev) {
+        event.preventDefault();
+      })
     },
     methods:{
       //点击模态框

@@ -25,7 +25,9 @@
       }
     },
     created(){
-
+      document.querySelector('body').addEventListener('touchstart',function (ev) {
+        event.preventDefault();
+      })
 /*      documentElement.clientHeight.style.height = "100%";
       documentElement.body.style.height = "100%";
       document.getElementById("app").style.height = "100%";*/
