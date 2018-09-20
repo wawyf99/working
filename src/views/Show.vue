@@ -146,10 +146,12 @@
 
         var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
 
+        if(evt.offsetHeight < evt.scrollHeight){
+          evt._isScroller = true;
+        }
+
         if(a < 10){
           evt.preventDefault()
-        }else{
-          evt._isScroller = true
         }
 
         /*var _top = document.documentElement.scrollHeight || document.body.scrollHeight;
