@@ -133,8 +133,9 @@
           document.documentElement.scrollTop =  _top;
           document.body.scrollTop =  _top;
         },800)
-        document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';
+
+        /*document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';*/
       }
     }
   }
