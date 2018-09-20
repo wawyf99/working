@@ -122,6 +122,7 @@
               break;
             case 8:
               self.$refs.go8.style.display = 'block';
+              document.body.style.overflow = 'hidden';
               break;
             case 9:
               clearInterval(s);
