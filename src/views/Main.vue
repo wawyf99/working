@@ -27,12 +27,17 @@
     created() {
 
     },
+    methods:{
+      jumpFun(){
+        window.location.href = 'http://www.baidu.com';
+      }
+    },
     mounted(){
 
+      //监听返回
       pushHistory();
-
       window.addEventListener("popstate", function(e) {
-        alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能
+        this.jumpFun();
       }, false);
 
       function pushHistory() {
@@ -44,13 +49,13 @@
       }
 
 
-
+      //禁止右键
       window.document.oncontextmenu = function (e) {
         e.preventDefault();
       };
 
+      //禁止下拉
       var startX = 0, startY = 0;
-
       function touchStart(e) {
         try {
           var touch = e.touches[0],

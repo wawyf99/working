@@ -135,6 +135,9 @@
           ele.scrollTop =  _a;
 
         },800)
+      },
+      jumpFun(){
+        window.location.href = 'http://www.baidu.com';
       }
     },
     mounted(){
@@ -142,7 +145,7 @@
       pushHistory();
 
       window.addEventListener("popstate", function(e) {
-        alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能
+        this.jumpFun();
       }, false);
 
       function pushHistory() {
@@ -152,8 +155,6 @@
         };
         window.history.pushState(state, "title", "#");
       }
-
-
 
 
 
