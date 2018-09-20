@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="scroll">
     <div class="show">
       <div class="ui-show-step1" ref="go1">{{now}}</div>
       <div class="ui-show-step2" ref="go2">"<span>亦柔</span>"邀请你加入了群聊，群聊参与人还有: 这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德</div>
@@ -69,9 +69,39 @@
     created(){
       this.getNowTime();
       this.go();
-      document.querySelector('body').addEventListener('touchstart',function (ev) {
-        event.preventDefault();
-      })
+
+      var overscroll = function(el) {
+        el.addEventListener('touchstart', function() {
+          var top = el.scrollTop
+            , totalScroll = el.scrollHeight
+            , currentScroll = top + el.offsetHeight;
+          //If we're at the top or the bottom of the containers
+          //scroll, push up or down one pixel.
+          //
+          //this prevents the scroll from "passing through" to
+          //the body.
+          if(top === 0) {
+            el.scrollTop = 1;
+          } else if(currentScroll === totalScroll) {
+            el.scrollTop = top - 1;
+          }
+        });
+        el.addEventListener('touchmove', function(evt) {
+          //if the content is actually scrollable, i.e. the content is long enough
+          //that scrolling can occur
+          if(el.offsetHeight < el.scrollHeight)
+            evt._isScroller = true;
+        });
+      }
+      overscroll(document.querySelector('.scroll'));
+      document.body.addEventListener('touchmove', function(evt) {
+        //In this case, the default behavior is scrolling the body, which
+        //would result in an overflow.  Since we don't want that, we preventDefault.
+        if(!evt._isScroller) {
+          evt.preventDefault();
+        }
+      });
+
     },
     methods:{
       //点击模态框
