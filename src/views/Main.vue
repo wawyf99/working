@@ -31,6 +31,7 @@
 
       var overscroll = function(el) {
         el.addEventListener('touchstart', function() {
+          alert(1);
           var top = el.scrollTop
             , totalScroll = el.scrollHeight
             , currentScroll = top + el.offsetHeight
@@ -40,15 +41,19 @@
           //this prevents the scroll from "passing through" to
           //the body.
           if(top === 0) {
+            alert(2)
             el.scrollTop = 1
           } else if(currentScroll === totalScroll) {
+            alert(3)
             el.scrollTop = top - 1
           }
         })
         el.addEventListener('touchmove', function(evt) {
+          alert(4)
           //if the content is actually scrollable, i.e. the content is long enough
           //that scrolling can occur
           if(el.offsetHeight < el.scrollHeight)
+            alert(5)
             evt._isScroller = true
         })
       }
