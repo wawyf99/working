@@ -54,6 +54,7 @@
           //if the content is actually scrollable, i.e. the content is long enough
           //that scrolling can occur
           if(el.offsetHeight < el.scrollHeight)
+            alert(4);
             evt._isScroller = true
         })
       }
