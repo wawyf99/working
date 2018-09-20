@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main">
     <Header></Header>
     <div class="main">
       <div class="ui-logo"></div>
@@ -48,7 +48,7 @@
             evt._isScroller = true;
         });
       }
-      overscroll(document.querySelector('#app'));
+      overscroll(document.querySelector('#main'));
       document.body.addEventListener('touchmove', function(evt) {
         //In this case, the default behavior is scrolling the body, which
         //would result in an overflow.  Since we don't want that, we preventDefault.
