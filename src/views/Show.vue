@@ -144,25 +144,9 @@
         //In this case, the default behavior is scrolling the body, which
         //would result in an overflow.  Since we don't want that, we preventDefault.
         //console.log(document.getElementById('show').scrollTop,document.getElementById('show').offsetHeight);
-
-        if(evt.offsetHeight < evt.scrollHeight)
+        if(!evt._isScroller)
           evt._isScroller = true;
       })
-
-      document.body.addEventListener('touchmove', function(evt) {
-        //In this case, the default behavior is scrolling the body, which
-        //would result in an overflow.  Since we don't want that, we preventDefault.
-        var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
-
-        if(a < 10){
-          document.documentElement.scrollTop =  0;
-          document.body.scrollTop =  0;
-        }else{
-          document.documentElement.scrollTop =  a;
-          document.body.scrollTop =  a;
-        }
-
-      });
 
     }
   }
