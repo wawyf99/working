@@ -139,13 +139,30 @@
       }
     },
     mounted(){
-      document.getElementById('show').addEventListener('touchmove', function(evt) {
+      document.body.addEventListener('touchmove', function(evt) {
         //In this case, the default behavior is scrolling the body, which
         //would result in an overflow.  Since we don't want that, we preventDefault.
-        if(!evt._isScroller) {
+        //console.log(document.getElementById('show').scrollTop,document.getElementById('show').offsetHeight);
+
+        var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
+
+        if(a < 10){
           evt.preventDefault()
+        }else{
+          evt._isScroller = true
         }
+
+        /*var _top = document.documentElement.scrollHeight || document.body.scrollHeight;
+        console.log(_top);
+        if(_top<10){
+          evt.preventDefault()
+        }*/
+
+        /*if(!document.getElementById('show')._isScroller) {
+          evt.preventDefault()
+        }*/
       })
+
 
     }
   }
