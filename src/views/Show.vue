@@ -155,7 +155,11 @@
         var a = document.documentElement.scrollTop || document.body.scrollTop;//滚动条y轴上的距离
 
         if(a < 10){
-          evt.preventDefault()
+          document.documentElement.scrollTop =  0;
+          document.body.scrollTop =  0;
+        }else{
+          document.documentElement.scrollTop =  a;
+          document.body.scrollTop =  a;
         }
 
       });
