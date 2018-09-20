@@ -101,7 +101,6 @@
           switch (_i) {
             case 1:
               self.$refs.go1.style.display = 'block';
-              self.$refs.go8.style.display = 'block';
               break;
             case 2:
               self.$refs.go2.style.display = 'block';
@@ -122,7 +121,7 @@
               self.$refs.go7.style.display = 'block';
               break;
             case 8:
-
+              self.$refs.go8.style.display = 'block';
               break;
             case 9:
               clearInterval(s);
