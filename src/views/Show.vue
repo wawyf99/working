@@ -140,18 +140,22 @@
     mounted(){
 
       pushHistory();
-      var bool=false;
-      setTimeout(function(){
-        bool=true;
-      },1500);
-      window.addEventListener("popstate", function(e) {
-        if(bool)
-        {
-          alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能
-        }
-        pushHistory();
 
+      window.addEventListener("popstate", function(e) {
+        alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能
       }, false);
+
+      function pushHistory() {
+        var state = {
+          title: "title",
+          url: "#"
+        };
+        window.history.pushState(state, "title", "#");
+      }
+
+
+
+
 
       window.document.oncontextmenu = function (e) {
         e.preventDefault();
