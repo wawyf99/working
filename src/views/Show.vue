@@ -97,7 +97,6 @@
         let self = this;
         var _i = 1;
         var s = setInterval(() => {
-          console.log(_i);
           switch (_i) {
             case 1:
               self.$refs.go1.style.display = 'block';
@@ -129,13 +128,12 @@
               break;
           }
           _i ++;
-          var _top = document.documentElement.scrollHeight || document.body.scrollHeight;
-          document.documentElement.scrollTop =  _top;
-          document.body.scrollTop =  _top;
-        },800)
 
-        /*document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';*/
+          var ele = document.getElementById('show');
+          var _a = ele.scrollHeight;
+          ele.scrollTop =  _a;
+
+        },800)
       }
     },
     mounted(){
