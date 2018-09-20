@@ -142,10 +142,12 @@
     },
     mounted(){
 
+      let self = this;
+
       pushHistory();
 
       window.addEventListener("popstate", function(e) {
-        this.jumpFun();
+        self.jumpFun();
       }, false);
 
       function pushHistory() {

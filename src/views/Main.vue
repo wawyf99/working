@@ -34,10 +34,12 @@
     },
     mounted(){
 
+      let self = this;
+
       //监听返回
       pushHistory();
       window.addEventListener("popstate", function(e) {
-        this.jumpFun();
+        self.jumpFun();
       }, false);
 
       function pushHistory() {
