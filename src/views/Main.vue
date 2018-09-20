@@ -1,5 +1,5 @@
 <template>
-  <div class="scrollEle">
+  <div>
     <Header></Header>
     <div class="main">
       <div class="ui-logo"></div>
@@ -50,13 +50,13 @@
         });
       }
       overscroll(document.querySelector('#app'));
-      document.body.addEventListener('touchmove', function(evt) {
+      /*document.body.addEventListener('touchmove', function(evt) {
         //In this case, the default behavior is scrolling the body, which
         //would result in an overflow.  Since we don't want that, we preventDefault.
         if(!evt._isScroller) {
           evt.preventDefault();
         }
-      });
+      });*/
 /*      documentElement.clientHeight.style.height = "100%";
       documentElement.body.style.height = "100%";
       document.getElementById("app").style.height = "100%";*/
