@@ -70,38 +70,27 @@
       this.getNowTime();
       this.go();
 
-      var overscroll = function(el) {
-        el.addEventListener('touchstart', function() {
-          var top = el.scrollTop
-            , totalScroll = el.scrollHeight
-            , currentScroll = top + el.offsetHeight;
-          //If we're at the top or the bottom of the containers
-          //scroll, push up or down one pixel.
-          //
-          //this prevents the scroll from "passing through" to
-          //the body.
-          if(top === 0) {
-            el.scrollTop = 1;
-          } else if(currentScroll === totalScroll) {
-            el.scrollTop = top - 1;
-          }
-        });
-        el.addEventListener('touchmove', function(evt) {
-          //if the content is actually scrollable, i.e. the content is long enough
-          //that scrolling can occur
-          if(el.offsetHeight < el.scrollHeight)
-            evt._isScroller = true;
-        });
-      }
-      overscroll(document.querySelector('#app'));
+      var wrapper = document.getElementById( 'app' );
+      var touchstartY;
 
-/*      document.body.addEventListener('touchmove', function(evt) {
-        //In this case, the default behavior is scrolling the body, which
-        //would result in an overflow.  Since we don't want that, we preventDefault.
-        if(!evt._isScroller) {
-          evt.preventDefault();
+      wrapper.addEventListener( 'touchstart', function (ev) {
+        var events = ev.touches[ 0 ] || ev;
+        touchstartY = events.clientY;
+      }, false );
+
+      wrapper.addEventListener( 'touchmove', function (ev) {
+        var events = ev.touches[ 0 ] || ev;
+        var scrollTop = wrapper.scrollTop;
+        var	offsetHeight = wrapper.offsetHeight;
+        var	scrollHeight = wrapper.scrollHeight;
+        if ( events.clientY > touchstartY && (wrapper.scrollTop === 0) ) {
+          // 下拉时并且页面已经到顶部时
+          ev.preventDefault();
+        } else if ( events.clientY < touchstartY && (scrollTop + offsetHeight >= scrollHeight) ) {
+          // 上拉时并且页面已经到底部时
+          ev.preventDefault();
         }
-      });*/
+      }, false );
 
     },
     methods:{
