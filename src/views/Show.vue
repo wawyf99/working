@@ -122,8 +122,7 @@
               break;
             case 8:
               self.$refs.go8.style.display = 'block';
-              document.body.style.overflow = 'hidden';
-              document.documentElement.style.overflow = 'hidden';
+
               break;
             case 9:
               clearInterval(s);
@@ -134,7 +133,8 @@
           document.documentElement.scrollTop =  _top;
           document.body.scrollTop =  _top;
         },800)
-
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
       }
     }
   }
