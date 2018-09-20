@@ -51,11 +51,9 @@
           }
         })
         el.addEventListener('touchmove', function(evt) {
-          alert(4)
           //if the content is actually scrollable, i.e. the content is long enough
           //that scrolling can occur
           if(el.offsetHeight < el.scrollHeight)
-            alert(5)
             evt._isScroller = true
         })
       }
