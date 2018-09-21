@@ -30,8 +30,8 @@
     methods:{
       getApi(){
         let self = this;
-        self.$http.post(global.url.gettest,{}).then(res => {
-            console.log(res);
+        self.$http.get(global.url.gettest,{}).then(res => {
+          console.log(res);
         });
       },
       jumpFun(){
