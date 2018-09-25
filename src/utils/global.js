@@ -3,6 +3,7 @@
  */
 // 正式环境
 global.baseUrl = "http://working.api.rzzc.ltd";
+global.appEntryUrl = '';
 //本地环境
 //global.baseUrl = "http://localhost:3030";
 
