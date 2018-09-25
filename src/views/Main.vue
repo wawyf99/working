@@ -3,10 +3,10 @@
     <Header></Header>
     <div class="main">
       <div class="ui-logo"></div>
-      <div class="ui-title">再测试一遍</div>
-      <div class="ui-num">352人</div>
+      <div class="ui-title">{{title}}</div>
+      <div class="ui-num">{{enrollment}}人</div>
     </div>
-    <Footer></Footer>
+    <Footer :invitor = invitor></Footer>
   </div>
 
 </template>
@@ -21,7 +21,9 @@
     name: 'Main',
     data () {
       return {
-        msg: ''
+        title: '***',
+        enrollment: '***',
+        invitor : '',
       }
     },
     created() {
@@ -30,8 +32,12 @@
     methods:{
       getApi(){
         let self = this;
-        self.$http.get(global.url.gettest,{}).then(res => {
-          console.log(res);
+        self.$http.post(global.url.chatGetTitle,{}).then(res => {
+          if(res){
+            this.title = res.title;
+            this.enrollment = res.enrollment;
+            this.invitor = res.invitor;
+          }
         });
       },
       jumpFun(){

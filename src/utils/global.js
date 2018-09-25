@@ -11,7 +11,7 @@ global.appEntryUrl = '';
 
 //api全局路由
 global.url = {
-  gettest: "/test",
+  chatGetTitle: "chart/get-title",
 };
 
 global.page = {

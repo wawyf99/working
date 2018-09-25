@@ -1,6 +1,6 @@
 <template>
   <div class="ui-footer">
-    <div class="ui-invite">亦柔邀请你加入群聊</div>
+    <div class="ui-invite">{{invitor}}邀请你加入群聊</div>
     <input type="button" value="加入群聊" class="ui-btn" @click="show">
     <div class="ui-role">
       <p>1.您和群里其他人都不是朋友关系，请注意隐私安全。</p>
@@ -14,9 +14,13 @@
     components: {
       XButton
     },
+    props: {
+      invitor: String,
+      required: true
+    },
     data () {
       return {
-        title: ''
+        title: '123123'
       }
     },
     methods:{
