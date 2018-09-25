@@ -1,10 +1,10 @@
 <template>
-  <div id="main" v-cloak>
+  <div id="main">
     <Header></Header>
     <div class="main">
       <div class="ui-logo"></div>
-      <div class="ui-title">{{title}}</div>
-      <div class="ui-num">{{enrollment}}人</div>
+      <div class="ui-title" v-cloak>{{title}}</div>
+      <div class="ui-num" v-cloak>{{enrollment}}人</div>
     </div>
     <Footer :invitor = invitor></Footer>
   </div>
