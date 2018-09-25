@@ -62,6 +62,7 @@
   @import '../assets/style/show.less';
 </style>
 <script>
+  import Global from "../utils/global";
   import { Alert, XDialog } from 'vux'
   export default {
     name: 'Show',
@@ -169,6 +170,7 @@
 
 
       var agent = navigator.userAgent.toLowerCase();
+      console.log(agent);
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
         this.shareBtn();
       }
