@@ -21,13 +21,16 @@
     name: 'Main',
     data () {
       return {
-        title: '',
-        enrollment: '',
-        invitor : '',
+        title: '*',
+        enrollment: '*',
+        invitor : '*',
       }
     },
-    created() {
+    beforeRouteEnter(){
       this.getApi();
+    },
+    created() {
+
     },
     methods:{
       getApi(){
