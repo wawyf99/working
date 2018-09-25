@@ -62,7 +62,6 @@
   @import '../assets/style/show.less';
 </style>
 <script>
-  import Global from "../utils/global";
   import { Alert, XDialog } from 'vux'
   export default {
     name: 'Show',
@@ -81,20 +80,6 @@
       this.go();
     },
     methods:{
-      shareBtn:function () {
-        let self = this;
-        var _url = window.location.href;
-        var u = navigator.userAgent;
-        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        if (isiOS) {
-          _url = Global.appEntryUrl;
-        }
-        self.$http.get(global.url.wx_share, {
-          url : _url
-        }).then(res => {
-          self.wxShare(res);
-        });
-      },
       //点击模态框
       modalbox(){
         this.$refs.alertBox.style.display = 'block';
@@ -167,13 +152,6 @@
 
       let self = this,
           _url = window.location.href;
-
-
-      var agent = navigator.userAgent.toLowerCase();
-      //console.log(agent);
-      if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        self.shareBtn();
-      }
 
       pushHistory();
 

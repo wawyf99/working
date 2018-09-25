@@ -14,6 +14,7 @@
   @import '../assets/style/main.less';
 </style>
 <script>
+  import Global from "../utils/global";
   import Header from "../components/Header";
   import Footer from "../components/Footer";
   export default {
@@ -57,12 +58,32 @@
       },
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
+      },
+      shareBtn:function () {
+        let self = this;
+        var _url = window.location.href;
+        var u = navigator.userAgent;
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        if (isiOS) {
+          _url = Global.appEntryUrl;
+        }
+        self.$http.get(global.url.wx_share, {
+          url : _url
+        }).then(res => {
+          self.wxShare(res);
+        });
       }
     },
     mounted(){
 
       let self = this,
           _url = window.location.href;
+
+      var agent = navigator.userAgent.toLowerCase();
+      //console.log(agent);
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        self.shareBtn();
+      }
 
       //监听返回
       pushHistory();
