@@ -21,9 +21,9 @@
     name: 'Main',
     data () {
       return {
-        title: '深圳少妇群',
-        enrollment: '500',
-        invitor : '乐乐',
+        title: '*',
+        enrollment: '*',
+        invitor : '*',
       }
     },
     created() {
