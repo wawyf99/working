@@ -26,8 +26,17 @@
         invitor : '*',
       }
     },
-    beforeRouteEnter(){
-      this.getApi();
+    beforeRouteEnter(to, from, next){
+      next(vm=>{
+        //vm.num=19;
+        vm.$http.post(global.url.chatGetTitle,{}).then(res => {
+          if(res){
+            vm.title = res.title;
+            vm.enrollment = res.enrollment;
+            vm.invitor = res.invitor;
+          }
+        });
+      })
     },
     created() {
 
