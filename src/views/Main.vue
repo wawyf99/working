@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="main" v-cloak>
     <Header></Header>
     <div class="main">
       <div class="ui-logo"></div>
