@@ -29,23 +29,26 @@
     beforeRouteEnter(to, from, next){
       next(vm=>{
         //vm.num=19;
-        vm.$http.post(global.url.chatGetTitle,{}).then(res => {
+        /*vm.$http.post(global.url.chatGetTitle,{}).then(res => {
           if(res){
             vm.title = res.title;
             vm.enrollment = res.enrollment;
             vm.invitor = res.invitor;
           }
-        });
+        });*/
       })
     },
     created() {
-
+      this.$vux.loading.show()
+      this.getApi();
     },
     methods:{
       getApi(){
         let self = this;
+
         self.$http.post(global.url.chatGetTitle,{}).then(res => {
           if(res){
+            self.$vux.loading.hide()
             this.title = res.title;
             this.enrollment = res.enrollment;
             this.invitor = res.invitor;

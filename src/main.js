@@ -6,9 +6,9 @@ import router from './router'
 import global from './utils/global'
 import ajax from './utils/ajax';
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-import {ToastPlugin, ConfirmPlugin, AlertPlugin } from 'vux'
+import {ToastPlugin, ConfirmPlugin, AlertPlugin, LoadingPlugin } from 'vux'
 
-
+Vue.use(LoadingPlugin)
 Vue.use(ToastPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(AlertPlugin)
