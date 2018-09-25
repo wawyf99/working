@@ -20,12 +20,12 @@
     },
     data () {
       return {
-        title: '123123'
+
       }
     },
     methods:{
       show(){
-        this.$router.push({name: '邀您加入群聊'});
+        this.$router.push({name: '邀您加入群聊', query:{invitor:this.invitor}});
       }
     }
   }

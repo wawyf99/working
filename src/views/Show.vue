@@ -2,7 +2,7 @@
   <div id="show">
     <div class="show">
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
-      <div class="ui-show-step2 step" ref="go2">"<span>亦柔</span>"邀请你加入了群聊，群聊参与人还有: 这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德</div>
+      <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入了群聊，群聊参与人还有: 这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德</div>
       <div class="ui-show-step3 step clearfix" ref="go3">
         <div class="show-left"></div>
         <div class="show-right">
@@ -71,7 +71,8 @@
     },
     data () {
       return {
-        now: ''
+        now: '',
+        invitor: this.$route.query.invitor
       }
     },
     created(){
