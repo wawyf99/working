@@ -4,7 +4,7 @@
     <div class="main">
       <div class="ui-logo"></div>
       <div class="ui-title">{{title}}</div>
-      <div class="ui-num">{{enrollment}}人</div>
+      <div class="ui-num">{{enrollment}}</div>
     </div>
     <Footer :invitor = invitor></Footer>
   </div>
@@ -21,8 +21,8 @@
     name: 'Main',
     data () {
       return {
-        title: '***',
-        enrollment: '***',
+        title: '',
+        enrollment: '',
         invitor : '',
       }
     },
@@ -35,8 +35,8 @@
         self.$http.post(global.url.chatGetTitle,{}).then(res => {
           if(res){
             this.title = res.title;
-            this.enrollment = res.enrollment;
-            this.invitor = res.invitor;
+            this.enrollment = res.enrollment+"人";
+            this.invitor = res.invitor+"邀请你加入群聊";
           }
         });
       },
