@@ -16,7 +16,7 @@ const router = new Router({
       component: Main,
       meta: {
         title: '这是主页',
-        shareDesc: '这是本站的主页',
+        shareDesc: '这是主页11111111111',
         desc: 'homepage, click and see!',
         timelineTitle: '这是首页，欢迎点击关注，blablablablabla~~~',
         imgUrl: 'http://frankzhang.me/wp-content/uploads/2017/08/cropped-favicon-01.png'
@@ -27,8 +27,8 @@ const router = new Router({
       name: '邀您加入群聊',
       component: Show,
       meta: {
-        title: '这是主页2',
-        shareDesc: '这是本站的主页2',
+        title: '这是次页',
+        shareDesc: '这是次页1111111',
         desc: 'homepage, click and see!',
         timelineTitle: '这是首页，欢迎点击关注，blablablablabla~~~',
         imgUrl: 'http://frankzhang.me/wp-content/uploads/2017/08/cropped-favicon-01.png'
@@ -49,7 +49,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(( to, from ) => {
-  //wxShare({ title: to.meta.title, desc: to.meta.shareDesc, link: to.meta.shareLink, logo: to.meta.shareLogo})
+  wxShare({ title: to.meta.title, desc: to.meta.shareDesc, link: to.meta.shareLink, logo: to.meta.shareLogo})
 })
 
 export default router;
