@@ -11,7 +11,7 @@
 
     },
     methods:{
-      share:function () {
+      shareBtn:function () {
         let self = this;
         var _url = global.wxUrl;
         var u = navigator.userAgent;
@@ -19,7 +19,6 @@
         if (isiOS) {
           _url = global.appEntryUrl;
         }
-        //console.log(global.url.wx_share);
         self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {

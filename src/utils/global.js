@@ -13,6 +13,7 @@ global.appEntryUrl = '';
 //api全局路由
 global.url = {
   chatGetTitle: "chart/get-title",
+
   wx_share: "/wechat/wxinfo",  //获取微信相关信息
 };
 

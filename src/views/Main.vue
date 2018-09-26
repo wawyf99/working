@@ -4,7 +4,7 @@
     <div class="main">
       <div class="ui-logo"></div>
       <div class="ui-title" v-cloak>{{title}}</div>
-      <div class="ui-num" v-cloak>{{enrollment}}人</div>
+      <div class="ui-num" v-cloak ref="c">{{enrollment}}人</div>
     </div>
     <Footer :invitor = invitor></Footer>
     <Wxshare ref="Wxshare"></Wxshare>
@@ -29,12 +29,9 @@
       }
     },
     created() {
-      let agent = navigator.userAgent.toLowerCase();
-      if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        this.$refs.Wxshare.share();
-      }
-      this.$vux.loading.show()
-      this.getApi();
+      var self = this;
+      self.$vux.loading.show()
+      self.getApi();
     },
     methods:{
       getApi(){
@@ -57,6 +54,11 @@
 
       let self = this,
           _url = window.location.href;
+
+      let agent = navigator.userAgent.toLowerCase();
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        self.$refs.Wxshare.shareBtn();
+      }
 
       //监听返回
       pushHistory();
