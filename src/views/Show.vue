@@ -76,7 +76,7 @@
     },
     created(){
       this.getNowTime();
-      //this.go();
+      this.go();
     },
     methods:{
       //点击模态框
@@ -152,7 +152,7 @@
         var u = navigator.userAgent;
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         if (isiOS) {
-          //_url = global.appEntryUrl;
+          _url = global.appEntryUrl;
         }
         self.$http.get(global.url.wx_share, {
           url : _url
@@ -166,7 +166,7 @@
       let self = this,
           _url = window.location.href;
 
-      /*pushHistory();
+      pushHistory();
 
       window.addEventListener("popstate", function(e) {
         self.jumpFun();
@@ -179,7 +179,7 @@
         };
         window.history.pushState(state, "title", _url);
       }
-*/
+
 
 
       window.document.oncontextmenu = function (e) {
@@ -224,9 +224,8 @@
       let agent = navigator.userAgent.toLowerCase();
 
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        //self.shareBtn();
+        self.shareBtn();
       }
-      self.shareBtn();
 
     }
   }
