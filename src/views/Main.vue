@@ -7,7 +7,6 @@
       <div class="ui-num" v-cloak ref="c">{{enrollment}}人</div>
     </div>
     <Footer :invitor = invitor></Footer>
-    <Wxshare ref="Wxshare"></Wxshare>
   </div>
 
 </template>
@@ -17,9 +16,8 @@
 <script>
   import Header from "../components/Header";
   import Footer from "../components/Footer";
-  import Wxshare from "../components/Wxshare";
   export default {
-    components: {Header, Footer, Wxshare},
+    components: {Header, Footer},
     name: 'Main',
     data () {
       return {
@@ -48,6 +46,20 @@
       },
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
+      },
+      shareBtn:function () {
+        let self = this;
+        var _url = global.wxUrl;
+        var u = navigator.userAgent;
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        if (isiOS) {
+          _url = global.appEntryUrl;
+        }
+        self.$http.get(global.url.wx_share, {
+          url : _url
+        }).then(res => {
+          self.wxShare(res);
+        });
       }
     },
     mounted(){
@@ -110,6 +122,12 @@
           }
         }
       };
+
+      let agent = navigator.userAgent.toLowerCase();
+
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        self.shareBtn();
+      }
 
     }
   }

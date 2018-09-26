@@ -54,7 +54,6 @@
       </div>
 
     </div>
-    <Wxshare ref="Wxshare"></Wxshare>
   </div>
 
 </template>
@@ -63,13 +62,11 @@
 </style>
 <script>
   import { Alert, XDialog } from 'vux'
-  import Wxshare from "../components/Wxshare";
   export default {
     name: 'Show',
     components: {
       Alert,
-      XDialog,
-      Wxshare
+      XDialog
     },
     data () {
       return {
@@ -79,6 +76,7 @@
     },
     created(){
       this.getNowTime();
+      this.go();
     },
     methods:{
       //点击模态框
@@ -147,6 +145,20 @@
       },
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
+      },
+      shareBtn:function () {
+        let self = this;
+        var _url = global.wxUrl;
+        var u = navigator.userAgent;
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        if (isiOS) {
+          _url = global.appEntryUrl;
+        }
+        self.$http.get(global.url.wx_share, {
+          url : _url
+        }).then(res => {
+          self.wxShare(res);
+        });
       }
     },
     mounted(){
@@ -208,7 +220,14 @@
         }
       };
 
-      this.go();
+
+      let agent = navigator.userAgent.toLowerCase();
+
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        self.shareBtn();
+      }
+
+
     }
   }
 </script>
