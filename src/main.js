@@ -46,14 +46,14 @@ Vue.prototype.wxShare = function (title) {
     wx.onMenuShareAppMessage({ // 分享给朋友
       title: '分享朋友测试',       // 分享标题
       desc: '这是分享朋友测试这是分享朋友测试这是分享朋友测试这是分享朋友测试这是分享朋友测试这是分享朋友测试',   // 分享描述
-      link: 'http://working.rzzc.ltd',       // 分享链接 默认以当前链接
+      link: 'http://working.rzzc.ltd/',       // 分享链接 默认以当前链接
       imgUrl: 'http://agentapi.sxmj.szdhkj.com.cn/public/images/icon.png',// 分享图标
     });
     //分享到朋友圈
     wx.onMenuShareTimeline({
       title: '分享朋友圈测试',       // 分享标题
       desc: '这是分享朋友圈测试这是分享朋友圈测试这是分享朋友圈测试这是分享朋友圈测试这是分享朋友圈测试',   // 分享描述
-      link: 'http://working.rzzc.ltd',       // 分享链接 默认以当前链接
+      link: 'http://working.rzzc.ltd/',       // 分享链接 默认以当前链接
       imgUrl: 'http://agentapi.sxmj.szdhkj.com.cn/public/images/icon.png',// 分享图标
     });
 
