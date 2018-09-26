@@ -53,7 +53,7 @@
         var u = navigator.userAgent;
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         if (isiOS) {
-          _url = global.appEntryUrl;
+          //_url = global.appEntryUrl;
         }
         self.$http.get(global.url.wx_share, {
           url : _url
@@ -126,8 +126,9 @@
       let agent = navigator.userAgent.toLowerCase();
 
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        self.shareBtn();
+
       }
+      self.shareBtn();
 
     }
   }
