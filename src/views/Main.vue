@@ -8,7 +8,7 @@
     </div>
     <Footer :invitor = invitor></Footer>
   </div>
-
+  <WxShare></WxShare>
 </template>
 <style>
   @import '../assets/style/main.less';

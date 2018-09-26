@@ -56,7 +56,7 @@
     </div>
 
   </div>
-
+  <WxShare></WxShare>
 </template>
 <style>
   @import '../assets/style/show.less';
