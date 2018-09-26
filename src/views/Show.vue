@@ -54,7 +54,7 @@
       </div>
 
     </div>
-    <Wxshare ref="Wxshare"></Wxshare>
+    <Wxshare ref="Wxshares"></Wxshare>
   </div>
 
 </template>
@@ -209,10 +209,10 @@
         }
       };
 
-      /*let agent = navigator.userAgent.toLowerCase();
+      let agent = navigator.userAgent.toLowerCase();
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        self.$refs.Wxshare.shareBtn();
-      }*/
+        self.$refs.Wxshares.shareBtn();
+      }
 
     }
   }
