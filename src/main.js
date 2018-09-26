@@ -35,7 +35,7 @@ const wx = Vue.wechat;
 
 Vue.prototype.wxShare = function (title) {
   wx.config({
-    debug: false, // 开启调试模式,开发时可以开启
+    debug: true, // 开启调试模式,开发时可以开启
     appId: title.appId,   // 必填，公众号的唯一标识   由接口返回
     timestamp: title.timestamp, // 必填，生成签名的时间戳 由接口返回
     nonceStr: title.nonceStr,    // 必填，生成签名的随机串 由接口返回
