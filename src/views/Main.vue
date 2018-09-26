@@ -84,7 +84,7 @@
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
         self.shareBtn();
       }
-      self.shareBtn();
+      //self.shareBtn();
 
       //监听返回
       pushHistory();
