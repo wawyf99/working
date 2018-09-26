@@ -110,6 +110,7 @@
       };
 
       let agent = navigator.userAgent.toLowerCase();
+
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
         self.$refs.Wxshare.shareBtn();
       }
