@@ -76,7 +76,7 @@
     },
     created(){
       this.getNowTime();
-      this.go();
+      //this.go();
     },
     methods:{
       //点击模态框
