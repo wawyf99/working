@@ -40,6 +40,11 @@
       })
     },
     created() {
+      var agent = navigator.userAgent.toLowerCase();
+      //console.log(agent);
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        this.shareBtn();
+      }
       this.$vux.loading.show()
       this.getApi();
     },
@@ -78,13 +83,6 @@
 
       let self = this,
           _url = window.location.href;
-
-      var agent = navigator.userAgent.toLowerCase();
-      //console.log(agent);
-      if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        self.shareBtn();
-      }
-      //self.shareBtn();
 
       //监听返回
       pushHistory();
