@@ -8,7 +8,7 @@ Vue.use(Router);
 
 const router = new Router({
   hashbang: true,
-  mode:'history',
+  mode:'hash',
   routes: [
     {
       path: '/',
