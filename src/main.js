@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import global from './utils/global'
 import ajax from './utils/ajax';
+
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import {ToastPlugin, ConfirmPlugin, AlertPlugin, LoadingPlugin } from 'vux'
 import { WechatPlugin } from 'vux'
@@ -19,17 +20,20 @@ Vue.config.productionTip = false
 //全局api请求地址类
 Vue.use(global);
 Vue.use(ajax);
-Vue.use(WechatPlugin)//  微信
+Vue.use(WechatPlugin);//  微信
 
 
 Vue.use(VueAwesomeSwiper);
 /* eslint-disable no-new */
+
+
 new Vue({
   el: '#app',
   router,
   components: { App },
   template: '<App/>'
 })
+
 
 const wx = Vue.wechat;
 

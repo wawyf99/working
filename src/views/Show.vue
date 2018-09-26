@@ -63,11 +63,13 @@
 </style>
 <script>
   import { Alert, XDialog } from 'vux'
+  import WxShare from "../components/WxShare";
   export default {
     name: 'Show',
     components: {
       Alert,
-      XDialog
+      XDialog,
+      WxShare
     },
     data () {
       return {
