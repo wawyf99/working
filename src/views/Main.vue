@@ -55,6 +55,8 @@
       let self = this,
           _url = window.location.href;
 
+
+
       //监听返回
       pushHistory();
       window.addEventListener("popstate", function(e) {
