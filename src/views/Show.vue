@@ -160,11 +160,11 @@
         if (isiOS) {
           //_url = global.appEntryUrl;
         }
-        /*self.$http.get(global.url.wx_share, {
+        self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
-          self.wxShare(res);
-        });*/
+          //self.wxShare(res);
+        });
       }
     },
     mounted(){
