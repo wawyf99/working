@@ -162,13 +162,12 @@
         if (isiOS) {
           _url = Global.appEntryUrl;
         }
-/*        _url = _url.split('#');
-        _url = _url[0];*/
-        alert(_url);
+        _url = _url.split('#');
+        _url = _url[0];
         self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
-          self.wxShare(res);
+          //self.wxShare(res);
         });
       }
     },
