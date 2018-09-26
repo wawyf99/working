@@ -1,7 +1,7 @@
 <template>
 </template>
 <script>
-  import global from '../utils/global'
+ // import Global from '../utils/global'
   export default {
     data () {
       return {
@@ -12,6 +12,7 @@
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
         this.share();
       }
+      this.share();
     },
     methods:{
       share:function () {
@@ -22,6 +23,7 @@
         if (isiOS) {
           _url = global.appEntryUrl;
         }
+        //console.log(global.url.wx_share);
         self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
