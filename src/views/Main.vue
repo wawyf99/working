@@ -46,20 +46,6 @@
       },
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
-      },
-      shareBtn:function () {
-        let self = this;
-        var _url = global.wxUrl;
-        var u = navigator.userAgent;
-        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        if (isiOS) {
-          _url = global.appEntryUrl;
-        }
-        self.$http.get(global.url.wx_share, {
-          url : _url
-        }).then(res => {
-          self.wxShare(res);
-        });
       }
     },
     mounted(){
