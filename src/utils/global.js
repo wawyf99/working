@@ -5,7 +5,8 @@
 global.baseUrl = "http://working.api.rzzc.ltd";
 //本地环境
 //global.baseUrl = "http://localhost:3030";
-
+//微信分享域名
+global.wxUrl = 'http://working.rzzc.ltd';
 //微信分享IOS链接处理;
 global.appEntryUrl = '';
 
