@@ -134,13 +134,6 @@
               break;
             case 9:
               clearInterval(s);
-
-              let agent = navigator.userAgent.toLowerCase();
-
-              if (agent.match(/MicroMessenger/i) == "micromessenger") {
-                self.shareBtn();
-              }
-
               break;
           }
           _i ++;
@@ -153,22 +146,6 @@
       },
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
-      },
-      shareBtn:function () {
-        let self = this;
-        var _url = window.location.href;
-        var u = navigator.userAgent;
-        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        if (isiOS) {
-          _url = Global.appEntryUrl;
-        }
-        _url = _url.split('#');
-        _url = _url[0];
-        /*self.$http.get(global.url.wx_share, {
-          url : _url
-        }).then(res => {
-          //self.wxShare(res);
-        });*/
       }
     },
     mounted(){
@@ -229,7 +206,6 @@
           }
         }
       };
-
 
     }
   }
