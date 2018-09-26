@@ -16,7 +16,7 @@
 <script>
   import Header from "../components/Header";
   import Footer from "../components/Footer";
-  import global from "../utils/global";
+  import Global from "../utils/global";
   export default {
     components: {Header, Footer},
     name: 'Main',
@@ -54,7 +54,7 @@
         var u = navigator.userAgent;
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         if (isiOS) {
-          _url = global.appEntryUrl;
+          _url = Global.appEntryUrl;
         }
         //console.log(_url);
         self.$http.get(global.url.wx_share, {
