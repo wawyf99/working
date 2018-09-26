@@ -162,8 +162,9 @@
         if (isiOS) {
           _url = Global.appEntryUrl;
         }
-        _url = _url.split('#');
-        _url = _url[0];
+/*        _url = _url.split('#');
+        _url = _url[0];*/
+        alert(_url);
         self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
@@ -175,7 +176,6 @@
 
       let self = this,
           _url = window.location.href;
-      alert(_url);
 
       pushHistory();
 
