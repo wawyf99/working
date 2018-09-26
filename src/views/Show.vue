@@ -166,7 +166,7 @@
       let self = this,
           _url = window.location.href;
 
-      pushHistory();
+      /*pushHistory();
 
       window.addEventListener("popstate", function(e) {
         self.jumpFun();
@@ -179,7 +179,7 @@
         };
         window.history.pushState(state, "title", _url);
       }
-
+*/
 
 
       window.document.oncontextmenu = function (e) {

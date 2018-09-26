@@ -70,6 +70,7 @@
 
 
       //监听返回
+/*
       pushHistory();
       window.addEventListener("popstate", function(e) {
         self.jumpFun();
@@ -82,6 +83,7 @@
         };
         window.history.pushState(state, "title", _url);
       }
+*/
 
 
       //禁止右键
