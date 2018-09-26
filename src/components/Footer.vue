@@ -25,7 +25,7 @@
     },
     methods:{
       show(){
-        this.$router.push({name: '邀您加入群聊', query:{invitor:this.invitor}});
+        this.$router.push({name: '邀您加入群聊'});
       }
     }
   }

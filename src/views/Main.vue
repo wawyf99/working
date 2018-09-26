@@ -14,7 +14,6 @@
   @import '../assets/style/main.less';
 </style>
 <script>
-  import Global from "../utils/global";
   import Header from "../components/Header";
   import Footer from "../components/Footer";
   export default {
@@ -26,18 +25,6 @@
         enrollment: '*',
         invitor : '*',
       }
-    },
-    beforeRouteEnter(to, from, next){
-      next(vm=>{
-        //vm.num=19;
-        /*vm.$http.post(global.url.chatGetTitle,{}).then(res => {
-          if(res){
-            vm.title = res.title;
-            vm.enrollment = res.enrollment;
-            vm.invitor = res.invitor;
-          }
-        });*/
-      })
     },
     created() {
       var agent = navigator.userAgent.toLowerCase();
@@ -70,7 +57,7 @@
         var u = navigator.userAgent;
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         if (isiOS) {
-          _url = Global.appEntryUrl;
+          _url = global.appEntryUrl;
         }
         self.$http.get(global.url.wx_share, {
           url : _url
