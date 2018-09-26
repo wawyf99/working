@@ -61,7 +61,7 @@
       },
       shareBtn:function () {
         let self = this;
-        var _url = Global.wxUrl;
+        var _url = global.wxUrl;
         var u = navigator.userAgent;
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         if (isiOS) {
@@ -85,6 +85,7 @@
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
         self.shareBtn();
       }
+      self.shareBtn();
 
       //监听返回
       pushHistory();
