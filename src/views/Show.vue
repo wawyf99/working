@@ -75,6 +75,11 @@
       }
     },
     created(){
+      let agent = navigator.userAgent.toLowerCase();
+
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        self.shareBtn();
+      }
       this.getNowTime();
       this.go();
     },
@@ -221,11 +226,7 @@
       };
 
 
-      let agent = navigator.userAgent.toLowerCase();
 
-      if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        //self.shareBtn();
-      }
 
     }
   }
