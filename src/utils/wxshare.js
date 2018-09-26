@@ -1,7 +1,7 @@
 
 // wxShare.js
 import Vue from 'vue'
-import Global from './global'
+/*import Global from './global'*/
 
 // 在组件外使用vux集成的微信jssdk
 import { WechatPlugin, AjaxPlugin } from 'vux'
@@ -11,13 +11,14 @@ Vue.use(AjaxPlugin)
 
 
 var _url = window.location.href;
-var u = navigator.userAgent;
+/*var u = navigator.userAgent;
 var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 if (isiOS) {
-  _url = Global.appEntryUrl;
+  _url = global.appEntryUrl;
 }
+console.log(global.appEntryUrl);*/
 
-console.log(global.url.wx_share);
+//console.log(_url);
 
 
 

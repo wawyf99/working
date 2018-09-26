@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Main from '../views/Main';
 import Show from '../views/Show';
-import global from '../utils/global'
 import wxShare from '../utils/wxshare'
 
 Vue.use(Router);
@@ -39,9 +38,12 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  if (!global.appEntryUrl) {
+
+  /*if (!global.appEntryUrl) {
+    console.log(3);
     global.appEntryUrl = window.location.href;
   }
+  console.log(global.appEntryUrl);*/
   document.getElementById('titleId').innerHTML = to.name;
   next();
 })
