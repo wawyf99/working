@@ -61,7 +61,8 @@
       },
       shareBtn:function () {
         let self = this;
-        var _url = window.location.href;
+        var _url = document.domain;
+        console.log(_url);
         var u = navigator.userAgent;
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         if (isiOS) {
