@@ -163,6 +163,7 @@
         self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
+          console.log(res);
           //self.wxShare(res);
         });
       }
