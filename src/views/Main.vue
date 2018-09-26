@@ -61,12 +61,13 @@
       },
       shareBtn:function () {
         let self = this;
-        var _url = global.wxUrl;
+        var _url = Global.wxUrl;
         var u = navigator.userAgent;
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         if (isiOS) {
           _url = Global.appEntryUrl;
         }
+        alert(_url);
         self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
