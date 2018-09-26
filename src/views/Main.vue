@@ -16,6 +16,7 @@
 <script>
   import Header from "../components/Header";
   import Footer from "../components/Footer";
+  import global from "../utils/global";
   export default {
     components: {Header, Footer},
     name: 'Main',
@@ -55,6 +56,7 @@
         if (isiOS) {
           _url = global.appEntryUrl;
         }
+        //console.log(_url);
         self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
@@ -128,7 +130,7 @@
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
         self.shareBtn();
       }
-
+      self.shareBtn();
     }
   }
 </script>
