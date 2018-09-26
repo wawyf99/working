@@ -54,7 +54,7 @@
       </div>
 
     </div>
-    <Wxshare></Wxshare>
+    <Wxshare ref="Wxshare"></Wxshare>
   </div>
 
 </template>
@@ -78,6 +78,10 @@
       }
     },
     created(){
+      let agent = navigator.userAgent.toLowerCase();
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        this.ref.Wxshare.share();
+      }
       this.getNowTime();
       this.go();
     },

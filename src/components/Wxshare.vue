@@ -8,10 +8,7 @@
       }
     },
     created(){
-      let agent = navigator.userAgent.toLowerCase();
-      if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        this.share();
-      }
+
     },
     methods:{
       share:function () {

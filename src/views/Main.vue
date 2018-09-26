@@ -7,7 +7,7 @@
       <div class="ui-num" v-cloak>{{enrollment}}人</div>
     </div>
     <Footer :invitor = invitor></Footer>
-    <Wxshare></Wxshare>
+    <Wxshare ref="Wxshare"></Wxshare>
   </div>
 
 </template>
@@ -29,6 +29,10 @@
       }
     },
     created() {
+      let agent = navigator.userAgent.toLowerCase();
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        this.ref.Wxshare.share();
+      }
       this.$vux.loading.show()
       this.getApi();
     },
