@@ -25,6 +25,15 @@
           self.wxShare(res);
         });
       }
+    },
+    mounted(){
+      let self = this;
+      let agent = navigator.userAgent.toLowerCase();
+
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        self.shareBtn();
+      }
+
     }
   }
 
