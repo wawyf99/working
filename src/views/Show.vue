@@ -71,7 +71,7 @@
     data () {
       return {
         now: '',
-        invitor: this.$route.query.invitor
+        invitor: '123'
       }
     },
     created(){
