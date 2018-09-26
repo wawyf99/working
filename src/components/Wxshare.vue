@@ -1,6 +1,7 @@
 <template>
 </template>
 <script>
+  import global from '../utils/global'
   export default {
     data () {
       return {
