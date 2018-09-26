@@ -31,7 +31,7 @@
     created() {
       let agent = navigator.userAgent.toLowerCase();
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        this.ref.Wxshare.share();
+        this.$refs.Wxshare.share();
       }
       this.$vux.loading.show()
       this.getApi();
