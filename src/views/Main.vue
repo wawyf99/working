@@ -55,11 +55,6 @@
       let self = this,
           _url = window.location.href;
 
-      let agent = navigator.userAgent.toLowerCase();
-      if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        //self.$refs.Wxshare.shareBtn();
-      }
-
       //监听返回
       pushHistory();
       window.addEventListener("popstate", function(e) {
@@ -113,6 +108,11 @@
           }
         }
       };
+
+      let agent = navigator.userAgent.toLowerCase();
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        self.$refs.Wxshare.shareBtn();
+      }
 
     }
   }
