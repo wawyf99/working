@@ -75,14 +75,7 @@
       }
     },
     created(){
-      alert(1);
-      let agent = navigator.userAgent.toLowerCase();
-
-      if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        this.shareBtn();
-      }
       this.getNowTime();
-
     },
     methods:{
       //点击模态框
@@ -228,7 +221,12 @@
       };
 
       //this.go();
+      alert(1);
+      let agent = navigator.userAgent.toLowerCase();
 
+      if (agent.match(/MicroMessenger/i) == "micromessenger") {
+        this.shareBtn();
+      }
 
     }
   }
