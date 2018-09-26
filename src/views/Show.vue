@@ -76,11 +76,11 @@
     },
     created(){
       alert(1);
-      /*let agent = navigator.userAgent.toLowerCase();
+      let agent = navigator.userAgent.toLowerCase();
 
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
         this.shareBtn();
-      }*/
+      }
       this.getNowTime();
 
     },
@@ -152,7 +152,7 @@
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
       },
-      /*shareBtn:function () {
+      shareBtn:function () {
         let self = this;
         var _url = global.wxUrl;
         var u = navigator.userAgent;
@@ -160,12 +160,12 @@
         if (isiOS) {
           //_url = global.appEntryUrl;
         }
-        self.$http.get(global.url.wx_share, {
+        /*self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
           self.wxShare(res);
-        });
-      }*/
+        });*/
+      }
     },
     mounted(){
 
