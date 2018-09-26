@@ -187,7 +187,7 @@
           title: "title",
           url: _url
         };
-        window.history.pushState(state, "title", _url);
+        //window.history.pushState(state, "title", _url);
       }
 
 
