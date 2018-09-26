@@ -7,12 +7,11 @@
       return {
       }
     },
-    created(){
+    mounted(){
       let agent = navigator.userAgent.toLowerCase();
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
         this.share();
       }
-      this.share();
     },
     methods:{
       share:function () {
