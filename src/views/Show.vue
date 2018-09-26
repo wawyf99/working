@@ -164,11 +164,11 @@
         }
         _url = _url.split('#');
         _url = _url[0];
-        self.$http.get(global.url.wx_share, {
+        /*self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
           //self.wxShare(res);
-        });
+        });*/
       }
     },
     mounted(){
@@ -187,7 +187,7 @@
           title: "title",
           url: _url
         };
-        //window.history.pushState(state, "title", _url);
+        window.history.pushState(state, "title", _url);
       }
 
 
