@@ -10,7 +10,7 @@ Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
 
 
-var _url = window.location.href;
+
 /*var u = navigator.userAgent;
 var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 if (isiOS) {
@@ -24,7 +24,10 @@ console.log(global.appEntryUrl);*/
 
 export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}) {
 
-  Vue.http.get(global.baseUrl+global.url.wx_share, {
+  var _url = window.location.href;
+  console.log(_url);
+
+  Vue.http.post(global.baseUrl+global.url.wx_share, {
     url : _url
   }).then(res => {
     Vue.wechat.config({
