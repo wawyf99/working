@@ -68,6 +68,7 @@
         if (isiOS) {
           _url = Global.appEntryUrl;
         }
+        alert(_url);
         self.$http.get(global.url.wx_share, {
           url : _url
         }).then(res => {
