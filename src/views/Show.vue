@@ -54,22 +54,22 @@
       </div>
 
     </div>
-
+    <Wxshare></Wxshare>
   </div>
-  <WxShare></WxShare>
+
 </template>
 <style>
   @import '../assets/style/show.less';
 </style>
 <script>
   import { Alert, XDialog } from 'vux'
-  import WxShare from "../components/WxShare";
+  import Wxshare from "../components/Wxshare";
   export default {
     name: 'Show',
     components: {
       Alert,
       XDialog,
-      WxShare
+      Wxshare
     },
     data () {
       return {

@@ -7,8 +7,9 @@
       <div class="ui-num" v-cloak>{{enrollment}}人</div>
     </div>
     <Footer :invitor = invitor></Footer>
+    <Wxshare></Wxshare>
   </div>
-  <WxShare></WxShare>
+
 </template>
 <style>
   @import '../assets/style/main.less';
@@ -16,9 +17,9 @@
 <script>
   import Header from "../components/Header";
   import Footer from "../components/Footer";
-  import WxShare from "../components/WxShare";
+  import Wxshare from "../components/Wxshare";
   export default {
-    components: {Header, Footer, WxShare},
+    components: {Header, Footer, Wxshare},
     name: 'Main',
     data () {
       return {
