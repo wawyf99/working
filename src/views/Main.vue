@@ -130,7 +130,7 @@
       if (agent.match(/MicroMessenger/i) == "micromessenger") {
         self.shareBtn();
       }
-      self.shareBtn();
+      //self.shareBtn();
     }
   }
 </script>
