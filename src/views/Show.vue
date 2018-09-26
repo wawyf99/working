@@ -134,6 +134,13 @@
               break;
             case 9:
               clearInterval(s);
+
+              let agent = navigator.userAgent.toLowerCase();
+
+              if (agent.match(/MicroMessenger/i) == "micromessenger") {
+                self.shareBtn();
+              }
+
               break;
           }
           _i ++;
@@ -222,12 +229,6 @@
           }
         }
       };
-
-      let agent = navigator.userAgent.toLowerCase();
-
-      if (agent.match(/MicroMessenger/i) == "micromessenger") {
-        self.shareBtn();
-      }
 
 
     }
