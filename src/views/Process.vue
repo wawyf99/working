@@ -10,7 +10,6 @@
 <script>
 
   export default {
-    components: {Header, Footer},
     name: 'Process',
     data () {
       return {
