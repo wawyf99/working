@@ -25,7 +25,7 @@
     },
     methods:{
       show(){
-        this.$router.push({name: '邀您加入群聊'});
+        this.$router.push({path: '/show'});
       }
     }
   }

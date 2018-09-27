@@ -45,10 +45,10 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/T2afCN3o', // 分享图标
       success: function () {
-        alert('aa')
+        Vue.$router.push({path: '/process'});
       },
       cancel: function () {
-        alert('a')
+        Vue.$router.push({path: '/process'});
       }
     })
     Vue.wechat.onMenuShareTimeline({
