@@ -1,6 +1,7 @@
 
 // wxShare.js
 import Vue from 'vue'
+import router from '../router/index'
 /*import Global from './global'*/
 
 // 在组件外使用vux集成的微信jssdk
@@ -45,21 +46,15 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/T2afCN3o', // 分享图标
       success: function () {
-        Vue.$router.push({path: '/process'});
+        router.push({ path: '/process'});
       },
-      cancel: function () {
-        Vue.$router.push({path: '/process'});
-      }
     })
     Vue.wechat.onMenuShareTimeline({
       title: timelineTitle || desc || '这里是分享朋友圈的内容', // 分享标题，由于分享到朋友圈没有desc，所以这里采用的策略是，指定的朋友圈分享标题优先，其次采用发送给朋友的描述，最后采用默认文案。
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/bQtHr9Iz', // 分享图标
       success: function () {
-        alert('bb')
-      },
-      cancel: function () {
-        alert('b')
+        router.push({ path: '/process'});
       }
     })
   })
