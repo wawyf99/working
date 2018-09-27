@@ -19,14 +19,18 @@ var browser = {
     };
   }(),
   isWechat: function () {
+
     if (this.versions.mobile) {
       let ua = navigator.userAgent.toLowerCase();
-      if (ua.match(/MicroMessenger/i) == "micromessenger")
+      if (ua.match(/MicroMessenger/i) == "micromessenger"){
         //在微信中打开
+        //alert('请在微信中打开');
         return true;
+      }
       return false;
     }
   },
+
   language: (navigator.browserLanguage || navigator.language).toLowerCase()
 }
 
