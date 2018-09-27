@@ -15,11 +15,10 @@ const router = new Router({
       name: '群聊邀请',
       component: Main,
       meta: {
-        title: '这是主页',
-        shareDesc: '这是主页11111111111',
-        desc: 'homepage, click and see!',
-        timelineTitle: '这是首页，欢迎点击关注，blablablablabla~~~',
-        imgUrl: 'http://frankzhang.me/wp-content/uploads/2017/08/cropped-favicon-01.png'
+        title: '这里是首页分享',
+        shareDesc: '首页分享测试首页分享测试首页分享测试首页分享测试',
+        timelineTitle: '首页分享朋友圈的内容描述首页分享朋友圈的内容描述首页分享朋友圈的内容描述',
+        imgUrl: ''
       }
     },
     {
@@ -27,11 +26,10 @@ const router = new Router({
       name: '邀您加入群聊',
       component: Show,
       meta: {
-        title: '这是次页',
-        shareDesc: '这是次页1111111',
-        desc: 'homepage, click and see!',
-        timelineTitle: '这是首页，欢迎点击关注，blablablablabla~~~',
-        imgUrl: 'http://frankzhang.me/wp-content/uploads/2017/08/cropped-favicon-01.png'
+        title: '次页分享的标题',
+        shareDesc: '次页分享的内容描述次页分享的内容描述次页分享的内容描述次页分享的内容描述',
+        timelineTitle: '次页朋友圈的内容描述次页朋友圈的内容描述次页朋友圈的内容描述次页朋友圈的内容描述',
+        imgUrl: ''
       }
     }
   ]
