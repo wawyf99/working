@@ -10,7 +10,7 @@ global.baseUrl = "http://working.api.rzzc.ltd";
 
 //api全局路由
 global.url = {
-  chatGetTitle: "chart/get-title",
+  chatGetTitle: "chat/get-title",
 
   wx_share: "/wechat/wxinfo",  //获取微信相关信息
 };

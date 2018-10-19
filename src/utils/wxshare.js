@@ -21,7 +21,6 @@ console.log(global.appEntryUrl);*/
 //console.log(_url);
 
 
-
 export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}) {
 
   var _url = window.location.href;
@@ -70,5 +69,5 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
 }
 
 // 为Vue的原型对象添加该方法，则所有vue实例都能继承该方法
-Vue.prototype.$wxShare = wxShare
+Vue.prototype.$wxShare = wxShare;
 
