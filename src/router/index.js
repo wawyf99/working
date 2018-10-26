@@ -48,12 +48,6 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-
-  /*if (!global.appEntryUrl) {
-    console.log(3);
-    global.appEntryUrl = window.location.href;
-  }
-  console.log(global.appEntryUrl);*/
   document.getElementById('titleId').innerHTML = to.name;
   next();
 })

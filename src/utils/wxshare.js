@@ -24,8 +24,9 @@ console.log(global.appEntryUrl);*/
 export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}) {
 
   var _url = window.location.href;
+  console.log(document.domain,window.location.host);
 
-  Vue.http.post(global.baseUrl+global.url.wx_share, {
+  Vue.http.post(global.wxUrl+global.url.wx_share, {
     url : _url
   }).then(res => {
     Vue.wechat.config({
