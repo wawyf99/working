@@ -28,6 +28,7 @@
     },
     watch: {
       '$route' (to, from) {
+        console.log('222');
         location = location; // 这是我ajax获取用户信息的方法
       }
     },
