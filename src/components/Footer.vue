@@ -25,7 +25,7 @@
     },
     methods:{
       show(){
-        this.$router.push({path: '/show',query :{wxid: this.wxid}});
+        this.$router.push({path: '/show',query :{wxid: this.wxid, invitor:this.invitor}});
       }
     }
   }

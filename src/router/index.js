@@ -26,23 +26,11 @@ const router = new Router({
       path: '/show',
       name: '邀您加入群聊',
       component: Show,
-      meta: {
-        title: '次页分享的标题',
-        shareDesc: '次页分享的内容描述次页分享的内容描述次页分享的内容描述次页分享的内容描述',
-        timelineTitle: '次页朋友圈的内容描述次页朋友圈的内容描述次页朋友圈的内容描述次页朋友圈的内容描述',
-        imgUrl: ''
-      }
     },
     {
       path: '/process',
       name: '邀您加入群聊',
       component: Process,
-      meta: {
-        title: 'Process页分享的标题',
-        shareDesc: 'Process次页分享的内容描述次页分享的内容描述次页分享的内容描述次页分享的内容描述',
-        timelineTitle: 'Process次页朋友圈的内容描述次页朋友圈的内容描述次页朋友圈的内容描述次页朋友圈的内容描述',
-        imgUrl: ''
-      }
     },
   ]
 });
