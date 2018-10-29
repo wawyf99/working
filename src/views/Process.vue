@@ -8,7 +8,7 @@
 
 </style>
 <script>
-
+  import wxShare from '../utils/wxshare';
   export default {
     name: 'Process',
     data () {
@@ -18,6 +18,7 @@
     },
     created() {
 
+      wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
 
     },
     methods:{

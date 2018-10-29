@@ -87,6 +87,9 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       success: function () {
         let _str = 1;
         switch (step) {
+          case undefined:
+            _str = 1;
+            break;
           case 1:
             _str = 2;
             break;
@@ -108,10 +111,8 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
           case 7:
             _str = 8;
             break;
-          default:
-            _str = 1;
-            break
         }
+
         router.push({ path: '/process', query : {step : _str, wxid: wxid}});
       }
     })
