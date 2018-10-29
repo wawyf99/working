@@ -77,7 +77,7 @@
       }
     },
     created(){
-      wxShare({ title: '111', desc: '222', link: 'http://working.rzzc.ltd/main?wxid=1', logo: ''});
+      wxShare({ title: '111', desc: '222', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
       this.getNowTime();
       this.go();
     },
