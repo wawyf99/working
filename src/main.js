@@ -7,7 +7,6 @@ import global from './utils/global'
 import ajax from './utils/ajax';
 import userAgent from './utils/userAgent';
 import routerRule from './utils/wxshare'
-
 routerRule(router);
 
 //import VueAwesomeSwiper from 'vue-awesome-swiper'

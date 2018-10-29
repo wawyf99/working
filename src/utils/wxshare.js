@@ -50,34 +50,31 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/T2afCN3o', // 分享图标
       success: function () {
-        let _str = '';
         switch (step) {
-          case '':
-            _str = 1;
+          case undefined:
+            step = 1;
             break;
-          case 1:
-            _str = 2;
+          case '1':
+            step = 2;
             break;
-          case 2:
-            _str = 3;
+          case '2':
+            step = 3;
             break;
-          case 3:
-            _str = 4;
+          case '3':
+            step = 4;
             break;
-          case 4:
-            _str = 5;
+          case '4':
+            step = 5;
             break;
-          case 5:
-            _str = 6;
-            break;
-          case 6:
-            _str = 7;
-            break;
-          case 7:
-            _str = 8;
+          case '5':
+            step = 6;
             break;
         }
-        router.push({ path: '/show', query : {step : _str, wxid: wxid}});
+        if(step == 6){
+          router.push({ path: '/', query : {wxid: wxid}});
+        }else{
+          router.push({ path: '/process', query : {step : step, wxid: wxid}});
+        }
       },
     })
     Vue.wechat.onMenuShareTimeline({
@@ -85,35 +82,32 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/bQtHr9Iz', // 分享图标
       success: function () {
-        let _str = 1;
         switch (step) {
           case undefined:
-            _str = 1;
+            step = 1;
             break;
-          case 1:
-            _str = 2;
+          case '1':
+            step = 2;
             break;
-          case 2:
-            _str = 3;
+          case '2':
+            step = 3;
             break;
-          case 3:
-            _str = 4;
+          case '3':
+            step = 4;
             break;
-          case 4:
-            _str = 5;
+          case '4':
+            step = 5;
             break;
-          case 5:
-            _str = 6;
-            break;
-          case 6:
-            _str = 7;
-            break;
-          case 7:
-            _str = 8;
+          case '5':
+            step = 6;
             break;
         }
+        if(step == 6){
+          router.push({ path: '/', query : {wxid: wxid}});
+        }else{
+          router.push({ path: '/process', query : {step : step, wxid: wxid}});
+        }
 
-        router.push({ path: '/process', query : {step : _str, wxid: wxid}});
       }
     })
   })
