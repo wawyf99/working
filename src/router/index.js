@@ -12,7 +12,7 @@ const router = new Router({
   mode:'history',
   routes: [
     {
-      path: '/main',
+      path: '/',
       name: '群聊邀请',
       component: Main,
       meta: {
