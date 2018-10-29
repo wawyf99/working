@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import Main from '../views/Main';
 import Show from '../views/Show';
 import Process from '../views/Process';
-import wxShare from '../utils/wxshare'
+import wxShare from '../utils/wxshare';
 
 Vue.use(Router);
 
@@ -53,7 +53,9 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(( to, from ) => {
-  wxShare({ title: to.meta.title, desc: to.meta.shareDesc, link: to.meta.shareLink, logo: to.meta.shareLogo})
+  if(to.component == 'Show'){
+    //wxShare({ title: to.meta.title, desc: to.meta.shareDesc, link: to.meta.shareLink, logo: to.meta.shareLogo})
+  }
 })
 
 export default router;

@@ -63,6 +63,7 @@
 <script>
   import { Alert, XDialog } from 'vux'
   import Global from "../utils/global";
+  import wxShare from '../utils/wxshare';
   export default {
     name: 'Show',
     components: {
@@ -76,6 +77,7 @@
       }
     },
     created(){
+      wxShare({ title: '111', desc: '222', link: 'http://working.rzzc.ltd/show?wxid=1', logo: ''});
       this.getNowTime();
       this.go();
     },

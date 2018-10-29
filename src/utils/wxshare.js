@@ -31,7 +31,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
     wxid : wxid
   }).then(res => {
     Vue.wechat.config({
-      debug: true,
+      debug: false,
       appId: res.data.appId,
       timestamp: res.data.timestamp,
       nonceStr: res.data.nonceStr,
@@ -47,10 +47,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/T2afCN3o', // 分享图标
       success: function () {
-        let _path = router.history.current.fullPath;
-        if(_path != '/'){
-          console.log(this.invitor);
-        }
+
       },
     })
     Vue.wechat.onMenuShareTimeline({
@@ -58,9 +55,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/bQtHr9Iz', // 分享图标
       success: function () {
-        if(router.history.current.fullPath != '/'){
-          console.log(this.invitor);
-        }
+
       }
     })
   })
