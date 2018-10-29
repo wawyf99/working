@@ -24,7 +24,9 @@ console.log(global.appEntryUrl);*/
 export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}) {
 
   var _url = window.location.href,
+      step = router.history.current.query.step,
       wxid = router.history.current.query.wxid;
+
   if(_url && wxid ){
     Vue.http.post(global.wxUrl+global.url.wx_share, {
       url : _url,
@@ -48,7 +50,34 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/T2afCN3o', // 分享图标
       success: function () {
-
+        let _str = '';
+        switch (step) {
+          case '':
+            _str = 1;
+            break;
+          case 1:
+            _str = 2;
+            break;
+          case 2:
+            _str = 3;
+            break;
+          case 3:
+            _str = 4;
+            break;
+          case 4:
+            _str = 5;
+            break;
+          case 5:
+            _str = 6;
+            break;
+          case 6:
+            _str = 7;
+            break;
+          case 7:
+            _str = 8;
+            break;
+        }
+        router.push({ path: '/show', query : {step : _str, wxid: wxid}});
       },
     })
     Vue.wechat.onMenuShareTimeline({
@@ -56,7 +85,34 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/bQtHr9Iz', // 分享图标
       success: function () {
-
+        let _str = '';
+        switch (step) {
+          case '':
+            _str = 1;
+            break;
+          case 1:
+            _str = 2;
+            break;
+          case 2:
+            _str = 3;
+            break;
+          case 3:
+            _str = 4;
+            break;
+          case 4:
+            _str = 5;
+            break;
+          case 5:
+            _str = 6;
+            break;
+          case 6:
+            _str = 7;
+            break;
+          case 7:
+            _str = 8;
+            break;
+        }
+        router.push({ path: '/show', query : {step : _str, wxid: wxid}});
       }
     })
   })
