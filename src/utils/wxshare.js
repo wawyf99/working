@@ -85,11 +85,8 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/bQtHr9Iz', // 分享图标
       success: function () {
-        let _str = '';
+        let _str = 1;
         switch (step) {
-          case '':
-            _str = 1;
-            break;
           case 1:
             _str = 2;
             break;
@@ -111,8 +108,11 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
           case 7:
             _str = 8;
             break;
+          default:
+            _str = 1;
+            break
         }
-        router.push({ path: '/show', query : {step : _str, wxid: wxid}});
+        router.push({ path: '/process', query : {step : _str, wxid: wxid}});
       }
     })
   })
