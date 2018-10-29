@@ -20,12 +20,12 @@
     },
     data () {
       return {
-
+        wxid : this.$route.query.wxid
       }
     },
     methods:{
       show(){
-        this.$router.push({path: '/show'});
+        this.$router.push({path: '/show',query :{wxid: this.wxid}});
       }
     }
   }
