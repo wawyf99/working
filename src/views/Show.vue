@@ -177,6 +177,7 @@
 
       let self = this,
           _url = window.location.href;
+      console.log(_url);
 
       pushHistory();
 
