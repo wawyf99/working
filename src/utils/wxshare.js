@@ -31,7 +31,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
     wxid : wxid
   }).then(res => {
     Vue.wechat.config({
-      debug: false,
+      debug: true,
       appId: res.data.appId,
       timestamp: res.data.timestamp,
       nonceStr: res.data.nonceStr,
