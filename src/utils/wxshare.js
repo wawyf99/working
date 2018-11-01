@@ -93,6 +93,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
           case undefined:
             step = 1;
             router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            location = location;
             break;
           case 1:
             step = 2;
