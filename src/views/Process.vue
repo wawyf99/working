@@ -52,6 +52,11 @@
     created() {
       wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
     },
+    watch: {
+      '$route' (to, from) {
+        location = location;
+      }
+    },
     methods:{
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
