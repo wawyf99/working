@@ -2,7 +2,7 @@
   <div id="show">
     <div class="show">
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
-      <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入了群聊，群聊参与人还有: 这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德</div>
+      <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入了群聊，群聊参与人还有: 这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德</div>
       <div class="ui-show-step3 step clearfix" ref="go3">
         <div class="show-left"></div>
         <div class="show-right">
@@ -107,10 +107,6 @@
         }
         var _time = myDate.getHours()+":"+ _minutes;
         this.now = _time;
-/*        let self = this;
-        self.$http.post(global.url.get_wx_share,{}).then(res => {
-          console.log(res);
-        });*/
       },
       //开始流程
       go(){
@@ -180,12 +176,13 @@
       },
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
-      },
+      }
     },
     mounted(){
 
       let self = this,
-          _url = window.location.href;
+        _url = window.location.href;
+      console.log(_url);
 
       pushHistory();
 
