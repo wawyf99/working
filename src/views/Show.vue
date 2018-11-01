@@ -80,7 +80,7 @@
       wxShare({ title: '111', desc: '222', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
       this.getNowTime();
       this.go();
-      this.getWxShare();
+      //this.getWxShare();
     },
     watch: {
       '$route' (to, from) {
@@ -173,14 +173,8 @@
           var _a = ele.scrollHeight;
           ele.scrollTop =  _a;
 
-        },800)
-      },
-      jumpFun(){
-        window.location.href = 'http://www.baidu.com';
-      },
-      //获取A域名
-      getWxShare(){
-        let self = this;
+        },800);
+
         self.$http.post(global.url.chatGetTitle,{}).then(res => {
           if(res){
             self.$vux.loading.hide()
@@ -189,6 +183,14 @@
             this.invitor = res.invitor;
           }
         });
+
+      },
+      jumpFun(){
+        window.location.href = 'http://www.baidu.com';
+      },
+      //获取A域名
+      getWxShare(){
+
       }
     },
     mounted(){
