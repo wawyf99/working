@@ -24,16 +24,10 @@
         window.location.href = 'http://www.baidu.com';
       },
     },
-    watch: {
-      '$route' (to, from) {
-        location = location; // 这是我ajax获取用户信息的方法
-      }
-    },
     mounted(){
 
       let self = this,
         _url = window.location.href;
-
       //监听返回
       pushHistory();
       window.addEventListener("popstate", function(e) {
