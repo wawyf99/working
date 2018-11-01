@@ -50,6 +50,9 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/T2afCN3o', // 分享图标
       success: function () {
+        if(step != undefined){
+          step = parseInt(step);
+        }
         switch (step) {
           case undefined:
             step = 1;
@@ -83,7 +86,9 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/bQtHr9Iz', // 分享图标
       success: function () {
-        console.log(typeof (step));
+        if(step != undefined){
+          step = parseInt(step);
+        }
         switch (step) {
           case undefined:
             step = 1;
