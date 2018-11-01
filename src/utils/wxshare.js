@@ -55,8 +55,10 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         }else {
           step = parseInt(step);
         }
+        alert(step);
         switch (step) {
           case 0:
+            alert(step);
             step = 1;
             router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
@@ -93,8 +95,10 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         }else {
           step = parseInt(step);
         }
+        alert(step);
         switch (step) {
           case 0:
+            alert(step);
             step = 1;
             router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
