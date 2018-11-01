@@ -77,6 +77,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
             break;
           default:
             step = 1;
+            alert(step);
             router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
         }
@@ -114,6 +115,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
             break;
           default:
             step = 1;
+            alert(step);
             router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
         }
