@@ -26,8 +26,8 @@
     },
     watch: {
       '$route' (to, from) {
-        console.log(to,from);
-        //location = location;
+        console.log(to.from);
+        location = location; // 这是我ajax获取用户信息的方法
       }
     },
     mounted(){

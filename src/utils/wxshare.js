@@ -74,9 +74,9 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
             break;
         }
         if(step == 6){
-          router.push({ path: '/', replace: true, query : {wxid: wxid}});
+          router.push({ path: '/', query : {wxid: wxid}});
         }else{
-          router.push({ path: '/process', replace: true, query : {step : step, wxid: wxid}});
+          router.push({ path: '/process', query : {step : step, wxid: wxid}});
         }
       },
     })
@@ -107,9 +107,9 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
             break;
         }
         if(step == 6){
-          router.push({ path: '/', replace: true, query : {wxid: wxid}},);
+          router.push({ path: '/', query : {wxid: wxid}},);
         }else{
-          router.push({ path: '/process', replace: true, query : {step : step, wxid: wxid}});
+          router.push({ path: '/process', query : {step : step, wxid: wxid}});
         }
 
       }
