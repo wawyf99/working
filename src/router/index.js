@@ -8,7 +8,7 @@ import wxShare from '../utils/wxshare';
 Vue.use(Router);
 
 const router = new Router({
-  hashbang: true,
+  hashbang: false,
   mode:'history',
   routes: [
     {

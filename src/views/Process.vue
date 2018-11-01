@@ -17,9 +17,6 @@
       }
     },
     created() {
-      if(this.step == 1){
-        location = location;
-      }
       wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
     },
     methods:{
