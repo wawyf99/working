@@ -81,6 +81,11 @@
       this.getNowTime();
       this.go();
     },
+    watch: {
+      '$route' (to, from) {
+        location = location;
+      }
+    },
     methods:{
       //点击模态框
       modalbox(){
