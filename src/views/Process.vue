@@ -56,8 +56,6 @@
     },
     created() {
       wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
-      var _h = window.screen.height;
-      document.getElementById('Process').style.height = _h + 'px';
     },
     watch: {
       '$route' (to, from) {
@@ -108,7 +106,7 @@
       }
 
       document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('main');
+      var ele = document.getElementById('Process');
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
           eleTop = ele.scrollTop,
@@ -126,6 +124,9 @@
           }
         }
       };
+
+      var _h = window.screen.height;
+      document.getElementById('Process').style.height = _h + 'px';
 
     }
   }
