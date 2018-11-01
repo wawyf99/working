@@ -53,27 +53,28 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         switch (step) {
           case undefined:
             step = 1;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 1:
             step = 2;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 2:
             step = 3;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 3:
             step = 4;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 4:
             step = 5;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 5:
             step = 6;
+            router.push({ path: '/', query : {wxid: wxid}},);
             break;
-        }
-        if(step == 6){
-          router.push({ path: '/', query : {wxid: wxid}},);
-        }else{
-          router.push({ path: '/process', query : {step : step, wxid: wxid}});
         }
       },
     })
@@ -85,27 +86,28 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         switch (step) {
           case undefined:
             step = 1;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 1:
             step = 2;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 2:
             step = 3;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 3:
             step = 4;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 4:
             step = 5;
+            router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
           case 5:
             step = 6;
+            router.push({ path: '/', query : {wxid: wxid}},);
             break;
-        }
-        if(step == 6){
-          router.push({ path: '/', query : {wxid: wxid}},);
-        }else{
-          router.push({ path: '/process', query : {step : step, wxid: wxid}});
         }
       }
     })
