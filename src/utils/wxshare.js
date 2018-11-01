@@ -53,8 +53,6 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         if(step){
           step = parseInt(step);
         }
-
-        alert(step);
         switch (step) {
           case 0:
           case 1:
@@ -92,7 +90,6 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         if(step){
           step = parseInt(step);
         }
-        alert(step);
         switch (step) {
           case 0:
           case 1:
