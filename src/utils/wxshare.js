@@ -41,6 +41,12 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline']
       })
     });
+
+    Vue.http.post(global.baseUrl+global.url.get_wx_share, {
+    }).then(res => {
+      console.log(res);
+    });
+
   }
 
   Vue.wechat.ready(() => {
