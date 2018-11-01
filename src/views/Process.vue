@@ -1,20 +1,19 @@
 <template>
   <div id="Process">
-    <div class="box-one" v-if="step == 1"></div>
-    <div class="box-two" v-else-if="step == 2"></div>
-    <div class="box-three" v-else-if="step == 3"></div>
-    <div class="box-four" v-else-if="step == 4"></div>
-    <div class="box-five" v-else-if="step == 5"></div>
+    <div id="ProcessDiv" class="box-one" v-if="step == 1"></div>
+    <div id="ProcessDiv" class="box-two" v-else-if="step == 2"></div>
+    <div id="ProcessDiv" class="box-three" v-else-if="step == 3"></div>
+    <div id="ProcessDiv" class="box-four" v-else-if="step == 4"></div>
+    <div id="ProcessDiv" class="box-five" v-else-if="step == 5"></div>
   </div>
 
 </template>
 <style>
   .box-one{
-    background: url("../assets/image/shareback/1.jpg") 0 0 no-repeat scroll transparent;
-    background-size:100% 100%;
+    background: url("../assets/image/shareback/1.jpg") no-repeat;
     width: 100%;
-    height: auto;
-    min-height: 100%;
+    height: 13.34rem;
+    background-size: contain;
   }
   .box-two{
     background: url("../assets/image/shareback/2.jpg") no-repeat;
@@ -52,6 +51,8 @@
     },
     created() {
       wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
+      var _h = window.screen.height;
+      document.getElementById('ProcessDiv').style.height = _h + 'px';
     },
     watch: {
       '$route' (to, from) {
