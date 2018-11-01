@@ -2,32 +2,32 @@
   <div id="show">
     <div class="show">
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
-      <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入了群聊，群聊参与人还有: 这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德</div>
+      <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入了群聊，群聊参与人还有: 这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德</div>
       <div class="ui-show-step3 step clearfix" ref="go3">
         <div class="show-left"></div>
         <div class="show-right">
-          <div class="show-person">我们不一样</div>
+          <div class="show-person">{{invitor}}</div>
           <div class="show-img-01"></div>
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go4">
         <div class="show-left"></div>
         <div class="show-right">
-          <div class="show-person">我们不一样</div>
+          <div class="show-person">{{invitor}}</div>
           <div class="show-img-02"></div>
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go5">
         <div class="show-left"></div>
         <div class="show-right">
-          <div class="show-person">我们不一样</div>
+          <div class="show-person">{{invitor}}</div>
           <div class="show-img-03"></div>
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go6">
         <div class="show-left"></div>
         <div class="show-right">
-          <div class="show-person">我们不一样</div>
+          <div class="show-person">{{invitor}}</div>
           <div class="show-text">
             这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话。
           </div>
