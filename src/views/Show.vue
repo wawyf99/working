@@ -107,10 +107,10 @@
         }
         var _time = myDate.getHours()+":"+ _minutes;
         this.now = _time;
-        let self = this;
+/*        let self = this;
         self.$http.post(global.url.get_wx_share,{}).then(res => {
           console.log(res);
-        });
+        });*/
       },
       //开始流程
       go(){
