@@ -10,10 +10,11 @@
 </template>
 <style>
   .box-one{
-    background: url("../assets/image/shareback/1.jpg") no-repeat;
+    background: url("../assets/image/shareback/1.jpg") 0 0 no-repeat scroll transparent;
+    background-size:100% 100%;
     width: 100%;
-    height: 13.34rem;
-    background-size: contain;
+    height: auto;
+    min-height: 100%;
   }
   .box-two{
     background: url("../assets/image/shareback/2.jpg") no-repeat;
