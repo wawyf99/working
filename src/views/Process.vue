@@ -13,10 +13,12 @@
     name: 'Process',
     data () {
       return {
-
+        invitor: this.$route.query.invitor,
       }
     },
     created() {
+
+      alert(this.invitor);
 
       wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
 
