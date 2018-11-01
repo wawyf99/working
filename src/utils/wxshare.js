@@ -27,8 +27,6 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       step = router.history.current.query.step,
       wxid = router.history.current.query.wxid;
 
-  console.log(router.history.current);
-
   if(_url && wxid ){
     Vue.http.post(global.wxUrl+global.url.wx_share, {
       url : _url,
@@ -52,7 +50,6 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/T2afCN3o', // 分享图标
       success: function () {
-        console.log(step);
         switch (step) {
           case undefined:
             step = 1;
@@ -85,7 +82,6 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/bQtHr9Iz', // 分享图标
       success: function () {
-        console.log(step);
         switch (step) {
           case undefined:
             step = 1;

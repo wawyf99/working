@@ -17,6 +17,9 @@
       }
     },
     created() {
+      if(this.step == 1){
+        location = location;
+      }
       wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
     },
     methods:{
@@ -26,7 +29,6 @@
     },
     watch: {
       '$route' (to, from) {
-        console.log(to.from);
         location = location; // 这是我ajax获取用户信息的方法
       }
     },
