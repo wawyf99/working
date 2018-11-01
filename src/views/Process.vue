@@ -70,13 +70,8 @@
       //获取A域名
       getWxShare(){
         let self = this;
-        self.$http.post(global.url.chatGetTitle,{}).then(res => {
-          if(res){
-            self.$vux.loading.hide()
-            this.title = res.title;
-            this.enrollment = res.enrollment;
-            this.invitor = res.invitor;
-          }
+        self.$http.post(global.url.get_wx_share,{}).then(res => {
+          console.log(res);
         });
       }
     },
