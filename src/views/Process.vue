@@ -125,7 +125,7 @@
         }
       };
 
-      var _h = window.innerheight ;
+      var _h = document.documentElement.clientHeight;
       document.getElementById('Process').style.height = _h + 'px';
 
     }
