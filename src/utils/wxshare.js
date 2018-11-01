@@ -50,15 +50,14 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/T2afCN3o', // 分享图标
       success: function () {
+        alert(step);
         if(step == undefined){
           step = 0;
         }else {
           step = parseInt(step);
         }
-        alert(step);
         switch (step) {
           case 0:
-            alert(step);
             step = 1;
             router.push({ path: '/process', query : {step : step, wxid: wxid}});
             break;
@@ -90,12 +89,12 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/bQtHr9Iz', // 分享图标
       success: function () {
+        alert(step);
         if(step == undefined){
           step = 0;
         }else {
           step = parseInt(step);
         }
-        alert(step);
         switch (step) {
           case 0:
             alert(step);
