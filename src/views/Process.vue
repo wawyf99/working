@@ -13,15 +13,15 @@
     name: 'Process',
     data () {
       return {
-        invitor: this.$route.query.invitor,
+        step: this.$route.query.step,
       }
     },
     created() {
-
-      alert(this.invitor);
+      if(this.step){
+        location = location;
+      }
 
       wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
-
     },
     methods:{
       jumpFun(){
