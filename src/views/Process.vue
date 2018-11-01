@@ -12,32 +12,37 @@
   .box-one{
     background: url("../assets/image/shareback/1.jpg") no-repeat;
     width: 100%;
-    height: 13.34rem;
-    background-size: contain;
+    min-height: 13.34rem;
+    height: 100%;
+    background-size: cover;
   }
   .box-two{
     background: url("../assets/image/shareback/2.jpg") no-repeat;
     width: 100%;
-    height: 13.34rem;
-    background-size: contain;
+    min-height: 13.34rem;
+    height: 100%;
+    background-size: cover;
   }
   .box-three{
     background: url("../assets/image/shareback/3.jpg") no-repeat;
     width: 100%;
-    height: 13.34rem;
-    background-size: contain;
+    min-height: 13.34rem;
+    height: 100%;
+    background-size: cover;
   }
   .box-four{
     background: url("../assets/image/shareback/4.jpg") no-repeat;
     width: 100%;
-    height: 13.34rem;
-    background-size: contain;
+    min-height: 13.34rem;
+    height: 100%;
+    background-size: cover;
   }
   .box-five{
     background: url("../assets/image/shareback/5.jpg") no-repeat;
     width: 100%;
-    height: 13.34rem;
-    background-size: contain;
+    min-height: 13.34rem;
+    height: 100%;
+    background-size: cover;
   }
 </style>
 <script>
@@ -52,7 +57,7 @@
     created() {
       wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
       var _h = window.screen.height;
-      document.getElementById('ProcessDiv').style.height = _h + 'px';
+      document.getElementById('Process').style.height = _h + 'px';
     },
     watch: {
       '$route' (to, from) {
