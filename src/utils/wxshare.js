@@ -33,7 +33,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       wxid : wxid
     }).then(res => {
       Vue.wechat.config({
-        debug: false,
+        debug: true,
         appId: res.data.appId,
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
@@ -74,7 +74,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         if(step == 6){
           router.push({ path: '/', query : {wxid: wxid}});
         }else{
-          router.push({ path: '/show', query : {step : step, wxid: wxid}});
+          router.push({ path: '/process', query : {step : step, wxid: wxid}});
         }
       },
     })
@@ -107,7 +107,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         if(step == 6){
           router.push({ path: '/', query : {wxid: wxid}});
         }else{
-          router.push({ path: '/show', query : {step : step, wxid: wxid}});
+          router.push({ path: '/process', query : {step : step, wxid: wxid}});
         }
 
       }
