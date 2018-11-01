@@ -56,7 +56,6 @@
     },
     created() {
       wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
-      this.getWxShare();
     },
     watch: {
       '$route' (to, from) {
@@ -68,12 +67,6 @@
         window.location.href = 'http://www.baidu.com';
       },
       //获取A域名
-      getWxShare(){
-        let self = this;
-        self.$http.post(global.url.get_wx_share,{}).then(res => {
-          console.log(res);
-        });
-      }
     },
     mounted(){
 
