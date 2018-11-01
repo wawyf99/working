@@ -1,11 +1,44 @@
 <template>
   <div id="Process">
-    234567890
+    <div class="box-one" v-if="step == 1"></div>
+    <div class="box-two" v-else-if="step == 2"></div>
+    <div class="box-three" v-else-if="step == 3"></div>
+    <div class="box-four" v-else-if="step == 4"></div>
+    <div class="box-five" v-else-if="step == 5"></div>
   </div>
 
 </template>
 <style>
-
+  .box-one{
+    background: url("../assets/image/shareback/1.jpg") no-repeat;
+    width: 100%;
+    height: 13.34rem;
+    background-size: contain;
+  }
+  .box-two{
+    background: url("../assets/image/shareback/2.jpg") no-repeat;
+    width: 100%;
+    height: 13.34rem;
+    background-size: contain;
+  }
+  .box-three{
+    background: url("../assets/image/shareback/3.jpg") no-repeat;
+    width: 100%;
+    height: 13.34rem;
+    background-size: contain;
+  }
+  .box-four{
+    background: url("../assets/image/shareback/4.jpg") no-repeat;
+    width: 100%;
+    height: 13.34rem;
+    background-size: contain;
+  }
+  .box-five{
+    background: url("../assets/image/shareback/5.jpg") no-repeat;
+    width: 100%;
+    height: 13.34rem;
+    background-size: contain;
+  }
 </style>
 <script>
   import wxShare from '../utils/wxshare';
