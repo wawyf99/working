@@ -73,6 +73,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         if(step == 6){
           router.push({ path: '/', query : {wxid: wxid}});
         }else{
+          alert(step);
           router.push({ path: '/process', query : {step : step, wxid: wxid}});
         }
       },
@@ -105,6 +106,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
         if(step == 6){
           router.push({ path: '/', query : {wxid: wxid}},);
         }else{
+          alert(step);
           router.push({ path: '/process', query : {step : step, wxid: wxid}});
         }
 
