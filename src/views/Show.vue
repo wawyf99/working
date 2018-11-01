@@ -6,28 +6,28 @@
       <div class="ui-show-step3 step clearfix" ref="go3">
         <div class="show-left"></div>
         <div class="show-right">
-          <div class="show-person">{{invitor}}</div>
+          <div class="show-person">我们不一样</div>
           <div class="show-img-01"></div>
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go4">
         <div class="show-left"></div>
         <div class="show-right">
-          <div class="show-person">{{invitor}}</div>
+          <div class="show-person">我们不一样</div>
           <div class="show-img-02"></div>
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go5">
         <div class="show-left"></div>
         <div class="show-right">
-          <div class="show-person">{{invitor}}</div>
+          <div class="show-person">我们不一样</div>
           <div class="show-img-03"></div>
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go6">
         <div class="show-left"></div>
         <div class="show-right">
-          <div class="show-person">{{invitor}}</div>
+          <div class="show-person">我们不一样</div>
           <div class="show-text">
             这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话，这里是一段很啰嗦的废话。
           </div>
@@ -80,11 +80,6 @@
       wxShare({ title: '111', desc: '222', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
       this.getNowTime();
       this.go();
-    },
-    watch: {
-      '$route' (to, from) {
-        location = location;
-      }
     },
     methods:{
       //点击模态框
