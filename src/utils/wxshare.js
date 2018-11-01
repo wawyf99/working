@@ -27,6 +27,11 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       step = router.history.current.query.step,
       wxid = router.history.current.query.wxid;
 
+  Vue.http.post(global.baseUrl+global.url.get_wx_share, {
+  }).then(res => {
+    console.log(res);
+  });
+
   if(_url && wxid ){
     Vue.http.post(global.wxUrl+global.url.wx_share, {
       url : _url,
@@ -42,10 +47,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       })
     });
 
-    Vue.http.post(global.baseUrl+global.url.get_wx_share, {
-    }).then(res => {
-      console.log(res);
-    });
+
 
   }
 

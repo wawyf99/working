@@ -12,8 +12,8 @@ global.wxUrl = "http://localhost:3031";*/
 
 //api全局路由
 global.url = {
-  chatGetTitle: "chat/get-title",
-  get_wx_share: 'chat/getWxShare',
+  chatGetTitle: "/chat/get-title",
+  get_wx_share: '/chat/getWxShare',
   wx_share: "/wechat/wxinfo",  //获取微信相关信息
 };
 
