@@ -83,7 +83,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
       link: link || window.location.href, // 分享链接
       imgUrl: imgUrl || 'https://dwz.cn/bQtHr9Iz', // 分享图标
       success: function () {
-        cosnole.log(typeof (step));
+        console.log(typeof (step));
         switch (step) {
           case undefined:
             step = 1;
