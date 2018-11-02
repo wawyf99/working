@@ -38,20 +38,20 @@
         你被"<span>群主</span>"移除群聊
       </div>
       <div class="ui-show-step5"></div>
-      <div class="ui-show-step7 step" ref="go8">
-        <div class="ui-show-cen" @click="modalbox"></div>
-        <div class="ui-show-alert" ref="alertBox">
-          <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
-          <div class="alert-content">当前群人数<span>321</span>人</div>
-          <div class="alert-btn" @click="toggles">好的</div>
-        </div>
-      </div>
     </div>
     <div class="footer">
       <span class="show-voice"></span>
       <span class="show-input"></span>
       <span class="show-smile"></span>
       <span class="show-plus"></span>
+    </div>
+    <div class="ui-show-step7 step" ref="go8">
+      <div class="ui-show-cen" @click="modalbox"></div>
+      <div class="ui-show-alert" ref="alertBox">
+        <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
+        <div class="alert-content">当前群人数<span>321</span>人</div>
+        <div class="alert-btn" @click="toggles">好的</div>
+      </div>
     </div>
   </div>
 </template>
@@ -175,7 +175,7 @@
 
           var ele = document.getElementById('shows');
           var _a = ele.scrollHeight;
-          ele.scrollTop =  _a;
+          document.getElementById('show').scrollTop =  _a;
 
         },800)
       },
