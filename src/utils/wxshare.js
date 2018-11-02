@@ -13,6 +13,8 @@ Vue.use(AjaxPlugin)
 
 export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}) {
 
+  console.log(link);
+
   var _url = window.location.href,
       step = router.history.current.query.step,
       wxid = router.history.current.query.wxid;
