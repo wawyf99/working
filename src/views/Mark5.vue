@@ -55,7 +55,12 @@
       }
     },
     created() {
-      wxShare({ title: '444', desc: '555', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
+      let self = this;
+      self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
+        this.shareUrl = res.data
+        var shareUrl = this.shareUrl+this.wxid;
+        wxShare({ title: '444', desc: '555', link: shareUrl , logo: ''});
+      });
     },
     watch: {
       '$route' (to, from) {
