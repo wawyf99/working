@@ -1,8 +1,13 @@
-
-.step{
+.show{
+  padding-top: 0.3rem;
+  padding-bottom: 1.65rem;
+  position: relative;
+  z-index: 1;
+}
+.section .step{
   display: none;
 }
-.ui-show-step1{
+.section .ui-show-step1{
   color: #FFF;
   background: #ccc;
   font-size: 0.28rem;
@@ -11,7 +16,7 @@
   width: 0.75rem;
   border-radius: 0.05rem;
 }
-.ui-show-step2{
+.section .ui-show-step2{
   color: #FFF;
   background: #ccc;
   font-size: 0.28rem;
@@ -22,13 +27,13 @@
   border-radius: 0.05rem;
   margin-top: 0.3rem;
 }
-.ui-show-step2 span{
+.section .ui-show-step2 span{
   color: cornflowerblue;
 }
-.ui-show-step3{
+.section .ui-show-step3{
   margin-top: 0.3rem;
 }
-.ui-show-step3 .show-left{
+.section .ui-show-step3 .show-left{
   float: left;
   background: url('../image/logo.jpg') no-repeat;
   background-size: 100%;
@@ -36,17 +41,17 @@
   height: 1rem;
   margin-left: 0.15rem;
 }
-.ui-show-step3 .show-right{
+.section .ui-show-step3 .show-right{
   float: left;
   margin-left: 0.25rem;
   width: 60%;
 }
-.ui-show-step3 .show-right .show-person{
+.section .ui-show-step3 .show-right .show-person{
   font-size: 0.28rem;
   color: #999;
   margin-top: 0.05rem;
 }
-.ui-show-step3 .show-right .show-img-01{
+.section .ui-show-step3 .show-right .show-img-01{
   background: url('../image/show-img-01.jpg') no-repeat;
   background-size: 100%;
   width: 2rem;
@@ -54,7 +59,7 @@
   margin-top: 0.2rem;
   border-radius: 0.05rem;
 }
-.ui-show-step3 .show-right .show-img-02{
+.section .ui-show-step3 .show-right .show-img-02{
   background: url('../image/show-img-02.jpg') no-repeat;
   background-size: 100%;
   width: 2rem;
@@ -62,7 +67,7 @@
   margin-top: 0.2rem;
   border-radius: 0.05rem;
 }
-.ui-show-step3 .show-right .show-img-03{
+.section .ui-show-step3 .show-right .show-img-03{
   background: url('../image/show-img-03.jpg') no-repeat;
   background-size: 100%;
   width: 2rem;
@@ -70,14 +75,14 @@
   margin-top: 0.2rem;
   border-radius: 0.05rem;
 }
-.ui-show-step3 .show-right .show-text{
+.section .ui-show-step3 .show-right .show-text{
   font-size: 0.28rem;
   background: #FFF;
   padding: 0.05rem 0.15rem;
   border-radius: 0.05rem;
   margin-top: 0.2rem;
 }
-.ui-show-step4{
+.section .ui-show-step4{
   color: #FFF;
   background: #ccc;
   font-size: 0.28rem;
@@ -88,19 +93,10 @@
   border-radius: 0.05rem;
   margin-top: 0.5rem;
 }
-.ui-show-step4 span{
+.section .ui-show-step4 span{
   color: cornflowerblue;
 }
-.ui-show-step5{
-  height: 1.5rem;
-  width: 100%;
-}
-.ui-show-step6{
-  height: 0.5rem;
-  width: 100%;
-}
-.ui-show-step7{}
-.ui-show-step7 .ui-show-alert{
+.section .ui-show-step5 .ui-show-alert{
   position: fixed;
   z-index: 3;
   left: 0;
@@ -114,7 +110,7 @@
   height: 3.3rem;
   border-radius: 0.07rem;
 }
-.ui-show-step7 .ui-show-cen{
+.section .ui-show-step5 .ui-show-cen{
   width: 100%;
   height: 100%;
   position: fixed;
@@ -123,37 +119,43 @@
   opacity: 0.6;
   top: 0;
 }
-.ui-show-step7 .ui-show-alert .alert-title{
+.section .ui-show-step5 .ui-show-alert .alert-title{
   font-size: 0.25rem;
   margin-top: 0.6rem;
   line-height: 0.35rem;
 }
-.ui-show-step7 .ui-show-alert .alert-content{
+.section .ui-show-step5 .ui-show-alert .alert-content{
   font-size: 0.25rem;
   margin-top: 0.4rem;
   margin-bottom: 0.5rem;
 }
-.ui-show-step7 .ui-show-alert .alert-content span{
+.section .ui-show-step5 .ui-show-alert .alert-content span{
   color: red;
   font-size: 0.35rem;
   font-weight: bold;
 }
-.ui-show-step7 .ui-show-alert .alert-btn{
+.section .ui-show-step5 .ui-show-alert .alert-btn{
   font-size: 0.3rem;
   border-top: 1px solid #EEE;
   line-height: 0.62rem;
   color: #008000;
 }
-
-
-.footer{
+#show{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.show-footer{
   width: 100%;
   height: 1rem;
-  background: #FFFFFF;
-  position: fixed;
+  position: absolute;
   bottom: 0;
+  z-index: 0;
 }
- .show-voice{
+.show-footer .show-voice{
   background: url("../image/voice.png") no-repeat;
   background-size: 100%;
   width: 0.6rem;
@@ -165,7 +167,7 @@
   margin: auto;
   left: 0.2rem;
 }
- .show-plus{
+.show-footer .show-plus{
   background: url("../image/plus.png") no-repeat;
   background-size: 100%;
   width: 0.6rem;
@@ -177,7 +179,7 @@
   margin: auto;
   right: 0.2rem;
 }
- .show-input{
+.show-footer .show-input{
   display: inline-block;
   position: absolute;
   width: 4.88rem;
@@ -185,7 +187,7 @@
   bottom: 0.18rem;
   left: 0.9rem;
 }
- .show-smile{
+.show-footer .show-smile{
   background: url("../image/smile.png") no-repeat;
   background-size: 100%;
   width: 0.6rem;
@@ -205,7 +207,8 @@
 }
 .section{
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 

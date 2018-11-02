@@ -1,7 +1,6 @@
 <template>
   <div id="show">
-    <div class="section" id="shows">
-      <div class="ui-show-step6"></div>
+    <div class="show">
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
       <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入了群聊，群聊参与人还有: 这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德哈卡烧烤、这是阿是会撒娇德</div>
       <div class="ui-show-step3 step clearfix" ref="go3">
@@ -37,23 +36,26 @@
       <div class="ui-show-step4 step" ref="go7">
         你被"<span>群主</span>"移除群聊
       </div>
-      <div class="ui-show-step5"></div>
-    </div>
-    <div class="footer">
-      <span class="show-voice"></span>
-      <span class="show-input"></span>
-      <span class="show-smile"></span>
-      <span class="show-plus"></span>
-    </div>
-    <div class="ui-show-step7 step" ref="go8">
-      <div class="ui-show-cen" @click="modalbox"></div>
-      <div class="ui-show-alert" ref="alertBox">
-        <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
-        <div class="alert-content">当前群人数<span>321</span>人</div>
-        <div class="alert-btn" @click="toggles">好的</div>
+
+      <div class="ui-show-step5 step" ref="go8">
+        <div class="ui-show-cen" @click="modalbox"></div>
+        <div class="ui-show-alert" ref="alertBox">
+          <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
+          <div class="alert-content">当前群人数<span>321</span>人</div>
+          <div class="alert-btn" @click="toggles">好的</div>
+        </div>
       </div>
+
+      <div class="show-footer">
+        <span class="show-voice"></span>
+        <span class="show-input"></span>
+        <span class="show-smile"></span>
+        <span class="show-plus"></span>
+      </div>
+
     </div>
   </div>
+
 </template>
 <style>
   @import '../assets/style/show.less';
@@ -173,9 +175,9 @@
           }
           _i ++;
 
-          var ele = document.getElementById('shows');
+          var ele = document.getElementById('show');
           var _a = ele.scrollHeight;
-          document.getElementById('show').scrollTop =  _a;
+          ele.scrollTop =  _a;
 
         },800)
       },
@@ -225,7 +227,7 @@
       }
 
       document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('shows');
+      var ele = document.getElementById('show');
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
           eleTop = ele.scrollTop,
