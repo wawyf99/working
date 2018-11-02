@@ -90,7 +90,9 @@
         let self = this;
         self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
           this.shareUrl = res.data
-          wxShare({ title: '111', desc: '222', link: this.shareUrl+this.wxid, logo: ''});
+          var shareUrl = this.shareUrl+this.wxid;
+          console.log(shareUrl);
+          wxShare({ title: '111', desc: '222', link: shareUrl , logo: ''});
         });
       },
       //点击模态框
