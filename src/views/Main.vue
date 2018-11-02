@@ -6,8 +6,17 @@
       <div class="ui-title" v-cloak>{{title}}</div>
       <div class="ui-num" v-cloak ref="c">{{enrollment}}人</div>
     </div>
-    <Footer :invitor = invitor></Footer>
+<!--    <Footer :invitor = invitor></Footer>-->
+    <div class="ui-footer">
+      <div class="ui-invite" v-cloak>{{invitor}}邀请你加入群聊</div>
+      <input type="button" value="加入群聊" class="ui-btn" @click="show">
+      <div class="ui-role">
+        <p>1.您和群里其他人都不是朋友关系，请注意隐私安全。</p>
+        <p>2.该群聊人数较多，为减少新信息给您带来的打扰，建议进群后屏蔽消息通知。</p>
+      </div>
+    </div>
   </div>
+
 
 </template>
 <style>
@@ -15,16 +24,17 @@
 </style>
 <script>
   import Header from "../components/Header";
-  import Footer from "../components/Footer";
-  import Global from "../utils/global";
+  //import Footer from "../components/Footer";
+  //import Global from "../utils/global";
   export default {
-    components: {Header, Footer},
+    components: {Header},
     name: 'Main',
     data () {
       return {
         title: '*',
         enrollment: '*',
         invitor : '*',
+        wxid : this.$route.query.wxid
       }
     },
     created() {
@@ -36,19 +46,22 @@
     methods:{
       getApi(){
         let self = this;
-
-        self.$http.post(global.url.chatGetTitle,{}).then(res => {
-          if(res){
+        self.$http.post(global.baseUrl+global.url.chatGetTitle,{}).then(res => {
+          if(res.status){
             self.$vux.loading.hide()
-            this.title = res.title;
-            this.enrollment = res.enrollment;
-            this.invitor = res.invitor;
+            self.title = res.data.title;
+            self.enrollment = res.data.enrollment;
+            self.invitor = res.data.invitor;
           }
         });
       },
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
       },
+      show(){
+        let self = this;
+        self.$router.push({path: '/show',query :{wxid: this.wxid, invitor:this.invitor}});
+      }
     },
     mounted(){
 

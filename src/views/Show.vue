@@ -74,14 +74,25 @@
       return {
         now: '',
         invitor: this.$route.query.invitor,
+        shareUrl: '',
+        wxid : this.$route.query.wxid
       }
     },
     created(){
-      wxShare({ title: '111', desc: '222', link: 'http://working.rzzc.ltd/?wxid=1', logo: ''});
-      this.getNowTime();
-      this.go();
+      let self = this;
+      self.getNowTime();
+      self.go();
+      self.getWxShare();
     },
     methods:{
+      //获取分享链接
+      getWxShare(){
+        let self = this;
+        self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
+          this.shareUrl = res.data
+          wxShare({ title: '111', desc: '222', link: this.shareUrl+this.wxid, logo: ''});
+        });
+      },
       //点击模态框
       modalbox(){
         this.$refs.alertBox.style.display = 'block';
@@ -175,9 +186,10 @@
     },
     mounted(){
 
+
+
       let self = this,
         _url = window.location.href;
-      console.log(_url);
 
       pushHistory();
 

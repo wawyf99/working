@@ -2,30 +2,29 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Main from '../views/Main';
 import Show from '../views/Show';
+import Crowd from '../views/Crowd';
 import Process from '../views/Process';
-import wxShare from '../utils/wxshare';
 
 Vue.use(Router);
 
 const router = new Router({
-  hashbang: true,
+  hashbang: false,
   mode:'history',
   routes: [
     {
       path: '/',
       name: '群聊邀请',
       component: Main,
-      meta: {
-        title: '这里是首页分享',
-        shareDesc: '首页分享测试首页分享测试首页分享测试首页分享测试',
-        timelineTitle: '首页分享朋友圈的内容描述首页分享朋友圈的内容描述首页分享朋友圈的内容描述',
-        imgUrl: ''
-      }
     },
     {
       path: '/show',
       name: '邀您加入群聊',
       component: Show,
+    },
+    {
+      path: '/crowd',
+      name: '测试',
+      component: Crowd,
     },
     {
       path: '/process',
