@@ -46,12 +46,14 @@
         </div>
       </div>
     </div>
+
     <div class="show-footer">
       <span class="show-voice"></span>
       <span class="show-input"></span>
       <span class="show-smile"></span>
       <span class="show-plus"></span>
     </div>
+
   </div>
 
 </template>
