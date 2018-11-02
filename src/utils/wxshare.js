@@ -11,15 +11,6 @@ Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
 
 
-/*var u = navigator.userAgent;
-var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-if (isiOS) {
-  _url = global.appEntryUrl;
-}
-console.log(global.appEntryUrl);*/
-
-//console.log(_url);
-
 export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}) {
 
   var _url = window.location.href,

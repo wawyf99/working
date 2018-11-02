@@ -6,8 +6,8 @@ import router from './router'
 import global from './utils/global'
 /*import ajax from './utils/ajax';*/
 import userAgent from './utils/userAgent';
-/*import routerRule from './utils/wxshare'*/
-/*routerRule(router);*/
+import routerRule from './utils/wxshare'
+routerRule(router);
 
 //import VueAwesomeSwiper from 'vue-awesome-swiper'
 import {ToastPlugin, ConfirmPlugin, AlertPlugin, LoadingPlugin, AjaxPlugin } from 'vux'
