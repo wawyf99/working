@@ -62,7 +62,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
             break;
           case 5:
             step = 6;
-            router.push({ path: '/', query : {wxid: wxid}},);
+            window.location.href = 'http://www.baidu.com';
             break;
           default:
             step = 1;
@@ -99,7 +99,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
             break;
           case 5:
             step = 6;
-            router.push({ path: '/', query : {wxid: wxid}},);
+            window.location.href = 'http://www.baidu.com';
             break;
           default:
             step = 1;
