@@ -14,6 +14,7 @@ global.wxUrl = "http://localhost:3031";*/
 global.url = {
   chatGetTitle: "/chat/get-title",
   get_wx_share: '/chat/getWxShare',
+  domain_skip: '/chat/domainSkip',
   wx_share: "/wechat/wxinfo",  //获取微信相关信息
 };
 

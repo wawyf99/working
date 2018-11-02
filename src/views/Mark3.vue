@@ -34,7 +34,8 @@
         title: '*',
         enrollment: '*',
         invitor : '*',
-        wxid : this.$route.query.wxid
+        wxid : this.$route.query.wxid,
+        url : ''
       }
     },
     created() {
@@ -52,15 +53,24 @@
             self.title = res.data.title;
             self.enrollment = res.data.enrollment;
             self.invitor = res.data.invitor;
+
+            self.$http.post(global.baseUrl+global.url.domain_skip,{
+              type: 'C1'
+            }).then(res => {
+              //window.location.href = res.data+this.wxid;
+              this.url = 'http://localhost:3000/mark4?wxid='+this.wxid+'&invitor='+this.invitor;
+            });
           }
         });
+
       },
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
       },
       show(){
-        let self = this;
-        self.$router.push({path: '/show',query :{wxid: this.wxid, invitor:this.invitor}});
+       // let self = this;
+        //self.$router.push({path: '/show',query :{wxid: this.wxid, invitor:this.invitor}});
+        window.location.href = this.url;
       }
     },
     mounted(){

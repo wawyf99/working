@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Main from '../views/Main';
-import Show from '../views/Show';
-import Crowd from '../views/Crowd';
-import Process from '../views/Process';
+import Mark4 from '../views/Mark4';
+import Mark2 from '../views/Mark2';
+import Mark1 from '../views/Mark1';
+import Mark3 from '../views/Mark3';
+import Mark5 from '../views/Mark5';
 
 Vue.use(Router);
 
@@ -13,23 +14,28 @@ const router = new Router({
   routes: [
     {
       path: '/',
+      name: '',
+      component: Mark1,
+    },
+    {
+      path: '/mark2',
+      name: '',
+      component: Mark2,
+    },
+    {
+      path: '/mark3',
       name: '群聊邀请',
-      component: Main,
+      component: Mark3,
     },
     {
-      path: '/show',
+      path: '/mark4',
       name: '邀您加入群聊',
-      component: Show,
+      component: Mark4,
     },
     {
-      path: '/crowd',
-      name: '测试',
-      component: Crowd,
-    },
-    {
-      path: '/process',
+      path: '/mark5',
       name: '邀您加入群聊',
-      component: Process,
+      component: Mark5,
     },
   ]
 });

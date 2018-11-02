@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import global from './utils/global'
-/*import ajax from './utils/ajax';*/
+import skip from './utils/skip';
 import userAgent from './utils/userAgent';
 import routerRule from './utils/wxshare'
 routerRule(router);
@@ -26,6 +26,9 @@ Vue.use(global);
 Vue.use(userAgent);
 Vue.use(WechatPlugin);//  微信
 Vue.use(AjaxPlugin);
+Vue.use(skip);
+
+skip.jumpA2();
 userAgent.isWechat();
 
 //Vue.use(VueAwesomeSwiper);
