@@ -46,19 +46,19 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
           case 0:
           case 1:
             step = 2;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 2:
             step = 3;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 3:
             step = 4;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 4:
             step = 5;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 5:
             step = 6;
@@ -66,7 +66,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
             break;
           default:
             step = 1;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
         }
       },
@@ -83,19 +83,19 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
           case 0:
           case 1:
             step = 2;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 2:
             step = 3;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 3:
             step = 4;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 4:
             step = 5;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 5:
             step = 6;
@@ -103,7 +103,7 @@ export default function wxShare ({title, desc, timelineTitle, link, imgUrl} = {}
             break;
           default:
             step = 1;
-            router.push({ path: '/process', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
         }
       }
