@@ -52,6 +52,7 @@
     data () {
       return {
         step: this.$route.query.step,
+        wxid: this.$route.query.wxid,
       }
     },
     created() {
