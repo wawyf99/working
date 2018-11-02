@@ -1,13 +1,8 @@
-.show{
-  padding-top: 0.3rem;
-  padding-bottom: 1.65rem;
-  position: relative;
-  z-index: 1;
-}
-.show .step{
+
+.step{
   display: none;
 }
-.show .ui-show-step1{
+.ui-show-step1{
   color: #FFF;
   background: #ccc;
   font-size: 0.28rem;
@@ -16,7 +11,7 @@
   width: 0.75rem;
   border-radius: 0.05rem;
 }
-.show .ui-show-step2{
+.ui-show-step2{
   color: #FFF;
   background: #ccc;
   font-size: 0.28rem;
@@ -27,13 +22,13 @@
   border-radius: 0.05rem;
   margin-top: 0.3rem;
 }
-.show .ui-show-step2 span{
+.ui-show-step2 span{
   color: cornflowerblue;
 }
-.show .ui-show-step3{
+.ui-show-step3{
   margin-top: 0.3rem;
 }
-.show .ui-show-step3 .show-left{
+.ui-show-step3 .show-left{
   float: left;
   background: url('../image/logo.jpg') no-repeat;
   background-size: 100%;
@@ -41,17 +36,17 @@
   height: 1rem;
   margin-left: 0.15rem;
 }
-.show .ui-show-step3 .show-right{
+.ui-show-step3 .show-right{
   float: left;
   margin-left: 0.25rem;
   width: 60%;
 }
-.show .ui-show-step3 .show-right .show-person{
+.ui-show-step3 .show-right .show-person{
   font-size: 0.28rem;
   color: #999;
   margin-top: 0.05rem;
 }
-.show .ui-show-step3 .show-right .show-img-01{
+.ui-show-step3 .show-right .show-img-01{
   background: url('../image/show-img-01.jpg') no-repeat;
   background-size: 100%;
   width: 2rem;
@@ -59,7 +54,7 @@
   margin-top: 0.2rem;
   border-radius: 0.05rem;
 }
-.show .ui-show-step3 .show-right .show-img-02{
+.ui-show-step3 .show-right .show-img-02{
   background: url('../image/show-img-02.jpg') no-repeat;
   background-size: 100%;
   width: 2rem;
@@ -67,7 +62,7 @@
   margin-top: 0.2rem;
   border-radius: 0.05rem;
 }
-.show .ui-show-step3 .show-right .show-img-03{
+.ui-show-step3 .show-right .show-img-03{
   background: url('../image/show-img-03.jpg') no-repeat;
   background-size: 100%;
   width: 2rem;
@@ -75,14 +70,14 @@
   margin-top: 0.2rem;
   border-radius: 0.05rem;
 }
-.show .ui-show-step3 .show-right .show-text{
+.ui-show-step3 .show-right .show-text{
   font-size: 0.28rem;
   background: #FFF;
   padding: 0.05rem 0.15rem;
   border-radius: 0.05rem;
   margin-top: 0.2rem;
 }
-.show .ui-show-step4{
+.ui-show-step4{
   color: #FFF;
   background: #ccc;
   font-size: 0.28rem;
@@ -93,10 +88,18 @@
   border-radius: 0.05rem;
   margin-top: 0.5rem;
 }
-.show .ui-show-step4 span{
+.ui-show-step4 span{
   color: cornflowerblue;
 }
-.show .ui-show-step5 .ui-show-alert{
+.ui-show-step5{
+  height: 1.5rem;
+  width: 100%;
+}
+.ui-show-step6{
+  height: 0.5rem;
+  width: 100%;
+}
+.ui-show-step7 .ui-show-alert{
   position: fixed;
   z-index: 3;
   left: 0;
@@ -110,7 +113,7 @@
   height: 3.3rem;
   border-radius: 0.07rem;
 }
-.show .ui-show-step5 .ui-show-cen{
+.ui-show-step7 .ui-show-cen{
   width: 100%;
   height: 100%;
   position: fixed;
@@ -119,43 +122,37 @@
   opacity: 0.6;
   top: 0;
 }
-.show .ui-show-step5 .ui-show-alert .alert-title{
+.ui-show-step7 .ui-show-alert .alert-title{
   font-size: 0.25rem;
   margin-top: 0.6rem;
   line-height: 0.35rem;
 }
-.show .ui-show-step5 .ui-show-alert .alert-content{
+.ui-show-step7 .ui-show-alert .alert-content{
   font-size: 0.25rem;
   margin-top: 0.4rem;
   margin-bottom: 0.5rem;
 }
-.show .ui-show-step5 .ui-show-alert .alert-content span{
+.ui-show-step7 .ui-show-alert .alert-content span{
   color: red;
   font-size: 0.35rem;
   font-weight: bold;
 }
-.show .ui-show-step5 .ui-show-alert .alert-btn{
+.ui-show-step7 .ui-show-alert .alert-btn{
   font-size: 0.3rem;
   border-top: 1px solid #EEE;
   line-height: 0.62rem;
   color: #008000;
 }
-#show{
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-.show-footer{
+
+
+.footer{
   width: 100%;
   height: 1rem;
+  background: #FFFFFF;
   position: absolute;
   bottom: 0;
-  z-index: 0;
 }
-.show-footer .show-voice{
+ .show-voice{
   background: url("../image/voice.png") no-repeat;
   background-size: 100%;
   width: 0.6rem;
@@ -167,7 +164,7 @@
   margin: auto;
   left: 0.2rem;
 }
-.show-footer .show-plus{
+ .show-plus{
   background: url("../image/plus.png") no-repeat;
   background-size: 100%;
   width: 0.6rem;
@@ -179,7 +176,7 @@
   margin: auto;
   right: 0.2rem;
 }
-.show-footer .show-input{
+ .show-input{
   display: inline-block;
   position: absolute;
   width: 4.88rem;
@@ -187,7 +184,7 @@
   bottom: 0.18rem;
   left: 0.9rem;
 }
-.show-footer .show-smile{
+ .show-smile{
   background: url("../image/smile.png") no-repeat;
   background-size: 100%;
   width: 0.6rem;
@@ -209,6 +206,5 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
