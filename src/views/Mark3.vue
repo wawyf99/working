@@ -57,10 +57,7 @@
             self.$http.post(global.baseUrl+global.url.domain_skip,{
               type: 'C1'
             }).then(res => {
-              console.log(res.data+this.wxid+'&invitor='+this.invitor);
-              window.location.href = res.data+this.wxid+'&invitor='+this.invitor;
-
-              //this.url = 'http://localhost:3000/mark4?wxid='+this.wxid+'&invitor='+this.invitor;
+              this.url = res.data+this.wxid+'&invitor='+this.invitor;
             });
           }
         });

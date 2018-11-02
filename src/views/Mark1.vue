@@ -23,7 +23,6 @@
         self.$http.post(global.baseUrl+global.url.domain_skip,{
           type: 'A2'
         }).then(res => {
-          console.log(res.data+this.wxid);
           window.location.href = res.data+this.wxid;
           //window.location.href = 'http://localhost:3000/mark2?wxid='+this.wxid;
         });
