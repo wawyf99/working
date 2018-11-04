@@ -107,7 +107,7 @@
             logo = res.logo,
             link = shareUrl,
             flock_logo = res.flock_logo;
-          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: link , logo: logo , flock_logo: flock_logo});
+          wxShare({ title: '1', desc: '2', timelineTitle: '3', link: link , logo: '4' , flock_logo: '5'});
         });
 
       },
