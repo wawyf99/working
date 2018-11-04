@@ -88,11 +88,11 @@
       //获取分享链接
       getWxShare(){
         let self = this;
-        self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
+        /*self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
           this.shareUrl = res.data
           var shareUrl = this.shareUrl+this.wxid;
           wxShare({ title: '111', desc: '222', link: shareUrl , logo: ''});
-        });
+        });*/
 /*        self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
           this.shareUrl = res.url;
           var shareUrl = this.shareUrl+this.wxid;
