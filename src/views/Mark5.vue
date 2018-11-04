@@ -80,9 +80,9 @@
     created() {
       let self = this;
       self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-        this.shareUrl = res.data
+        this.shareUrl = res.url;
         var shareUrl = this.shareUrl+this.wxid;
-        wxShare({ title: '444', desc: '555', link: shareUrl , logo: ''});
+        wxShare({ title: res.title, desc: res.describe, flock_title: res.flock_title, link: shareUrl , logo: res.logo, flock_logo: res.flock_logo });
       });
       self.getAlertBox();
     },
@@ -90,6 +90,7 @@
       '$route' (to, from) {
         this.step = this.$route.query.step;
         this.getAlertBox();
+        this.$refs.alertBox.style.display = 'block';
       }
     },
     methods:{
