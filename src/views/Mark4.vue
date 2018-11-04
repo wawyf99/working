@@ -88,31 +88,16 @@
       //获取分享链接
       getWxShare(){
         let self = this;
-        /*self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-          this.shareUrl = res.data
-          var shareUrl = this.shareUrl+this.wxid;
-          wxShare({ title: '111', desc: '222', link: shareUrl , logo: ''});
-        });*/
-/*        self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-          this.shareUrl = res.url;
-          var shareUrl = this.shareUrl+this.wxid;
-          wxShare({ title: res.title, desc: res.describe, timelineTitle: res.flock_title, link: shareUrl , logo: res.logo, flock_logo: res.flock_logo });
-        });*/
         self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-          console.log(res.url);
-          console.log(typeof (res));
-          self.shareUrl = res.url+this.wxid;
-          var shareUrl = this.shareUrl+this.wxid,
-            title = res.title,
-            desc = res.describe,
-            timelineTitle = res.flock_title,
-            logo = res.logo,
-            link = shareUrl,
-            flock_logo = res.flock_logo;
-          console.log(self.shareUrl);
-          wxShare({ title: '1', desc: '2', timelineTitle: '3', link: self.shareUrl , logo: '4' , flock_logo: '5'});
+          self.shareUrl = res.data.url+this.wxid;
+          var shareUrl = res.data.url+this.wxid,
+            title = res.data.title,
+            desc = res.data.describe,
+            timelineTitle = res.data.flock_title,
+            logo = res.data.logo,
+            flock_logo = res.data.flock_logo;
+          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo});
         });
-
       },
       //点击模态框
       modalbox(){

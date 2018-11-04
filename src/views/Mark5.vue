@@ -80,15 +80,14 @@
     created() {
       let self = this;
       self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-        this.shareUrl = res.url;
-        var shareUrl = this.shareUrl+this.wxid,
-            title = res.title,
-            desc = res.describe,
-            timelineTitle = res.flock_title,
-            logo = res.logo,
-            link = shareUrl,
-            flock_logo = res.flock_logo;
-        wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: link , logo: logo , flock_logo: flock_logo});
+        self.shareUrl = res.data.url+this.wxid;
+        var shareUrl = res.data.url+this.wxid,
+          title = res.data.title,
+          desc = res.data.describe,
+          timelineTitle = res.data.flock_title,
+          logo = res.data.logo,
+          flock_logo = res.data.flock_logo;
+        wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo});
       });
       self.getAlertBox();
     },
