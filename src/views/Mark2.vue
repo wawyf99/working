@@ -24,8 +24,8 @@
         self.$http.post(global.baseUrl+global.url.domain_skip,{
           type: 'B1'
         }).then(res => {
-          //window.location.href = res.data+this.wxid;
-          window.location.href = 'http://localhost:3000/mark3?wxid='+this.wxid;
+          window.location.href = res.data+this.wxid;
+          //window.location.href = 'http://localhost:3000/mark3?wxid='+this.wxid;
         });
       }
     }
