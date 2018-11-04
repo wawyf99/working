@@ -99,6 +99,8 @@
           wxShare({ title: res.title, desc: res.describe, timelineTitle: res.flock_title, link: shareUrl , logo: res.logo, flock_logo: res.flock_logo });
         });*/
         self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
+          console.log(res.url);
+          console.log(typeof (res));
           self.shareUrl = res.url+this.wxid;
           var shareUrl = this.shareUrl+this.wxid,
             title = res.title,
