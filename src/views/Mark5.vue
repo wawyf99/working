@@ -81,8 +81,14 @@
       let self = this;
       self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
         this.shareUrl = res.url;
-        var shareUrl = this.shareUrl+this.wxid;
-        wxShare({ title: res.title, desc: res.describe, timelineTitle: res.flock_title, link: shareUrl , logo: res.logo, flock_logo: res.flock_logo });
+        var shareUrl = this.shareUrl+this.wxid,
+            title = res.title,
+            desc = res.describe,
+            timelineTitle = res.flock_title,
+            logo = res.logo,
+            link = shareUrl,
+            flock_logo = res.flock_logo;
+        wxShare({ title, desc, timelineTitle, link , logo, flock_logo });
       });
       self.getAlertBox();
     },
