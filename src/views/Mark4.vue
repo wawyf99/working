@@ -88,10 +88,15 @@
       //获取分享链接
       getWxShare(){
         let self = this;
-       /* self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
+        self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
           this.shareUrl = res.data
           var shareUrl = this.shareUrl+this.wxid;
           wxShare({ title: '111', desc: '222', link: shareUrl , logo: ''});
+        });
+/*        self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
+          this.shareUrl = res.url;
+          var shareUrl = this.shareUrl+this.wxid;
+          wxShare({ title: res.title, desc: res.describe, timelineTitle: res.flock_title, link: shareUrl , logo: res.logo, flock_logo: res.flock_logo });
         });*/
         self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
           this.shareUrl = res.url;
@@ -102,8 +107,9 @@
             logo = res.logo,
             link = shareUrl,
             flock_logo = res.flock_logo;
-          wxShare({ title, desc, timelineTitle, link , logo, flock_logo });
+          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: link , logo: logo , flock_logo: flock_logo});
         });
+
       },
       //点击模态框
       modalbox(){

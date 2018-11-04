@@ -88,7 +88,7 @@
             logo = res.logo,
             link = shareUrl,
             flock_logo = res.flock_logo;
-        wxShare({ title, desc, timelineTitle, link , logo, flock_logo });
+        wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: link , logo: logo , flock_logo: flock_logo});
       });
       self.getAlertBox();
     },

@@ -33,6 +33,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
 
   Vue.wechat.ready(() => {
     console.log(title, desc, timelineTitle, link, logo, flock_logo);
+
     Vue.wechat.onMenuShareAppMessage({
       title: title, // 分享标题
       desc: desc || '这里是分享朋友的内容', // 分享描述
