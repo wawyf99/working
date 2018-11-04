@@ -68,8 +68,8 @@
       },
       show(){
        // let self = this;
-        //self.$router.push({path: '/show',query :{wxid: this.wxid, invitor:this.invitor}});
-        window.location.href = this.url;
+        this.$router.push({path: '/mark4',query :{wxid: this.wxid, invitor:this.invitor}});
+        //window.location.href = this.url;
       }
     },
     mounted(){
