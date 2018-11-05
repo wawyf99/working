@@ -39,21 +39,31 @@
       }
     },
     created() {
-
+      console.log(IpQuery);
       var self = this;
       self.$vux.loading.show()
       self.getApi();
     },
     methods:{
+
       getApi(){
         let self = this;
+        let city = IpQuery.city,
+            province = IpQuery.province,
+            _str = '';
+
+        if(city){
+          _str = city.replace(/市/, '');
+        }else{
+          _str = province.replace(/省/, '');
+        }
+
         self.$http.post(global.baseUrl+global.url.chatGetTitle,{}).then(res => {
           if(res.status){
             self.$vux.loading.hide()
-            self.title = res.data.title;
+            self.title = res.data.title.replace(/city/, _str);
             self.enrollment = res.data.enrollment;
             self.invitor = res.data.invitor;
-
             self.$http.post(global.baseUrl+global.url.domain_skip,{
               type: 'C1'
             }).then(res => {

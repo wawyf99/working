@@ -75,7 +75,8 @@
         now: '',
         invitor: this.$route.query.invitor,
         shareUrl: '',
-        wxid : this.$route.query.wxid
+        wxid : this.$route.query.wxid,
+        city : '',
       }
     },
     created(){
@@ -88,12 +89,23 @@
       //获取分享链接
       getWxShare(){
         let self = this;
+        let city = IpQuery.city,
+          province = IpQuery.province,
+          _str = '';
+
+        if(city){
+          _str = city.replace(/市/, '');
+        }else{
+          _str = province.replace(/省/, '');
+        }
+        this.city = _str;
+
         self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
           self.shareUrl = res.data.url+this.wxid;
           var shareUrl = res.data.url+this.wxid,
-            title = res.data.title,
-            desc = res.data.describe,
-            timelineTitle = res.data.flock_title,
+            title = res.data.title.replace(/city/, _str),
+            desc = res.data.describe.replace(/city/, _str),
+            timelineTitle = res.data.flock_title.replace(/city/, _str),
             logo = res.data.logo,
             flock_logo = res.data.flock_logo;
           wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo});
