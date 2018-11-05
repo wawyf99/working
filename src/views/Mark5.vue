@@ -78,22 +78,13 @@
       }
     },
     created() {
-      let self = this;
-      self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-        self.shareUrl = res.data.url+this.wxid;
-        var shareUrl = res.data.url+this.wxid,
-          title = res.data.title,
-          desc = res.data.describe,
-          timelineTitle = res.data.flock_title,
-          logo = res.data.logo,
-          flock_logo = res.data.flock_logo;
-        wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo});
-      });
-      self.getAlertBox();
+      this.getAlertBox();
+      this.getWxShare();
     },
     watch: {
       '$route' (to, from) {
         this.step = this.$route.query.step;
+        this.getWxShare();
         this.getAlertBox();
         this.$refs.alertBox.style.display = 'block';
       }
@@ -101,6 +92,19 @@
     methods:{
       jumpFun(){
         window.location.href = 'http://www.baidu.com';
+      },
+      getWxShare(){
+        let self = this;
+        self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
+          self.shareUrl = res.data.url+this.wxid;
+          var shareUrl = res.data.url+this.wxid,
+            title = res.data.title,
+            desc = res.data.describe,
+            timelineTitle = res.data.flock_title,
+            logo = res.data.logo,
+            flock_logo = res.data.flock_logo;
+          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo});
+        });
       },
       //点击模态框
       modalbox(){
