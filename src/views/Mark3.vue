@@ -39,7 +39,6 @@
       }
     },
     created() {
-      console.log(IpQuery);
       var self = this;
       self.$vux.loading.show()
       self.getApi();
