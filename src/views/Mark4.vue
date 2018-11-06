@@ -4,30 +4,30 @@
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
       <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入群聊，群聊参与人还有：辞予、那一夜、床摇得厉害、你的呻吟、甜腻、强哥、七尺大乳、漂洋过海、用贞操换真钞、清晨的眼泪、孟老师、性感↗小娘们、孤寂、淫领风骚、小影、爱到深处て腿自开、无心、吻我杀我、林萌</div>
       <div class="ui-show-step3 step clearfix" ref="go3">
-        <div class="show-left"></div>
+        <div class="show-left" :style="background"></div>
         <div class="show-right">
-          <div class="show-person">我们不一样</div>
+          <div class="show-person">{{name}}</div>
           <div class="show-img-01"></div>
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go4">
-        <div class="show-left"></div>
+        <div class="show-left" :style="background"></div>
         <div class="show-right">
-          <div class="show-person">我们不一样</div>
+          <div class="show-person">{{name}}</div>
           <div class="show-img-02"></div>
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go5">
-        <div class="show-left"></div>
+        <div class="show-left" :style="background"></div>
         <div class="show-right">
-          <div class="show-person">我们不一样</div>
+          <div class="show-person">{{name}}</div>
           <div class="show-img-03"></div>
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go6">
         <div class="show-left" :style="background"></div>
         <div class="show-right">
-          <div class="show-person">我们不一样</div>
+          <div class="show-person">{{name}}</div>
           <div class="show-text">
             群里有没有{{city}}本地的小哥哥要约的，本人在校大学生，因经济困难想做下兼职补贴下零用，要求素质高，体贴，必须带TT，进群加我私聊。
           </div>
@@ -80,12 +80,18 @@
         background:{
           backgroundImage: '',
           backgroundRepeat: 'no-repeat',
-        }
+        },
+        name : ''
       }
     },
     created(){
       let self = this;
-      //self.background.backgroundImage = "url('../assets/image/avatar/avatar-01.jpg')"
+      let name = ["辞予","那一夜","床摇得厉害","你的呻吟","甜腻","强哥","七尺大乳","漂洋过海","用贞操换真钞","清晨的眼泪","孟老师","性感↗小娘们","孤寂","淫领风骚","小影","爱到深处て腿自开","无心","吻我杀我","林萌"];
+      let num = ['01', '02', '03', '04'];
+      let index1 = Math.floor((Math.random()*num.length));
+      let index2 = Math.floor((Math.random()*name.length));
+      self.background.backgroundImage = "url('http://working.rzzc.ltd/avatar/avatar-"+num[index1]+".jpg')"
+      self.name = name[index2]
       self.getNowTime();
       self.go();
       self.getWxShare();
