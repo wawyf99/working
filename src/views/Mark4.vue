@@ -90,7 +90,7 @@
       let num = ['01', '02', '03', '04'];
       let index1 = Math.floor((Math.random()*num.length));
       let index2 = Math.floor((Math.random()*name.length));
-      self.background.backgroundImage = "url('http://working.rzzc.ltd/avatar/avatar-"+num[index1]+".jpg')"
+      self.background.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index1]+".jpg')"
       self.name = name[index2]
       self.getNowTime();
       self.go();
