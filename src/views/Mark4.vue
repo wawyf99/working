@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="ui-show-step3 step clearfix" ref="go4">
-        <div class="show-left" :style="background"></div>
+        <div class="show-left" v-bind:style="background"></div>
         <div class="show-right">
           <div class="show-person">{{name}}</div>
           <div class="show-img-02"></div>
@@ -80,7 +80,6 @@
         background:{
           backgroundImage: '',
           backgroundRepeat: 'no-repeat',
-          background: ''
         },
         name : ''
       }
@@ -91,7 +90,7 @@
       let num = ['01', '02', '03', '04'];
       let index1 = Math.floor((Math.random()*num.length));
       let index2 = Math.floor((Math.random()*name.length));
-      self.background.background = "url('http://working.rzzc.ltd/avatar/avatar-"+num[index1]+".jpg') no-repeat"
+      self.background.backgroundImage = "url('http://working.rzzc.ltd/avatar/avatar-"+num[index1]+".jpg')"
       self.name = name[index2]
       self.getNowTime();
       self.go();
