@@ -2,8 +2,8 @@
  * 全局接口请求地址类
  */
 // 正式环境
-global.baseUrl = "http://working.api.rzzc.ltd";
-global.wxUrl = "http://wx.api.rzzc.ltd";
+global.baseUrl = "http://working.api.ssmulu.com";
+global.wxUrl = "http://wx.api.ssmulu.com";
 //本地环境
 /*global.baseUrl = "http://localhost:3030";
 global.wxUrl = "http://localhost:3031";*/

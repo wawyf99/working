@@ -24,7 +24,7 @@ const router = new Router({
     },
     {
       path: '/mark3',
-      name: '群聊邀请',
+      name: '',
       component: Mark3,
     },
     {
