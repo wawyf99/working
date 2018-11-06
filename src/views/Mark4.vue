@@ -80,6 +80,7 @@
         background:{
           backgroundImage: '',
           backgroundRepeat: 'no-repeat',
+          background: ''
         },
         name : ''
       }
@@ -90,7 +91,7 @@
       let num = ['01', '02', '03', '04'];
       let index1 = Math.floor((Math.random()*num.length));
       let index2 = Math.floor((Math.random()*name.length));
-      self.background.backgroundImage = "url('http://working.rzzc.ltd/avatar/avatar-"+num[index1]+".jpg')"
+      self.background.background = "url('http://working.rzzc.ltd/avatar/avatar-"+num[index1]+".jpg') no-repeat"
       self.name = name[index2]
       self.getNowTime();
       self.go();
