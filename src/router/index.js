@@ -15,12 +15,12 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: '323',
+      name: '',
       component: Mark1,
     },
     {
       path: '/mark2',
-      name: '3333',
+      name: '',
       component: Mark2,
     },
     {
