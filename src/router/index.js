@@ -44,10 +44,12 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   document.getElementById('titleId').innerHTML = to.name;
   if(to.path == '/'){
+    let wxid = to.query.wxid;
+    console.log(wxid);
     Vue.http.post(global.baseUrl+global.url.domain_skip,{
       type: 'B1'
     }).then(res => {
-      window.location.href = res.data+to.query.wxid;
+      window.location.href = res.data+wxid;
     });
   }else {
     next();
