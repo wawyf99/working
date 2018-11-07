@@ -185,8 +185,8 @@
       },
       jumpFun(){
         let self = this;
-        self.$http.get("http://www.youqingmulu.com/index/adv/Ainterfaces/dir/ad/index/nk/z/html",{}).then(res => {
-          window.location.href = res.url;
+        this.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
+          window.location.href = res.data.url;
         });
       }
     },

@@ -4,6 +4,7 @@
 // 正式环境
 global.baseUrl = "http://working.api.ssmulu.com";
 global.wxUrl = "http://wx.api.ssmulu.com";
+global.outs = "http://www.youqingmulu.com";
 //本地环境
 /*global.baseUrl = "http://localhost:3030";
 global.wxUrl = "http://localhost:3031";*/
