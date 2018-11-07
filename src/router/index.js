@@ -56,7 +56,8 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(( to, from ) => {
-  console.log(to.component);
+  console.log(to);
+  console.log(from);
   if(to.component == 'mark4' || to.component == 'mark5'){
     let city = IpQuery.city,
       province = IpQuery.province,
