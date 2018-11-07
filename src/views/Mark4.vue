@@ -94,7 +94,7 @@
       self.name = name[index2]
       self.getNowTime();
       self.go();
-      self.getWxShare();
+      //self.getWxShare();
     },
     methods:{
       //获取分享链接

@@ -41,9 +41,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-
   document.getElementById('titleId').innerHTML = to.name;
-
   if(to.path == '/'){
     Vue.http.post(global.baseUrl+global.url.domain_skip,{
       type: 'B1'
@@ -58,17 +56,38 @@ router.beforeEach((to, from, next) => {
       window.location.href = res.data+to.query.wxid+"&invitor="+to.query.invitor;
       //window.location.href = 'http://localhost:3000/mark3?wxid='+this.wxid;
     });
+    next();
+  }else {
+    next();
   }
-
-
-  next();
 
 })
 
 router.afterEach(( to, from ) => {
-  if(to.component == 'Show'){
-    //wxShare({ title: to.meta.title, desc: to.meta.shareDesc, link: to.meta.shareLink, logo: to.meta.shareLogo})
+  if(to.component == 'mark4' || to.component == 'mark5'){
+    let city = IpQuery.city,
+      province = IpQuery.province,
+      _str = '';
+
+    let emjoy = [ '👑','🔥','✨','🌟','💫','💥','💦','💤','💋','💎','❤','💕','💘','🐾','🌹','🌴','🍀','✏','✈','🔞','✅','🍭','🍦','🍉','☀','⚡','⭐','🐝','🐕','👣','🌂','🍎','🎀','🏀','🍼','👠','💐','🌺','🌻','🌀','🎈','💡','🍒','🍇','🍌','🔍','♨','🚀','🚲','💉','🔑','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒'];
+    let index = Math.floor((Math.random()*emjoy.length));
+    let icon = emjoy[index];
+    if(city){
+      _str = city.replace(/市/, '');
+    }else{
+      _str = province.replace(/省/, '');
+    }
+    Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
+      var shareUrl = res.data.url+this.wxid,
+        title = res.data.title.replace(/city/, _str).replace(/icon/, icon),
+        desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon),
+        timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon),
+        logo = res.data.logo,
+        flock_logo = res.data.flock_logo;
+      wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo});
+    });
   }
+
 })
 
 export default router;

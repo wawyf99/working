@@ -84,7 +84,7 @@
     watch: {
       '$route' (to, from) {
         this.step = this.$route.query.step;
-        this.getWxShare();
+        //this.getWxShare();
         this.getAlertBox();
         this.$refs.alertBox.style.display = 'block';
       }
