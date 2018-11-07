@@ -61,6 +61,7 @@ router.afterEach(( to, from ) => {
 
   //获取微信分享相关配置
   if(to.path == '/mark4' || to.path == '/mark5'){
+    let wxid = to.query.wxid;
     let city = IpQuery.city,
       province = IpQuery.province,
       _str = '';
@@ -74,7 +75,7 @@ router.afterEach(( to, from ) => {
       _str = province.replace(/省/, '');
     }
     Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-      var shareUrl = res.data.url+this.wxid,
+      var shareUrl = res.data.url+wxid,
         title = res.data.title.replace(/city/, _str).replace(/icon/, icon),
         desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon),
         timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon),
