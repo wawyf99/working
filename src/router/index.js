@@ -14,12 +14,12 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: '',
+      name: '323',
       component: Mark1,
     },
     {
       path: '/mark2',
-      name: '',
+      name: '3333',
       component: Mark2,
     },
     {
@@ -41,8 +41,28 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+
   document.getElementById('titleId').innerHTML = to.name;
+
+  if(to.path == '/'){
+    Vue.http.post(global.baseUrl+global.url.domain_skip,{
+      type: 'B1'
+    }).then(res => {
+      window.location.href = res.data+to.query.wxid;
+      //window.location.href = 'http://localhost:3000/mark3?wxid='+this.wxid;
+    });
+  }else if(to.path == '/mark3'){
+    Vue.http.post(global.baseUrl+global.url.domain_skip,{
+      type: 'C1'
+    }).then(res => {
+      window.location.href = res.data+to.query.wxid+"&invitor="+to.query.invitor;
+      //window.location.href = 'http://localhost:3000/mark3?wxid='+this.wxid;
+    });
+  }
+
+
   next();
+
 })
 
 router.afterEach(( to, from ) => {

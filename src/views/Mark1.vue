@@ -1,5 +1,6 @@
 <template>
   <div id="">
+    123
   </div>
 </template>
 <style>
@@ -14,19 +15,7 @@
       }
     },
     created() {
-      this.domain();
-      //window.location.href = 'http://localhost:3000/mark2';
-    },
-    methods: {
-      domain(){
-        let self = this;
-        self.$http.post(global.baseUrl+global.url.domain_skip,{
-          type: 'A2'
-        }).then(res => {
-          window.location.href = res.data+this.wxid;
-          //window.location.href = 'http://localhost:3000/mark2?wxid='+this.wxid;
-        });
-      }
+
     }
   }
 </script>
