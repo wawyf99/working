@@ -5,6 +5,7 @@ import Mark2 from '../views/Mark2';
 import Mark1 from '../views/Mark1';
 import Mark3 from '../views/Mark3';
 import Mark5 from '../views/Mark5';
+import wxShare from '../utils/wxshare'
 
 Vue.use(Router);
 

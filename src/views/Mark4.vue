@@ -63,7 +63,6 @@
 <script>
   import { Alert, XDialog } from 'vux'
   import Global from "../utils/global";
-  import wxShare from '../utils/wxshare';
   export default {
     name: 'Show',
     components: {
@@ -97,34 +96,6 @@
       //self.getWxShare();
     },
     methods:{
-      //获取分享链接
-      getWxShare(){
-        let self = this;
-        let city = IpQuery.city,
-          province = IpQuery.province,
-          _str = '';
-        let emjoy = [ '👑','🔥','✨','🌟','💫','💥','💦','💤','💋','💎','❤','💕','💘','🐾','🌹','🌴','🍀','✏','✈','🔞','✅','🍭','🍦','🍉','☀','⚡','⭐','🐝','🐕','👣','🌂','🍎','🎀','🏀','🍼','👠','💐','🌺','🌻','🌀','🎈','💡','🍒','🍇','🍌','🔍','♨','🚀','🚲','💉','🔑','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒'];
-        let index = Math.floor((Math.random()*emjoy.length));
-        let icon = emjoy[index];
-
-        if(city){
-          _str = city.replace(/市/, '');
-        }else{
-          _str = province.replace(/省/, '');
-        }
-        this.city = _str;
-
-        self.$http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-          self.shareUrl = res.data.url+this.wxid;
-          var shareUrl = res.data.url+this.wxid,
-            title = res.data.title.replace(/city/, _str).replace(/icon/, icon),
-            desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon),
-            timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon),
-            logo = res.data.logo,
-            flock_logo = res.data.flock_logo;
-          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo});
-        });
-      },
       //点击模态框
       modalbox(){
         this.$refs.alertBox.style.display = 'block';
