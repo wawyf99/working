@@ -49,14 +49,6 @@ router.beforeEach((to, from, next) => {
       window.location.href = res.data+to.query.wxid;
       //window.location.href = 'http://localhost:3000/mark3?wxid='+this.wxid;
     });
-  }else if(to.path == '/mark3'){
-    Vue.http.post(global.baseUrl+global.url.domain_skip,{
-      type: 'C1'
-    }).then(res => {
-      window.location.href = res.data+to.query.wxid+"&invitor="+to.query.invitor;
-      //window.location.href = 'http://localhost:3000/mark3?wxid='+this.wxid;
-    });
-    next();
   }else {
     next();
   }
@@ -64,6 +56,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(( to, from ) => {
+  console.log(to.component);
   if(to.component == 'mark4' || to.component == 'mark5'){
     let city = IpQuery.city,
       province = IpQuery.province,

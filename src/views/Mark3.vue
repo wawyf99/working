@@ -76,8 +76,6 @@
         window.location.href = 'http://www.baidu.com';
       },
       show(){
-       // let self = this;
-        //this.$router.push({path: '/mark4',query :{wxid: this.wxid, invitor:this.invitor}});
         window.location.href = this.url;
       }
     },
