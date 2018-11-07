@@ -185,7 +185,7 @@
       },
       jumpFun(){
         let self = this;
-        this.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
+        self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
           window.location.href = res.data.url;
         });
       }
