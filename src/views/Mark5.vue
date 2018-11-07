@@ -78,7 +78,6 @@
     },
     created() {
       this.getAlertBox();
-      this.getWxShare();
     },
     watch: {
       '$route' (to, from) {

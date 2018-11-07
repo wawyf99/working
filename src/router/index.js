@@ -48,7 +48,6 @@ router.beforeEach((to, from, next) => {
       type: 'B1'
     }).then(res => {
       window.location.href = res.data+to.query.wxid;
-      //window.location.href = 'http://localhost:3000/mark3?wxid='+this.wxid;
     });
   }else {
     next();
@@ -57,6 +56,8 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(( to, from ) => {
+
+  //获取微信分享相关配置
   if(to.path == '/mark4' || to.path == '/mark5'){
     let city = IpQuery.city,
       province = IpQuery.province,
