@@ -56,7 +56,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(( to, from ) => {
-  if(to.path == 'mark4' || to.path == 'mark5'){
+  if(to.path == '/mark4' || to.path == '/mark5'){
     let city = IpQuery.city,
       province = IpQuery.province,
       _str = '';
