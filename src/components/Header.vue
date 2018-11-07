@@ -1,6 +1,6 @@
 <template>
   <div class="ui-header">
-      <div class="ui-back">
+      <div class="ui-back" @click="jumpFun">
         <i class="fa fa-angle-left fa-lg" aria-hidden="true"></i>
         返回
       </div>
@@ -14,6 +14,9 @@
       }
     },
     created(){
+
+    },
+    methods:{
 
     }
   }

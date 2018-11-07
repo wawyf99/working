@@ -88,7 +88,12 @@
     },
     methods:{
       jumpFun(){
-        window.location.href = 'http://www.baidu.com';
+        let self = this;
+        self.$http.post("http://www.youqingmulu.com/index/adv/Ainterfaces/dir/ad/index/nk/z/html",{}).then(res => {
+          if(res.url){
+            window.location.href = res.url;
+          }
+        });
       },
       //点击模态框
       modalbox(){

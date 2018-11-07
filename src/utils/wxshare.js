@@ -63,7 +63,11 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             break;
           case 5:
             step = 6;
-            window.location.href = 'http://www.baidu.com';
+            Vue.http.post("http://www.youqingmulu.com/index/adv/Ainterfaces/dir/ad/index/nk/z/html",{}).then(res => {
+              if(res.url){
+                window.location.href = res.url;
+              }
+            });
             break;
           default:
             step = 1;
