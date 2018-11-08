@@ -26,7 +26,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
         signature: res.data.signature,
-        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
+        jsApiList: ['checkJsApi', 'onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
     });
   }
@@ -36,14 +36,17 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
     console.log(typeof(type),type);
     Vue.wechat.hideAllNonBaseMenuItem();
     if(types == 1){
+      console.log('11')
       Vue.wechat.showMenuItems({
         menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
       })
     }else if(types == 2){
+      console.log('22')
       Vue.wechat.showMenuItems({
         menuList: ["menuItem:share:timeline"]
       })
     }else if(types == 3){
+      console.log('33')
       Vue.wechat.showMenuItems({
         menuList: ["menuItem:share:appMessage"]
       })
