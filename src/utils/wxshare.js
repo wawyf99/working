@@ -32,8 +32,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   }
 
   Vue.wechat.ready(() => {
-
-    alert(type);
+    let type = parseInt(type);
     Vue.wechat.hideAllNonBaseMenuItem();
     if(type == 1){
       Vue.wechat.showMenuItems({
