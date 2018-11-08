@@ -26,7 +26,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
         signature: res.data.signature,
-        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline']
+        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'hideMenuItems']
       })
     });
   }
