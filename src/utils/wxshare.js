@@ -43,9 +43,15 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       }
     })
 
-/*    Vue.wechat.showMenuItems({
-      menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
-    })*/
+    Vue.wechat.showMenuItems({
+      menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"],
+      success: function (res) {
+        console.log(res)
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
 
 
     /*if(types == 1){
