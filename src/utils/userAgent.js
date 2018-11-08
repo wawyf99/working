@@ -20,8 +20,6 @@ var browser = {
     };
   }(),
   isWechat: function () {
-    console.log(this.versions);
-    console.log(navigator.userAgent.toLowerCase());
     if (this.versions.mobile) {
       if(this.versions.webdebugger){
         return false;
