@@ -54,7 +54,7 @@ router.beforeEach((to, from, next) => {
   }else {
 
     //获取微信分享相关配置
-    if(to.path == '/mark3' || to.path == '/mark4'){
+    if(to.path == '/mark4' || to.path == '/mark5'){
       let wxid = to.query.wxid;
       let city = IpQuery.city,
         province = IpQuery.province,
