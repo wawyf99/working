@@ -49,7 +49,7 @@ router.beforeEach((to, from, next) => {
   if(userAgent.isWechat()){
      window.location.href = "https://xw.qq.com/";
   }else{
-    console.log(getcookie());
+    console.log(cookie.getCookie());
 
    /* if(to.path == '/mark3' && to.query.wxid)*/
 
