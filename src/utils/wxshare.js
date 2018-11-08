@@ -37,11 +37,14 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
 
     Vue.wechat.hideAllNonBaseMenuItem();
 
-    if(types == 1){
+    /*if(types == 1){
       alert('11');
       Vue.wechat.showMenuItems({
-        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
+        menuList: ["menuItem:share:timeline"]
       })
+      wx.showMenuItems({
+        menuList: [] // 要显示的菜单项，所有menu项见附录3
+      });
     }else if(types == 2){
       alert('22');
       Vue.wechat.showMenuItems({
@@ -52,7 +55,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       Vue.wechat.showMenuItems({
         menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
       })
-    }
+    }*/
     Vue.wechat.onMenuShareAppMessage({
       title: title, // 分享标题
       desc: desc || '这里是分享朋友的内容', // 分享描述
