@@ -51,14 +51,8 @@ router.beforeEach((to, from, next) => {
 
     document.getElementById('titleId').innerHTML = to.name;
 
-    //处理跳转;
-    console.log(to, from, next);
-    console.log(to.path, from.path);
-
-
     if(to.path == '/'){
       let wxid = to.query.wxid;
-      console.log(wxid);
       Vue.http.post(global.baseUrl+global.url.domain_skip,{
         type: 'B1'
       }).then(res => {
@@ -107,8 +101,6 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(( to, from ) => {
   //处理跳转;
-  console.log(to, from);
-  console.log(to.path, from.path);
 })
 
 export default router;

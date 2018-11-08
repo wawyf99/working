@@ -20,6 +20,7 @@ var browser = {
     };
   }(),
   isWechat: function () {
+    console.log(this.versions);
     if (this.versions.mobile) {
       let ua = navigator.userAgent.toLowerCase();
       if (ua.match(/MicroMessenger/i) == "micromessenger"){
