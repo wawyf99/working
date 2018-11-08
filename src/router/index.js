@@ -72,9 +72,9 @@ router.beforeEach((to, from, next) => {
 
       if(!to.query.step){
         _type = 1;
-      }else if(to.query.step == '5' || to.query.step == '6'){
+      }else if(to.query.step == '4' || to.query.step == '5'){
         _type = 2;
-      }else if(to.query.step == '1' || to.query.step == '2' || to.query.step == '3' || to.query.step == '4'){
+      }else if(to.query.step == '1' || to.query.step == '2' || to.query.step == '3'){
         _type = 3;
       }
 
