@@ -49,7 +49,7 @@ router.beforeEach((to, from, next) => {
      window.location.href = "https://xw.qq.com/";
   }else{
 
-   if(to.path == '/mark4' && from.path != '/mark3'){
+   if(to.path == '/mark4' && !to.query.t){
      window.location.href = "https://xw.qq.com/";
    }else if(to.path == '/mark5' && from.path != '/mark4'){
      window.location.href = "https://xw.qq.com/";
