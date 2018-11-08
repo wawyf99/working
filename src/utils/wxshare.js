@@ -33,6 +33,16 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
 
   Vue.wechat.ready(() => {
 
+    Vue.wechat.hideAllNonBaseMenuItem();
+    Vue.wechat.hideMenuItems({
+      menuList: [
+        'menuItem:share:qq',
+        "menuItem:share:weiboApp",
+        "menuItem:favorite",
+        "menuItem:share:facebook",
+        "menuItem:share:QZone"
+      ] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+    });
 
     Vue.wechat.onMenuShareAppMessage({
       title: title, // 分享标题
