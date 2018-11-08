@@ -71,7 +71,7 @@
             }).then(res => {
               let key = 'zhang125';
               const info = {
-                sort: md5(zhang125),
+                sort: md5(key),
               };
               cookie.info = info;
               cookie.setCookie();
