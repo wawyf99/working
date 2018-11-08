@@ -26,25 +26,27 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
         signature: res.data.signature,
-        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'hideMenuItems']
+        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
     });
   }
 
   Vue.wechat.ready(() => {
-    console.log(type);
 
-/*    Vue.wechat.hideAllNonBaseMenuItem();
-    Vue.wechat.hideMenuItems({
-      menuList: [
-        'menuItem:share:qq',
-        "menuItem:share:weiboApp",
-        "menuItem:favorite",
-        "menuItem:share:facebook",
-        "menuItem:share:QZone"
-      ] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-    });*/
-
+    Vue.wechat.hideAllNonBaseMenuItem();
+    if(type == 1){
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
+      })
+    }else if(type == 2){
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:timeline"]
+      })
+    }else if(type == 3){
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:appMessage"]
+      })
+    }
     Vue.wechat.onMenuShareAppMessage({
       title: title, // 分享标题
       desc: desc || '这里是分享朋友的内容', // 分享描述
