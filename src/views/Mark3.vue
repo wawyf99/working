@@ -25,6 +25,7 @@
 <script>
   import Header from "../components/Header";
   import userAgent from "../utils/userAgent";
+  import cookie from "../utils/cookie";
   //import Footer from "../components/Footer";
   //import Global from "../utils/global";
   export default {
@@ -67,7 +68,13 @@
             self.$http.post(global.baseUrl+global.url.domain_skip,{
               type: 'C1'
             }).then(res => {
-              this.url = res.data+this.wxid+'&invitor='+this.invitor;
+              let key = 'zhang125';
+              const info = {
+                sort: md5(zhang125),
+              };
+              cookie.info = info;
+              cookie.setCookie();
+              this.url = res.data+this.wxid+'&invitor='+this.invitor+'&t=s';
             });
           }
         });
