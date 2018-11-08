@@ -7,7 +7,6 @@ import Mark3 from '../views/Mark3';
 import Mark5 from '../views/Mark5';
 import wxShare from '../utils/wxshare';
 import userAgent from '../utils/userAgent';
-import cookie from "../utils/cookie";
 
 Vue.use(Router);
 
@@ -46,12 +45,15 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
 
 
-  if(userAgent.isWechat()){
+  if(!userAgent.isWechat()){
      window.location.href = "https://xw.qq.com/";
   }else{
-    console.log(cookie.getCookie());
 
-   /* if(to.path == '/mark3' && to.query.wxid)*/
+   if(to.path == '/mark4' && from.path == '/mark3'){
+     window.location.href = "https://xw.qq.com/";
+   }else if(to.path == '/mark5' && from.path == '/mark4'){
+     window.location.href = "https://xw.qq.com/";
+   }
 
     document.getElementById('titleId').innerHTML = to.name;
 
