@@ -40,7 +40,6 @@
       }
     },
     created() {
-      userAgent.isWechat();
       var self = this;
       self.$vux.loading.show()
       self.getApi();
