@@ -43,6 +43,19 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   document.getElementById('titleId').innerHTML = to.name;
+
+  //处理跳转;
+
+  if(to.path == '/mark4' && from.path != '/mark3'){
+    console.log('111111111111');
+  }else if(to.path == '/mark5' && from.path != '/mark4'){
+
+  }else{
+    console.log(to.path, from.path);
+  }
+  console.log(to.path, from.path);
+
+
   if(to.path == '/'){
     let wxid = to.query.wxid;
     console.log(wxid);
@@ -52,7 +65,6 @@ router.beforeEach((to, from, next) => {
       window.location.href = res.data+wxid;
     });
   }else {
-
     //获取微信分享相关配置
     if(to.path == '/mark4' || to.path == '/mark5'){
       let wxid = to.query.wxid;
@@ -88,17 +100,12 @@ router.beforeEach((to, from, next) => {
         wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, type: _type});
       });
     }
-
     next();
   }
-
-
 
 })
 
 router.afterEach(( to, from ) => {
-
-
 
 })
 
