@@ -24,6 +24,7 @@
 </style>
 <script>
   import Header from "../components/Header";
+  import userAgent from "../utils/userAgent";
   //import Footer from "../components/Footer";
   //import Global from "../utils/global";
   export default {
@@ -39,6 +40,9 @@
       }
     },
     created() {
+      if (!userAgent.isWechat()){
+        window.location.href = "https://xw.qq.com";
+      }
       var self = this;
       self.$vux.loading.show()
       self.getApi();

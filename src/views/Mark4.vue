@@ -63,6 +63,7 @@
 <script>
   import { Alert, XDialog } from 'vux'
   import Global from "../utils/global";
+  import userAgent from "../utils/userAgent";
   export default {
     name: 'Show',
     components: {
@@ -84,6 +85,9 @@
       }
     },
     created(){
+      if (!userAgent.isWechat()){
+        window.location.href = "https://xw.qq.com";
+      }
       let self = this;
       let name = ["辞予","那一夜","床摇得厉害","你的呻吟","甜腻","强哥","七尺大乳","漂洋过海","用贞操换真钞","清晨的眼泪","孟老师","性感↗小娘们","孤寂","淫领风骚","小影","爱到深处て腿自开","无心","吻我杀我","林萌"];
       let num = ['01', '02', '03', '04'];

@@ -63,6 +63,7 @@
 </style>
 <script>
   import { Alert, XDialog } from 'vux'
+  import userAgent from "../utils/userAgent";
   export default {
     name: 'Process',
     components: {
@@ -77,6 +78,9 @@
       }
     },
     created() {
+      if (!userAgent.isWechat()){
+        window.location.href = "https://xw.qq.com";
+      }
       this.getAlertBox();
     },
     watch: {
