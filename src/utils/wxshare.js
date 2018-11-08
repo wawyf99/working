@@ -29,51 +29,27 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         jsApiList: ['checkJsApi', 'onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
 
-      Vue.wechat.hideAllNonBaseMenuItem({
-        success: function (res) {
-          console.log(res)
-        },
-        fail: function (res) {
-          console.log(res)
-        }
-      })
+      let types = type;
 
+      if(types == 1){
       Vue.wechat.showMenuItems({
-        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"],
-        success: function (res) {
-          console.log(res)
-        },
-        fail: function (res) {
-          console.log(res)
-        }
-      })
+          menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
+        })
+      }else if(types == 2){
+        Vue.wechat.showMenuItems({
+          menuList: ["menuItem:share:timeline"]
+        })
+      }else if(types == 3){
+        Vue.wechat.showMenuItems({
+          menuList: [ "menuItem:share:appMessage"]
+        })
+      }
 
     });
   }
 
   Vue.wechat.ready(() => {
-    let types = type;
-    //console.log(typeof(type),type);
 
-    /*if(types == 1){
-      alert('11');
-      Vue.wechat.showMenuItems({
-        menuList: ["menuItem:share:timeline"]
-      })
-      wx.showMenuItems({
-        menuList: [] // 要显示的菜单项，所有menu项见附录3
-      });
-    }else if(types == 2){
-      alert('22');
-      Vue.wechat.showMenuItems({
-        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
-      })
-    }else if(types == 3){
-      alert('33');
-      Vue.wechat.showMenuItems({
-        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
-      })
-    }*/
     Vue.wechat.onMenuShareAppMessage({
       title: title, // 分享标题
       desc: desc || '这里是分享朋友的内容', // 分享描述
