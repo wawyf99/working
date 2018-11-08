@@ -78,9 +78,7 @@
       }
     },
     created() {
-      if (!userAgent.isWechat()){
-        window.location.href = "https://xw.qq.com";
-      }
+      userAgent.isWechat();
       this.getAlertBox();
     },
     watch: {
