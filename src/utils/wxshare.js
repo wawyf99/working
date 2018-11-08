@@ -34,7 +34,9 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   Vue.wechat.ready(() => {
     let types = type;
     console.log(typeof(type),type);
+
     Vue.wechat.hideAllNonBaseMenuItem();
+
     if(types == 1){
       alert('11');
       Vue.wechat.showMenuItems({
@@ -43,12 +45,12 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
     }else if(types == 2){
       alert('22');
       Vue.wechat.showMenuItems({
-        menuList: ["menuItem:share:timeline"]
+        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
       })
     }else if(types == 3){
       alert('33');
       Vue.wechat.showMenuItems({
-        menuList: ["menuItem:share:appMessage"]
+        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
       })
     }
     Vue.wechat.onMenuShareAppMessage({
