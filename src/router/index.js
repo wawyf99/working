@@ -63,8 +63,9 @@ router.afterEach(( to, from ) => {
   if(to.path == '/mark4' || to.path == '/mark5'){
     let wxid = to.query.wxid;
     let city = IpQuery.city,
-      province = IpQuery.province,
-      _str = '';
+        province = IpQuery.province,
+        _type = '',
+        _str = '';
 
     let emjoy = [ '👑','🔥','✨','🌟','💫','💥','💦','💤','💋','💎','❤','💕','💘','🐾','🌹','🌴','🍀','✏','✈','🔞','✅','🍭','🍦','🍉','☀','⚡','⭐','🐝','🐕','👣','🌂','🍎','🎀','🏀','🍼','👠','💐','🌺','🌻','🌀','🎈','💡','🍒','🍇','🍌','🔍','♨','🚀','🚲','💉','🔑','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒'];
     let index = Math.floor((Math.random()*emjoy.length));
@@ -74,6 +75,16 @@ router.afterEach(( to, from ) => {
     }else{
       _str = province.replace(/省/, '');
     }
+
+    if(!to.query.step){
+      _type = 1;
+    }else if(to.query.step == '5' || to.query.step == '6'){
+      _type = 2;
+    }else if(to.query.step == '1' || to.query.step == '2' || to.query.step == '3' || to.query.step == '4'){
+      _type = 3;
+    }
+    console.log(_type);
+
     Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
       var shareUrl = res.data.url+wxid,
         title = res.data.title.replace(/city/, _str).replace(/icon/, icon),
@@ -81,7 +92,7 @@ router.afterEach(( to, from ) => {
         timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon),
         logo = res.data.logo,
         flock_logo = res.data.flock_logo;
-      wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo});
+      wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, type: _type});
     });
   }
 

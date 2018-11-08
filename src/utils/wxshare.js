@@ -10,7 +10,7 @@ import { WechatPlugin, AjaxPlugin } from 'vux'
 Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
 
-export default function wxShare ({title, desc, timelineTitle, link, logo, flock_logo } = {}) {
+export default function wxShare ({title, desc, timelineTitle, link, logo, flock_logo, type } = {}) {
 
   var _url = window.location.href,
       step = router.history.current.query.step,
@@ -32,8 +32,9 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   }
 
   Vue.wechat.ready(() => {
+    console.log(type);
 
-    Vue.wechat.hideAllNonBaseMenuItem();
+/*    Vue.wechat.hideAllNonBaseMenuItem();
     Vue.wechat.hideMenuItems({
       menuList: [
         'menuItem:share:qq',
@@ -42,7 +43,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         "menuItem:share:facebook",
         "menuItem:share:QZone"
       ] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-    });
+    });*/
 
     Vue.wechat.onMenuShareAppMessage({
       title: title, // 分享标题
