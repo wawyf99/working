@@ -78,7 +78,6 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 5:
-            step = 6;
             Vue.http.post("/emsTest/index/adv/AinterfaceS",{}).then(res => {
               window.location.href = res.data.url;
             });
@@ -117,8 +116,9 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
             break;
           case 5:
-            step = 6;
-            window.location.href = 'http://www.baidu.com';
+            Vue.http.post("/emsTest/index/adv/AinterfaceS",{}).then(res => {
+              window.location.href = res.data.url;
+            });
             break;
           default:
             step = 1;
