@@ -26,6 +26,7 @@
   import Header from "../components/Header";
   import userAgent from "../utils/userAgent";
   import cookie from "../utils/cookie";
+  import md5 from "js-md5";
   //import Footer from "../components/Footer";
   //import Global from "../utils/global";
   export default {
