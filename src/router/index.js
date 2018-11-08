@@ -45,14 +45,7 @@ router.beforeEach((to, from, next) => {
   document.getElementById('titleId').innerHTML = to.name;
 
   //处理跳转;
-
-  if(to.path == '/mark4' && from.path != '/mark3'){
-    console.log('111111111111');
-  }else if(to.path == '/mark5' && from.path != '/mark4'){
-
-  }else{
-    console.log(to.path, from.path);
-  }
+  console.log(to, from, next);
   console.log(to.path, from.path);
 
 
@@ -106,7 +99,9 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(( to, from ) => {
-
+  //处理跳转;
+  console.log(to, from);
+  console.log(to.path, from.path);
 })
 
 export default router;
