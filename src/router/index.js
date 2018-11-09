@@ -59,16 +59,14 @@ router.beforeEach((to, from, next) => {
     document.getElementById('titleId').innerHTML = to.name;
 
     if(to.path == '/mark1'){
-      //let wxid = to.query.wxid;
       Vue.http.post(global.baseUrl+global.url.domain_skip,{
         type: 'B1'
       }).then(res => {
-        window.location.href = res.data+wxid;
+        window.location.href = res.data;
       });
     }else {
       //获取微信分享相关配置
       if(to.path == '/mark4' || to.path == '/mark5'){
-        let wxid = to.query.wxid;
         let city = IpQuery.city,
           province = IpQuery.province,
           _type = '',
@@ -92,7 +90,7 @@ router.beforeEach((to, from, next) => {
         }
 
         Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-          var shareUrl = res.data.url+wxid,
+          var shareUrl = res.data.url,
             title = res.data.title.replace(/city/, _str).replace(/icon/, icon),
             desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon),
             timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon),
