@@ -28,8 +28,6 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         jsApiList: ['checkJsApi', 'onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
 
-      console.log(title, desc, timelineTitle, link, logo, flock_logo, type, wxid);
-
       let types = type;
       Vue.wechat.hideAllNonBaseMenuItem();
       if(types == 1){
