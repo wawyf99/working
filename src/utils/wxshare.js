@@ -20,13 +20,15 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       wxid : wxid
     }).then(res => {
       Vue.wechat.config({
-        debug: true,
+        debug: false,
         appId: res.data.appId,
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
         signature: res.data.signature,
         jsApiList: ['checkJsApi', 'onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
+
+      console.log(title, desc, timelineTitle, link, logo, flock_logo, type, wxid);
 
       let types = type;
       Vue.wechat.hideAllNonBaseMenuItem();
