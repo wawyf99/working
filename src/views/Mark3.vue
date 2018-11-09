@@ -8,7 +8,7 @@
     </div>
 <!--    <Footer :invitor = invitor></Footer>-->
     <div class="ui-footer">
-      <div class="ui-invite" v-cloak>{{invitor}}邀请你加入群聊</div>
+      <div class="ui-invite" v-cloak>{{invitor}} 邀请你加入群聊</div>
       <input type="button" value="加入群聊" class="ui-btn" @click="show">
       <div class="ui-role">
         <p>1.您和群里其他人都不是朋友关系，请注意隐私安全。</p>
@@ -43,6 +43,10 @@
       var self = this;
       self.$vux.loading.show()
       self.getApi();
+      let name = ["辞予","那一夜","床摇得厉害","你的呻吟","甜腻","强哥","七尺大乳","漂洋过海","用贞操换真钞","清晨的眼泪","孟老师","性感↗小娘们","孤寂","淫领风骚","小影","爱到深处て腿自开","无心","吻我杀我","林萌"];
+      let index2 = Math.floor((Math.random()*name.length));
+      self.invitor = name[index2];
+
     },
     methods:{
 
@@ -63,11 +67,11 @@
             self.$vux.loading.hide()
             self.title = res.data.title.replace(/city/, _str);
             self.enrollment = res.data.enrollment;
-            self.invitor = res.data.invitor;
+            /*self.invitor = res.data.invitor;*/
             self.$http.post(global.baseUrl+global.url.domain_skip,{
               type: 'C1'
             }).then(res => {
-              this.url = res.data+this.wxid+'&invitor='+this.invitor+'&t=s';
+              this.url = res.data+'?t=s';
             });
           }
         });

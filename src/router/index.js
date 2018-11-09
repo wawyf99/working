@@ -17,12 +17,12 @@ const router = new Router({
     {
       path: '/',
       name: '',
-      component: Mark1,
+      component: Mark2,
     },
     {
-      path: '/mark2',
+      path: '/mark1',
       name: '',
-      component: Mark2,
+      component: Mark1,
     },
     {
       path: '/mark3',
@@ -45,7 +45,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
 
 
-  if(!userAgent.isWechat()){
+  if(userAgent.isWechat()){
      window.location.href = "https://xw.qq.com/";
   }else{
    if(to.path == '/mark4' && !to.query.t){
@@ -58,8 +58,8 @@ router.beforeEach((to, from, next) => {
 
     document.getElementById('titleId').innerHTML = to.name;
 
-    if(to.path == '/'){
-      let wxid = to.query.wxid;
+    if(to.path == '/mark1'){
+      //let wxid = to.query.wxid;
       Vue.http.post(global.baseUrl+global.url.domain_skip,{
         type: 'B1'
       }).then(res => {
@@ -97,8 +97,9 @@ router.beforeEach((to, from, next) => {
             desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon),
             timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon),
             logo = res.data.logo,
+            wxid = res.data.wxid,
             flock_logo = res.data.flock_logo;
-          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, type: _type});
+          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, type: _type, wxid: wxid});
         });
       }
       next();

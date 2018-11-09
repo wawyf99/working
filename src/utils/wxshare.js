@@ -10,11 +10,10 @@ import { WechatPlugin, AjaxPlugin } from 'vux'
 Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
 
-export default function wxShare ({title, desc, timelineTitle, link, logo, flock_logo, type } = {}) {
+export default function wxShare ({title, desc, timelineTitle, link, logo, flock_logo, type, wxid } = {}) {
 
   var _url = window.location.href,
-      step = router.history.current.query.step,
-      wxid = router.history.current.query.wxid;
+      step = router.history.current.query.step;
   if(_url && wxid ){
     Vue.http.post(global.wxUrl+global.url.wx_share, {
       url : _url,
@@ -63,19 +62,19 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
           case 0:
           case 1:
             step = 2;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
           case 2:
             step = 3;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
           case 3:
             step = 4;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
           case 4:
             step = 5;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
           case 5:
             Vue.http.post("/emsTest/index/adv/AinterfaceS",{}).then(res => {
@@ -84,7 +83,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             break;
           default:
             step = 1;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
         }
       },
@@ -101,19 +100,19 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
           case 0:
           case 1:
             step = 2;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
           case 2:
             step = 3;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
           case 3:
             step = 4;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
           case 4:
             step = 5;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
           case 5:
             Vue.http.post("/emsTest/index/adv/AinterfaceS",{}).then(res => {
@@ -122,7 +121,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             break;
           default:
             step = 1;
-            router.push({ path: '/mark5', query : {step : step, wxid: wxid}});
+            router.push({ path: '/mark5', query : {step : step}});
             break;
         }
       }
