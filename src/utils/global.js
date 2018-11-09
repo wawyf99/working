@@ -2,7 +2,7 @@
  * 全局接口请求地址类
  */
 // 正式环境
-global.baseUrl = "http://working.api.ssmulu.com";
+global.baseUrl = "https://working.api.ssmulu.com";
 global.wxUrl = "http://wx.api.ssmulu.com";
 //本地环境
 /*global.baseUrl = "http://localhost:3030";
