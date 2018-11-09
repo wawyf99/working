@@ -16,6 +16,7 @@ global.url = {
   get_wx_share: '/chat/getWxShare',
   domain_skip: '/chat/domainSkip',
   wx_share: "/wechat/wxinfo",  //获取微信相关信息
+  wx_shares: "/wechat/wxinfos",  //获取微信相关信息
 };
 
 global.page = {

@@ -15,7 +15,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   var _url = window.location.href,
       step = router.history.current.query.step;
   if(_url && wxid ){
-    Vue.http.post(global.wxUrl+global.url.wx_share, {
+    Vue.http.post(global.wxUrl+global.url.wx_shares, {
       url : _url,
       wxid : wxid
     }).then(res => {
