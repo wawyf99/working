@@ -20,7 +20,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       wxid : wxid
     }).then(res => {
       Vue.wechat.config({
-        debug: false,
+        debug: true,
         appId: res.data.appId,
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
@@ -29,10 +29,10 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       })
 
       let types = type;
-      console.log(types);
+      console.log(typeof(types));
       Vue.wechat.hideAllNonBaseMenuItem();
       if(types == 1){
-      Vue.wechat.showMenuItems({
+        Vue.wechat.showMenuItems({
           menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
         })
       }else if(types == 2){
