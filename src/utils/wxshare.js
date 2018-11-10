@@ -28,29 +28,6 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
 
-      console.log(sort);
-
-      let types = sort;
-      if(!types){
-        types = 1;
-      }
-        if(types == 1){
-          Vue.wechat.hideAllNonBaseMenuItem();
-          Vue.wechat.showMenuItems({
-            menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
-          })
-        }else if(types == 2){
-          Vue.wechat.hideAllNonBaseMenuItem();
-          Vue.wechat.showMenuItems({
-            menuList: ["menuItem:share:timeline"]
-          })
-        }else if(types == 3){
-          Vue.wechat.hideAllNonBaseMenuItem();
-          Vue.wechat.showMenuItems({
-            menuList: [ "menuItem:share:appMessage"]
-          })
-        }
-
     });
   }
 
@@ -133,6 +110,28 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         }
       }
     })
+
+    let types = sort;
+    if(!types){
+      types = 1;
+    }
+    if(types == 1){
+      Vue.wechat.hideAllNonBaseMenuItem();
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
+      })
+    }else if(types == 2){
+      Vue.wechat.hideAllNonBaseMenuItem();
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:timeline"]
+      })
+    }else if(types == 3){
+      Vue.wechat.hideAllNonBaseMenuItem();
+      Vue.wechat.showMenuItems({
+        menuList: [ "menuItem:share:appMessage"]
+      })
+    }
+
   })
 
   Vue.wechat.error((res) => {
