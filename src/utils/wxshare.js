@@ -20,31 +20,30 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       wxid : wxid
     }).then(res => {
       Vue.wechat.config({
-        debug: true,
+        debug: false,
         appId: res.data.appId,
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
         signature: res.data.signature,
         jsApiList: ['checkJsApi', 'onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
-
-      let types = type;
-      console.log(typeof(types));
-      Vue.wechat.hideAllNonBaseMenuItem();
-      if(types == 1){
-        Vue.wechat.showMenuItems({
-          menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
-        })
-      }else if(types == 2){
-        Vue.wechat.showMenuItems({
-          menuList: ["menuItem:share:timeline"]
-        })
-      }else if(types == 3){
-        Vue.wechat.showMenuItems({
-          menuList: [ "menuItem:share:appMessage"]
-        })
+      if(res.data.appId){
+        let types = type;
+        Vue.wechat.hideAllNonBaseMenuItem();
+        if(types == 1){
+          Vue.wechat.showMenuItems({
+            menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
+          })
+        }else if(types == 2){
+          Vue.wechat.showMenuItems({
+            menuList: ["menuItem:share:timeline"]
+          })
+        }else if(types == 3){
+          Vue.wechat.showMenuItems({
+            menuList: [ "menuItem:share:appMessage"]
+          })
+        }
       }
-
     });
   }
 
