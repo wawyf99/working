@@ -275,7 +275,7 @@
       }
 
       document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('app');
+      var ele = document.getElementById('show1');
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
           eleTop = ele.scrollTop,
