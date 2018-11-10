@@ -20,6 +20,7 @@ var browser = {
     };
   }(),
   isWechat: function () {
+
     if (this.versions.mobile) {
       if(this.versions.webdebugger){
         return false;

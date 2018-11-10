@@ -59,6 +59,7 @@
 <script>
   import { Alert, XDialog } from 'vux'
   import Global from "../utils/global";
+  import ua from "../utils/userAgent";
   export default {
     name: 'Show',
     components: {
@@ -275,7 +276,12 @@
       }
 
       document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('app');
+      if(ua.versions.android){
+        var ele = document.getElementById('show1');
+      }else{
+        var ele = document.getElementById('app');
+      }
+
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
           eleTop = ele.scrollTop,
