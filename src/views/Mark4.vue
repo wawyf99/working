@@ -1,5 +1,5 @@
 <template>
-  <div id="show">
+  <div id="show1">
     <div class="section" id="shows">
       <div style="height: 1.5rem;"></div>
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
@@ -44,8 +44,8 @@
       <span class="show-smile"></span>
       <span class="show-plus"></span>
     </div>
-    <div class="ui-show-cen" @click="modalbox"  ref="go8" id="cen"></div>
-    <div class="ui-show-alert" ref="alertBox">
+    <div class="ui-show-cen1" @click="modalbox"  ref="go8" id="cen"></div>
+    <div class="ui-show-alert1" ref="alertBox">
       <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
       <div class="alert-content">当前群人数<span>321</span>人</div>
       <div class="alert-btn" @click="toggles">好的</div>
@@ -193,7 +193,7 @@
               break;
           }
 
-          var ele = document.getElementById('show');
+          var ele = document.getElementById('show1');
           var _a = ele.scrollHeight;
           document.getElementById("app").scrollTop = _a;
           document.getElementById("cen").style.height = _a + "px";
@@ -272,7 +272,7 @@
       }
 
       document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('show');
+      var ele = document.getElementById('show1');
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
           eleTop = ele.scrollTop,
