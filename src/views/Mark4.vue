@@ -1,6 +1,6 @@
 <template>
   <div id="show1">
-    <div class="section" id="shows">
+    <div class="section" id="shows" :style="uaSort == 1 ? '-webkit-overflow-scrolling':'touch'" >
       <div style="height: 1.5rem;"></div>
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
       <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入群聊，群聊参与人还有：辞予、那一夜、床摇得厉害、你的呻吟、甜腻、强哥、七尺大乳、漂洋过海、用贞操换真钞、清晨的眼泪、孟老师、性感↗小娘们、孤寂、淫领风骚、小影、爱到深处て腿自开、无心、吻我杀我、林萌</div>
@@ -68,6 +68,7 @@
     },
     data () {
       return {
+        uaSort: '',
         now: '',
         invitor: '',
         shareUrl: '',
@@ -277,6 +278,7 @@
 
       document.addEventListener('touchstart', touchStart);
       if(ua.versions.android){
+        this.uaSort = '1';
         var ele = document.getElementById('show1');
       }else{
         var ele = document.getElementById('app');
