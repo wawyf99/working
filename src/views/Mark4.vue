@@ -38,7 +38,7 @@
         你被"<span>群主</span>"移除群聊
       </div>
     </div>
-    <div class="footer" id="footer1">
+    <div class="footer" id="footerId">
       <span class="show-voice"></span>
       <span class="show-input"></span>
       <span class="show-smile"></span>
@@ -158,6 +158,7 @@
               break;
             case 4:
               var el = self.$refs.go4;
+              document.getElementById('footerId').style.position = 'fixed';
               if(el){
                 el.style.display = 'block';
               }
