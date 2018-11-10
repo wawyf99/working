@@ -194,9 +194,9 @@
               break;
           }
 
-          var ele = document.getElementById('shows');
+          var ele = document.getElementById('show1');
           var _a = ele.scrollHeight;
-          document.getElementById("show1").scrollTop = _a;
+          document.getElementById("app").scrollTop = _a;
           document.getElementById("cen").style.height = _a + "px";
           _i ++;
 
