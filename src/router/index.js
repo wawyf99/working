@@ -81,13 +81,7 @@ router.beforeEach((to, from, next) => {
           _str = province.replace(/省/, '');
         }
 
-        if(!to.query.step){
-          _type = 1;
-        }else if(to.query.step == '4' || to.query.step == '5'){
-          _type = 2;
-        }else if(to.query.step == '1' || to.query.step == '2' || to.query.step == '3'){
-          _type = 3;
-        }
+
 
         Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
           var shareUrl = res.data.url,
@@ -97,6 +91,15 @@ router.beforeEach((to, from, next) => {
             logo = res.data.logo,
             wxid = res.data.wxid,
             flock_logo = res.data.flock_logo;
+
+            if(to.query.step == '4' || to.query.step == '5'){
+              _type = 2;
+            }else if(to.query.step == '1' || to.query.step == '2' || to.query.step == '3'){
+              _type = 3;
+            }else{
+              _type = 1;
+            }
+
           wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, type: _type, wxid: wxid});
         });
       }
