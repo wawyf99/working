@@ -140,6 +140,7 @@
           switch (_i) {
             case 1:
               var el = self.$refs.go1;
+              document.getElementById('footerId').style.position = 'absolute';
               if(el){
                 el.style.display = 'block';
               }
