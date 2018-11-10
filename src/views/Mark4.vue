@@ -133,6 +133,7 @@
     },
     methods:{
       go(){
+        document.getElementById('footerId').style.position = 'absolute';
         let self = this;
         var _i = 1;
         console.log(_i);
@@ -140,7 +141,6 @@
           switch (_i) {
             case 1:
               var el = self.$refs.go1;
-              document.getElementById('footerId').style.position = 'absolute';
               if(el){
                 el.style.display = 'block';
               }
