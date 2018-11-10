@@ -10,7 +10,7 @@ import { WechatPlugin, AjaxPlugin } from 'vux'
 Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
 
-export default function wxShare ({title, desc, timelineTitle, link, logo, flock_logo, type, wxid } = {}) {
+export default function wxShare ({title, desc, timelineTitle, link, logo, flock_logo, sort, wxid } = {}) {
 
   var _url = window.location.href,
       step = router.history.current.query.step;
@@ -28,24 +28,30 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         jsApiList: ['checkJsApi', 'onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
 
-      if(res.data.appId){
-        let types = type;
-        console.log(typeof(type), type);
-        Vue.wechat.hideAllNonBaseMenuItem();
+
+      let types = sort;
+      if(!types){
+        types = 1;
+      }
+
+
         if(types == 1){
+          Vue.wechat.hideAllNonBaseMenuItem();
           Vue.wechat.showMenuItems({
             menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
           })
         }else if(types == 2){
+          Vue.wechat.hideAllNonBaseMenuItem();
           Vue.wechat.showMenuItems({
             menuList: ["menuItem:share:timeline"]
           })
         }else if(types == 3){
+          Vue.wechat.hideAllNonBaseMenuItem();
           Vue.wechat.showMenuItems({
             menuList: [ "menuItem:share:appMessage"]
           })
         }
-      }
+
     });
   }
 

@@ -69,7 +69,6 @@ router.beforeEach((to, from, next) => {
       if(to.path == '/mark4' || to.path == '/mark5'){
         let city = IpQuery.city,
           province = IpQuery.province,
-          _type = '',
           _str = '';
 
         let emjoy = [ '👑','🔥','✨','🌟','💫','💥','💦','💤','💋','💎','❤','💕','💘','🐾','🌹','🌴','🍀','✏','✈','🔞','✅','🍭','🍦','🍉','☀','⚡','⭐','🐝','🐕','👣','🌂','🍎','🎀','🏀','🍼','👠','💐','🌺','🌻','🌀','🎈','💡','🍒','🍇','🍌','🔍','♨','🚀','🚲','💉','🔑','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒'];
@@ -90,6 +89,7 @@ router.beforeEach((to, from, next) => {
             timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon),
             logo = res.data.logo,
             wxid = res.data.wxid,
+            _type = '',
             flock_logo = res.data.flock_logo;
 
             if(to.query.step == '4' || to.query.step == '5'){
@@ -101,7 +101,7 @@ router.beforeEach((to, from, next) => {
             }
             console.log(_type);
 
-          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, type: _type, wxid: wxid});
+          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, sort: _type, wxid: wxid});
         });
       }
       next();
