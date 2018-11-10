@@ -1,6 +1,7 @@
 <template>
   <div id="show">
     <div class="section" id="shows">
+      <div style="height: 1.5rem;"></div>
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
       <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入群聊，群聊参与人还有：辞予、那一夜、床摇得厉害、你的呻吟、甜腻、强哥、七尺大乳、漂洋过海、用贞操换真钞、清晨的眼泪、孟老师、性感↗小娘们、孤寂、淫领风骚、小影、爱到深处て腿自开、无心、吻我杀我、林萌</div>
       <div class="ui-show-step3 step clearfix" ref="go3">
@@ -43,7 +44,14 @@
       <span class="show-smile"></span>
       <span class="show-plus"></span>
     </div>
-    <div class="cen"></div>
+    <div class="cen" ref="go8">
+      <div class="ui-show-cen" @click="modalbox"></div>
+      <div class="ui-show-alert" ref="alertBox">
+        <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
+        <div class="alert-content">当前群人数<span>321</span>人</div>
+        <div class="alert-btn" @click="toggles">好的</div>
+      </div>
+    </div>
   </div>
 </template>
 <style>
@@ -175,6 +183,12 @@
               }
               break;
             case 8:
+              var el = self.$refs.go8;
+              if(el){
+                el.style.display = 'block';
+              }
+              break;
+            case 9:
               clearInterval(s);
               break;
           }
@@ -185,6 +199,14 @@
           console.log(parseInt(_a - 100));
           document.getElementById('shows').scrollTop =  _a;
         },800)
+      },
+      //点击模态框
+      modalbox(){
+        this.$refs.alertBox.style.display = 'block';
+      },
+      //点击弹框关闭
+      toggles(){
+        this.$refs.alertBox.style.display = 'none';
       },
       //获取当前时间
       getNowTime(){
@@ -199,6 +221,75 @@
         var _time = myDate.getHours()+":"+ _minutes;
         this.now = _time;
       },
+      //跳转
+      jumpFun(){
+        let self = this;
+        self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
+          window.location.href = res.data.url;
+        });
+      }
+    },
+    mounted(){
+
+
+
+      let self = this,
+        _url = window.location.href;
+
+      pushHistory();
+
+      window.addEventListener("popstate", function(e) {
+        self.jumpFun();
+      }, false);
+
+      function pushHistory() {
+        var state = {
+          title: "title",
+          url: _url
+        };
+        window.history.pushState(state, "title", _url);
+      }
+
+
+
+      window.document.oncontextmenu = function (e) {
+        e.preventDefault();
+      };
+
+      var startX = 0, startY = 0;
+
+      function touchStart(e) {
+        try {
+          var touch = e.touches[0],
+            x = Number(touch.pageX),
+            y = Number(touch.pageY);
+          startX = x;
+          startY = y;
+        } catch (e) {
+          alert(e);
+        }
+      }
+
+      document.addEventListener('touchstart', touchStart);
+      var ele = document.getElementById('show');
+      ele.ontouchmove = function (e) {
+        var point = e.touches[0],
+          eleTop = ele.scrollTop,
+          eleScrollHeight = ele.scrollHeight,
+          eleOffsetHeight = ele.offsetHeight,
+          eleTouchBottom = eleScrollHeight - eleOffsetHeight;
+        if (eleTop === 0) {
+          if (point.clientY > startY) {
+            e.preventDefault();
+          }
+        }
+        else if (eleTop === eleTouchBottom) {
+          if (point.clientY < startY) {
+            e.preventDefault()
+          }
+        }
+      };
+
     }
 
   }
