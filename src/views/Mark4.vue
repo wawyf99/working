@@ -1,6 +1,6 @@
 <template>
   <div id="show">
-    <div class="show">
+    <div class="section" id="shows">
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
       <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入群聊，群聊参与人还有：辞予、那一夜、床摇得厉害、你的呻吟、甜腻、强哥、七尺大乳、漂洋过海、用贞操换真钞、清晨的眼泪、孟老师、性感↗小娘们、孤寂、淫领风骚、小影、爱到深处て腿自开、无心、吻我杀我、林萌</div>
       <div class="ui-show-step3 step clearfix" ref="go3">
@@ -36,30 +36,20 @@
       <div class="ui-show-step4 step" ref="go7">
         你被"<span>群主</span>"移除群聊
       </div>
-
-      <div class="ui-show-step5 step" ref="go8">
-        <div class="ui-show-cen" @click="modalbox"></div>
-        <div class="ui-show-alert" ref="alertBox">
-          <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
-          <div class="alert-content">当前群人数<span>321</span>人</div>
-          <div class="alert-btn" @click="toggles">好的</div>
-        </div>
-      </div>
-
-      <div class="show-footer">
-        <span class="show-voice"></span>
-        <span class="show-input"></span>
-        <span class="show-smile"></span>
-        <span class="show-plus"></span>
-      </div>
-
     </div>
+    <div class="footer">
+      <span class="show-voice"></span>
+      <span class="show-input"></span>
+      <span class="show-smile"></span>
+      <span class="show-plus"></span>
+    </div>
+    <div class="cen"></div>
   </div>
-
 </template>
 <style>
-  @import '../assets/style/show.less';
+  @import '../assets/style/shows.less';
 </style>
+
 <script>
   import { Alert, XDialog } from 'vux'
   import Global from "../utils/global";
@@ -134,34 +124,12 @@
         _str = province.replace(/省/, '');
       }
       this.city = _str;
-
     },
     methods:{
-      //点击模态框
-      modalbox(){
-        this.$refs.alertBox.style.display = 'block';
-      },
-      //点击弹框关闭
-      toggles(){
-        this.$refs.alertBox.style.display = 'none';
-      },
-      //获取当前时间
-      getNowTime(){
-        var myDate = new Date();
-        var _minutes = '';
-
-        if(myDate.getMinutes() < 10){
-          _minutes = "0" + myDate.getMinutes();
-        }else{
-          _minutes = myDate.getMinutes();
-        }
-        var _time = myDate.getHours()+":"+ _minutes;
-        this.now = _time;
-      },
-      //开始流程
       go(){
         let self = this;
         var _i = 1;
+        console.log(_i);
         var s = setInterval(() => {
           switch (_i) {
             case 1:
@@ -207,91 +175,31 @@
               }
               break;
             case 8:
-              var el = self.$refs.go8;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 9:
               clearInterval(s);
               break;
           }
           _i ++;
 
-          var ele = document.getElementById('show');
+          var ele = document.getElementById('shows');
           var _a = ele.scrollHeight;
-          ele.scrollTop =  _a;
-
+          console.log(parseInt(_a - 100));
+          document.getElementById('shows').scrollTop =  _a;
         },800)
       },
-      jumpFun(){
-        let self = this;
-        self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
-          window.location.href = res.data.url;
-        });
-      }
-    },
-    mounted(){
+      //获取当前时间
+      getNowTime(){
+        var myDate = new Date();
+        var _minutes = '';
 
-
-
-      let self = this,
-        _url = window.location.href;
-
-      pushHistory();
-
-      window.addEventListener("popstate", function(e) {
-        self.jumpFun();
-      }, false);
-
-      function pushHistory() {
-        var state = {
-          title: "title",
-          url: _url
-        };
-        window.history.pushState(state, "title", _url);
-      }
-
-
-
-      window.document.oncontextmenu = function (e) {
-        e.preventDefault();
-      };
-
-      var startX = 0, startY = 0;
-
-      function touchStart(e) {
-        try {
-          var touch = e.touches[0],
-            x = Number(touch.pageX),
-            y = Number(touch.pageY);
-          startX = x;
-          startY = y;
-        } catch (e) {
-          alert(e);
+        if(myDate.getMinutes() < 10){
+          _minutes = "0" + myDate.getMinutes();
+        }else{
+          _minutes = myDate.getMinutes();
         }
-      }
-
-      document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('show');
-      ele.ontouchmove = function (e) {
-        var point = e.touches[0],
-          eleTop = ele.scrollTop,
-          eleScrollHeight = ele.scrollHeight,
-          eleOffsetHeight = ele.offsetHeight,
-          eleTouchBottom = eleScrollHeight - eleOffsetHeight;
-        if (eleTop === 0) {
-          if (point.clientY > startY) {
-            e.preventDefault();
-          }
-        }
-        else if (eleTop === eleTouchBottom) {
-          if (point.clientY < startY) {
-            e.preventDefault()
-          }
-        }
-      };
-
+        var _time = myDate.getHours()+":"+ _minutes;
+        this.now = _time;
+      },
     }
+
   }
 </script>
