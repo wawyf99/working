@@ -44,7 +44,7 @@
       <span class="show-smile"></span>
       <span class="show-plus"></span>
     </div>
-    <div class="cen" ref="go8">
+    <div class="cen" ref="go8" id="cen">
       <div class="ui-show-cen" @click="modalbox"></div>
       <div class="ui-show-alert" ref="alertBox">
         <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
@@ -184,6 +184,10 @@
               break;
             case 8:
               var el = self.$refs.go8;
+
+              var ele = document.getElementById('shows');
+              var _a = ele.scrollHeight;
+              document.getElementById("show").style.height = _a+"px";
               if(el){
                 el.style.display = 'block';
               }
@@ -196,7 +200,6 @@
 
           var ele = document.getElementById('shows');
           var _a = ele.scrollHeight;
-          console.log(parseInt(_a - 100));
           document.getElementById('shows').scrollTop =  _a;
         },800)
       },
