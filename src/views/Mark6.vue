@@ -184,6 +184,7 @@
               break;
             case 4:
               var el = self.$refs.go4;
+              document.getElementById('footer1').style.position = 'fixed';
               if(el){
                 el.style.display = 'block';
               }

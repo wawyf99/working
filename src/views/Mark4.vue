@@ -38,7 +38,7 @@
         你被"<span>群主</span>"移除群聊
       </div>
     </div>
-    <div class="footer">
+    <div class="footer" id="footer1">
       <span class="show-voice"></span>
       <span class="show-input"></span>
       <span class="show-smile"></span>
