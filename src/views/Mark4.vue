@@ -281,7 +281,7 @@
       document.addEventListener('touchstart', touchStart);
       if(ua.versions.android){
         this.uaSort.webkitOverflowScrolling = 'touch';
-        var ele = document.getElementById('app');
+        var ele = document.getElementById('show1');
       }else{
         var ele = document.getElementById('app');
       }
