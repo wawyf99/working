@@ -44,13 +44,11 @@
       <span class="show-smile"></span>
       <span class="show-plus"></span>
     </div>
-    <div class="cen" ref="go8" id="cen">
-      <div class="ui-show-cen" @click="modalbox"></div>
-      <div class="ui-show-alert" ref="alertBox">
-        <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
-        <div class="alert-content">当前群人数<span>321</span>人</div>
-        <div class="alert-btn" @click="toggles">好的</div>
-      </div>
+    <div class="ui-show-cen" @click="modalbox"  ref="go8" id="cen"></div>
+    <div class="ui-show-alert" ref="alertBox">
+      <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
+      <div class="alert-content">当前群人数<span>321</span>人</div>
+      <div class="alert-btn" @click="toggles">好的</div>
     </div>
   </div>
 </template>
@@ -184,23 +182,23 @@
               break;
             case 8:
               var el = self.$refs.go8;
-
-              var ele = document.getElementById('shows');
-              var _a = ele.scrollHeight;
-              document.getElementById("show").style.height = _a+"px";
+              var e2 = self.$refs.alertBox;
               if(el){
                 el.style.display = 'block';
+                e2.style.display = 'block';
               }
               break;
             case 9:
               clearInterval(s);
               break;
           }
+
+          var ele = document.getElementById('show');
+          var _a = ele.scrollHeight;
+          document.getElementById("app").scrollTop = _a;
+          document.getElementById("cen").style.height = _a + "px";
           _i ++;
 
-          var ele = document.getElementById('shows');
-          var _a = ele.scrollHeight;
-          document.getElementById('shows').scrollTop =  _a;
         },800)
       },
       //点击模态框
