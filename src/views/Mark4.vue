@@ -1,5 +1,5 @@
 <template>
-  <div id="show1"   :style="uaSort" >
+  <div id="show1"   <!--:style="uaSort" -->>
     <div class="section" id="shows">
       <div style="height: 1.5rem;"></div>
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
