@@ -99,6 +99,7 @@ router.beforeEach((to, from, next) => {
             }else{
               _type = 1;
             }
+            console.log(_type);
 
           wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, type: _type, wxid: wxid});
         });
