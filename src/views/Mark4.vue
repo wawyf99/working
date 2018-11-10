@@ -140,7 +140,7 @@
         var s = setInterval(() => {
           switch (_i) {
             case 1:
-              document.getElementById('footerId').style.position = 'absolute';
+              //document.getElementById('footerId').style.position = 'absolute';
               var el = self.$refs.go1;
               if(el){
                 el.style.display = 'block';
