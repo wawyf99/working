@@ -1,6 +1,23 @@
 <template>
   <iscroll-view ref="scrollView" class="scroll-view" @pullUp="pullUp" @pullDown="pullDown" :options="{mouseWheel:true}">
     <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
+    <h1>测试</h1>
     <p>1234567890</p>
   </iscroll-view>
 </template>
