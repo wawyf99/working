@@ -179,7 +179,6 @@
       //开始显示
       let i = 1;
       var s = setInterval(() => {
-        alert(i);
         document.querySelector('#scroller div:nth-child('+i+')').style.display = 'block';
         myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
         myScroll.scrollTo(0,myScroll.maxScrollY-10);
