@@ -16,6 +16,7 @@
       <span class="show-smile"></span>
       <span class="show-plus"></span>
     </div>
+    <div class="joinCen"></div>
   </div>
 </template>
 <style>
