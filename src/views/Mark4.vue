@@ -16,7 +16,7 @@
       <span class="show-smile"></span>
       <span class="show-plus"></span>
     </div>
-<!--    <div class="joinCen"></div>-->
+    <div class="joinCen"></div>
   </div>
 </template>
 <style>
@@ -40,6 +40,16 @@
     },
     created(){
       //self.go();
+      this.$vux.alert.show({
+        title: 'Vux is Cool',
+        content: 'Do you agree?',
+        onShow () {
+          console.log("Plugin: I'm showing");
+        },
+        onHide () {
+          console.log("Plugin: I'm hiding");
+        }
+      })
     },
     methods:{
       go(){
@@ -152,6 +162,7 @@
 
       document.addEventListener('touchstart', touchStart);
       var ele = document.getElementById('section');
+      var ele = document.getElementById('joinCen');
 
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
