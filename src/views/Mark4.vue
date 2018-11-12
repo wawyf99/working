@@ -40,15 +40,23 @@
         </div>
         <div style="height: 0.5rem"></div>
       </div>
-      <div class="ui-show-cen" @click="modalbox"  ref="go8" id="cen"></div>
+      <div class="last-cen">
+        <div class="ui-show-cen" @click="modalbox"  ref="go8" id="cen"></div>
+        <div class="ui-show-alert" ref="alertBox">
+          <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
+          <div class="alert-content">当前群人数<span>321</span>人</div>
+          <div class="alert-btn" @click="toggles">好的</div>
+        </div>
+      </div>
     </div>
-    <div id="footer">iScroll</div>
+<!--    <div id="footer">iScroll</div>-->
+    <div class="footerId" id="footerId">
+      <span class="show-voice"></span>
+      <span class="show-input"></span>
+      <span class="show-smile"></span>
+      <span class="show-plus"></span>
+    </div>
 
-  <!--  <div class="ui-show-alert" ref="alertBox">
-      <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
-      <div class="alert-content">当前群人数<span>321</span>人</div>
-      <div class="alert-btn" @click="toggles">好的</div>
-    </div>-->
   </div>
 </template>
 <style>
@@ -134,14 +142,6 @@
       }
       this.city = _str;
 
-      let _w = document.body.clientWidth,
-        _h = document.body.clientHeight;
-      //计算高度
-      let _b = 750/_w;
-      let _bh = _h/_b;
-      console.log(_bh);
-
-
     },
     methods:{
       //点击模态框
@@ -183,11 +183,9 @@
         myScroll.scrollTo(0,myScroll.maxScrollY-10);
         i++;
         if(i == 10){
+          document.querySelector('.last-cen').style.display = 'block';
           clearInterval(s);
         }
-     /*   let _hh = document.getElementById('scroller').clientHeight;
-        console.log(_hh);
-        document.getElementById('cen').style.height = _hh +'px';*/
       },800);
 
 
