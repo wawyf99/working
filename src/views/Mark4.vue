@@ -160,7 +160,7 @@
       }
 
       document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('join');
+      var ele = document.getElementById('app');
 
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
