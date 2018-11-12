@@ -1,6 +1,44 @@
 <template>
   <iscroll-view ref="scrollView" class="scroll-view join" id="join" :options="{mouseWheel:true}">
-    <div class="section" id="section"></div>
+    <div class="section" id="section">
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+      <div>1111111111111111</div>
+
+    </div>
     <div class="footer"></div>
   </iscroll-view>
 
