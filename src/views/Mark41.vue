@@ -1,6 +1,7 @@
 <template>
-  <div id="show">
-    <div class="show">
+  <div id="show1">
+    <div class="section" id="shows">
+      <div style="height: 1.5rem;"></div>
       <div class="ui-show-step1 step" ref="go1">{{now}}</div>
       <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入群聊，群聊参与人还有：辞予、那一夜、床摇得厉害、你的呻吟、甜腻、强哥、七尺大乳、漂洋过海、用贞操换真钞、清晨的眼泪、孟老师、性感↗小娘们、孤寂、淫领风骚、小影、爱到深处て腿自开、无心、吻我杀我、林萌</div>
       <div class="ui-show-step3 step clearfix" ref="go3">
@@ -36,33 +37,29 @@
       <div class="ui-show-step4 step" ref="go7">
         你被"<span>群主</span>"移除群聊
       </div>
-
-      <div class="ui-show-step5 step" ref="go8">
-        <div class="ui-show-cen" @click="modalbox"></div>
-        <div class="ui-show-alert" ref="alertBox">
-          <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
-          <div class="alert-content">当前群人数<span>321</span>人</div>
-          <div class="alert-btn" @click="toggles">好的</div>
-        </div>
-      </div>
-
-      <div class="show-footer">
-        <span class="show-voice"></span>
-        <span class="show-input"></span>
-        <span class="show-smile"></span>
-        <span class="show-plus"></span>
-      </div>
-
+    </div>
+    <div class="footer" id="footerId">
+      <span class="show-voice"></span>
+      <span class="show-input"></span>
+      <span class="show-smile"></span>
+      <span class="show-plus"></span>
+    </div>
+    <div class="ui-show-cen1" @click="modalbox"  ref="go8" id="cen"></div>
+    <div class="ui-show-alert1" ref="alertBox">
+      <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
+      <div class="alert-content">当前群人数<span>321</span>人</div>
+      <div class="alert-btn" @click="toggles">好的</div>
     </div>
   </div>
-
 </template>
 <style>
-  @import '../assets/style/show.less';
+  @import '../assets/style/shows.less';
 </style>
+
 <script>
   import { Alert, XDialog } from 'vux'
   import Global from "../utils/global";
+  import ua from "../utils/userAgent";
   export default {
     name: 'Show',
     components: {
@@ -71,6 +68,9 @@
     },
     data () {
       return {
+        uaSort: {
+          webkitOverflowScrolling: '',
+        },
         now: '',
         invitor: '',
         shareUrl: '',
@@ -134,37 +134,17 @@
         _str = province.replace(/省/, '');
       }
       this.city = _str;
-
     },
     methods:{
-      //点击模态框
-      modalbox(){
-        this.$refs.alertBox.style.display = 'block';
-      },
-      //点击弹框关闭
-      toggles(){
-        this.$refs.alertBox.style.display = 'none';
-      },
-      //获取当前时间
-      getNowTime(){
-        var myDate = new Date();
-        var _minutes = '';
-
-        if(myDate.getMinutes() < 10){
-          _minutes = "0" + myDate.getMinutes();
-        }else{
-          _minutes = myDate.getMinutes();
-        }
-        var _time = myDate.getHours()+":"+ _minutes;
-        this.now = _time;
-      },
-      //开始流程
       go(){
+
         let self = this;
         var _i = 1;
+        console.log(_i);
         var s = setInterval(() => {
           switch (_i) {
             case 1:
+              //document.getElementById('footerId').style.position = 'absolute';
               var el = self.$refs.go1;
               if(el){
                 el.style.display = 'block';
@@ -184,7 +164,7 @@
               break;
             case 4:
               var el = self.$refs.go4;
-              document.getElementById('footer1').style.position = 'fixed';
+              document.getElementById('footerId').style.position = 'fixed';
               if(el){
                 el.style.display = 'block';
               }
@@ -209,22 +189,47 @@
               break;
             case 8:
               var el = self.$refs.go8;
+              var e2 = self.$refs.alertBox;
               if(el){
                 el.style.display = 'block';
+                e2.style.display = 'block';
               }
               break;
             case 9:
               clearInterval(s);
               break;
           }
-          _i ++;
 
-          var ele = document.getElementById('show');
+          var ele = document.getElementById('show1');
           var _a = ele.scrollHeight;
-          ele.scrollTop =  _a;
+          document.getElementById("app").scrollTop = _a;
+          document.getElementById("cen").style.height = _a + "px";
+          _i ++;
 
         },800)
       },
+      //点击模态框
+      modalbox(){
+        this.$refs.alertBox.style.display = 'block';
+      },
+      //点击弹框关闭
+      toggles(){
+        this.$refs.alertBox.style.display = 'none';
+      },
+      //获取当前时间
+      getNowTime(){
+        var myDate = new Date();
+        var _minutes = '';
+
+        if(myDate.getMinutes() < 10){
+          _minutes = "0" + myDate.getMinutes();
+        }else{
+          _minutes = myDate.getMinutes();
+        }
+        var _time = myDate.getHours()+":"+ _minutes;
+        this.now = _time;
+      },
+      //跳转
       jumpFun(){
         let self = this;
         self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
@@ -274,7 +279,13 @@
       }
 
       document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('show');
+      if(ua.versions.android){
+        this.uaSort.webkitOverflowScrolling = 'touch';
+        var ele = document.getElementById('show1');
+      }else{
+        var ele = document.getElementById('app');
+      }
+
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
           eleTop = ele.scrollTop,
@@ -294,5 +305,6 @@
       };
 
     }
+
   }
 </script>
