@@ -145,7 +145,7 @@
         e.preventDefault();
       };
 
-/*      var startX = 0, startY = 0;
+      var startX = 0, startY = 0;
 
       function touchStart(e) {
         try {
@@ -160,7 +160,7 @@
       }
 
       document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('section');
+      var ele = document.getElementById('join');
 
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
@@ -178,7 +178,7 @@
             e.preventDefault()
           }
         }
-      };*/
+      };
 
     }
 
