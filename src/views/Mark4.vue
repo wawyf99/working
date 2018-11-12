@@ -151,7 +151,7 @@
 
       document.addEventListener('touchstart', touchStart);
       var ele = document.getElementById('section');
-      var ele = document.getElementById('joinCen');
+      var ele = document.getElementById('join');
 
       ele.ontouchmove = function (e) {
         var point = e.touches[0],
