@@ -40,9 +40,10 @@
         </div>
         <div style="height: 0.5rem"></div>
       </div>
+      <div class="ui-show-cen" @click="modalbox"  ref="go8" id="cen"></div>
     </div>
     <div id="footer">iScroll</div>
-    <div class="ui-show-cen1" @click="modalbox"  ref="go8" id="cen"></div>
+
   <!--  <div class="ui-show-alert" ref="alertBox">
       <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
       <div class="alert-content">当前群人数<span>321</span>人</div>
@@ -137,76 +138,12 @@
         _h = document.body.clientHeight;
       //计算高度
       let _b = 750/_w;
-      let _bh = _h-100/_b;
-     // document.getElementById('wrapper').style.height = _bh +'px';
+      let _bh = _h/_b;
+      console.log(_bh);
+
 
     },
     methods:{
-/*      go(){
-        let self = this;
-        var _i = 1;
-        //获取宽度
-        var s = setInterval(() => {
-          switch (_i) {
-            case 1:
-              var el = self.$refs.go1;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 2:
-              var el = self.$refs.go2;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 3:
-              var el = self.$refs.go3;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 4:
-              var el = self.$refs.go4;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 5:
-              var el = self.$refs.go5;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 6:
-              var el = self.$refs.go6;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 7:
-              var el = self.$refs.go7;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 8:
-/!*              var el = self.$refs.go8;
-              var e2 = self.$refs.alertBox;
-              if(el){
-                el.style.display = 'block';
-                e2.style.display = 'block';
-              }*!/
-              break;
-            case 9:
-              clearInterval(s);
-              break;
-          }
-
-          _i ++;
-
-        },800)
-      },*/
       //点击模态框
       modalbox(){
         this.$refs.alertBox.style.display = 'block';
@@ -238,6 +175,7 @@
     },
     mounted(){
 
+      //开始显示
       let i = 1;
       var s = setInterval(() => {
         document.querySelector('#scroller div:nth-child('+i+')').style.display = 'block';
@@ -247,6 +185,9 @@
         if(i == 10){
           clearInterval(s);
         }
+     /*   let _hh = document.getElementById('scroller').clientHeight;
+        console.log(_hh);
+        document.getElementById('cen').style.height = _hh +'px';*/
       },800);
 
 
