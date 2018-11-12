@@ -1,5 +1,5 @@
 <template>
-  <iscroll-view ref="scrollView" class="scroll-view join" id="join" :options="{mouseWheel:true}">
+  <iscroll-view ref="scrollView" class="scroll-view join" id="join" :options="{mouseWheel:false}">
     <div class="section" id="section">
       <div>1111111</div>
       <div>1111111</div>
