@@ -17,6 +17,7 @@
       <span class="show-plus"></span>
     </div>
     <div class="joinCen"></div>
+
   </div>
 </template>
 <style>
@@ -39,6 +40,13 @@
       }
     },
     created(){
+      var $container = document.querySelector('.section');
+      var $button = document.querySelector('.footer');
+      $container.style.height = (document.documentElement.clientHeight - $button.clientHeight) + 'px';
+      var myScroll = new IScroll('#section', {
+        mouseWheel: true,
+        scrollbars: true
+      });
     },
     methods:{
       go(){
