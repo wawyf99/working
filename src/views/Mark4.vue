@@ -111,10 +111,10 @@
               break;
           }
 
-          var ele = document.getElementById('show1');
+          var ele = document.getElementById('section');
           var _a = ele.scrollHeight;
-          document.getElementById("app").scrollTop = _a;
-          document.getElementById("cen").style.height = _a + "px";
+          document.getElementById("join").scrollTop = _a;
+          document.getElementById("joinCen").style.height = _a + "px";
           _i ++;
 
         },800)
