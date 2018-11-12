@@ -9,7 +9,6 @@
       6
       7
       8
-      <div class="joinCen"></div>
     </div>
     <div class="footer">
       <span class="show-voice"></span>
@@ -17,7 +16,7 @@
       <span class="show-smile"></span>
       <span class="show-plus"></span>
     </div>
-<!--    <div class="joinCen"></div>-->
+    <div class="joinCen"></div>
 
   </div>
 </template>
@@ -112,11 +111,13 @@
               break;
           }
 
+/*
           var ele = document.getElementById('section');
           var _a = ele.scrollHeight;
           document.getElementById("join").scrollTop = _a;
           document.getElementById("joinCen").style.height = _a + "px";
           _i ++;
+*/
 
         },800)
       },
@@ -144,7 +145,7 @@
         e.preventDefault();
       };
 
-      var startX = 0, startY = 0;
+/*      var startX = 0, startY = 0;
 
       function touchStart(e) {
         try {
@@ -177,7 +178,7 @@
             e.preventDefault()
           }
         }
-      };
+      };*/
 
     }
 
