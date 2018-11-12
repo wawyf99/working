@@ -185,7 +185,9 @@
         i++;
         if(i == 10){
           document.querySelector('.last-cen').style.display = 'block';
+          document.querySelector('.footerCen').style.display = 'block';
           clearInterval(s);
+
         }
       },800);
 
