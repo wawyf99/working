@@ -49,13 +49,13 @@
         </div>
       </div>
     </div>
-<!--    <div id="footer">iScroll</div>-->
-    <div class="footerId" id="footerId">
+    <div id="footer">iScroll</div>
+<!--    <div class="footerId" id="footerId">
       <span class="show-voice"></span>
       <span class="show-input"></span>
       <span class="show-smile"></span>
       <span class="show-plus"></span>
-    </div>
+    </div>-->
 
   </div>
 </template>
