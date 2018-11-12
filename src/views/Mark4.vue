@@ -9,6 +9,7 @@
       6
       7
       8
+      <div class="joinCen"></div>
     </div>
     <div class="footer">
       <span class="show-voice"></span>
