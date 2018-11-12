@@ -137,7 +137,6 @@
     },
     methods:{
       go(){
-
         let self = this;
         var _i = 1;
         console.log(_i);
@@ -164,7 +163,6 @@
               break;
             case 4:
               var el = self.$refs.go4;
-              document.getElementById('footerId').style.position = 'fixed';
               if(el){
                 el.style.display = 'block';
               }
