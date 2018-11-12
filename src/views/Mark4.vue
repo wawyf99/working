@@ -1,65 +1,52 @@
 <template>
-
-  <div>
-    <div id="header">iScroll</div>
+  <div id="join">
     <div id="wrapper">
       <div id="scroller">
-        <ul>
-          <li><a href="javascript:myScroll.scrollToElement(document.querySelector('#scroller li:nth-child(10)'))">Scroll to element 10</a></li>
-          <li>Pretty row 2</li>
-          <li>Pretty row 3</li>
-          <li>Pretty row 4</li>
-          <li>Pretty row 5</li>
-          <li>Pretty row 6</li>
-          <li>Pretty row 7</li>
-          <li>Pretty row 8</li>
-          <li>Pretty row 9</li>
-          <li><a href="javascript:myScroll.scrollToElement(document.querySelector('#scroller li:nth-child(25)'), null, null, true)">Center element 25 to screen</a></li>
-          <li>Pretty row 11</li>
-          <li>Pretty row 12</li>
-          <li>Pretty row 13</li>
-          <li>Pretty row 14</li>
-          <li>Pretty row 15</li>
-          <li>Pretty row 16</li>
-          <li>Pretty row 17</li>
-          <li>Pretty row 18</li>
-          <li>Pretty row 19</li>
-          <li>Pretty row 20</li>
-          <li>Pretty row 21</li>
-          <li>Pretty row 22</li>
-          <li>Pretty row 23</li>
-          <li>Pretty row 24</li>
-          <li><a href="javascript:myScroll.scrollToElement(document.querySelector('#scroller li:nth-child(50)'), 1200, null, null, IScroll.utils.ease.elastic)">Scroll to the last element with elastic easing</a></li>
-          <li>Pretty row 26</li>
-          <li>Pretty row 27</li>
-          <li>Pretty row 28</li>
-          <li>Pretty row 29</li>
-          <li>Pretty row 30</li>
-          <li>Pretty row 31</li>
-          <li>Pretty row 32</li>
-          <li>Pretty row 33</li>
-          <li>Pretty row 34</li>
-          <li>Pretty row 35</li>
-          <li>Pretty row 36</li>
-          <li>Pretty row 37</li>
-          <li>Pretty row 38</li>
-          <li>Pretty row 39</li>
-          <li>Pretty row 40</li>
-          <li>Pretty row 41</li>
-          <li>Pretty row 42</li>
-          <li>Pretty row 43</li>
-          <li>Pretty row 44</li>
-          <li>Pretty row 45</li>
-          <li>Pretty row 46</li>
-          <li>Pretty row 47</li>
-          <li>Pretty row 48</li>
-          <li>Pretty row 49</li>
-          <li>Pretty row 50</li>
-        </ul>
+        <div class="ui-show-step1 step" ref="go1">{{now}}</div>
+        <div class="ui-show-step2 step" ref="go2">"<span>{{invitor}}</span>"邀请你加入群聊，群聊参与人还有：辞予、那一夜、床摇得厉害、你的呻吟、甜腻、强哥、七尺大乳、漂洋过海、用贞操换真钞、清晨的眼泪、孟老师、性感↗小娘们、孤寂、淫领风骚、小影、爱到深处て腿自开、无心、吻我杀我、林萌</div>
+        <div class="ui-show-step3 step clearfix" ref="go3">
+          <div class="show-left" :style="background4"></div>
+          <div class="show-right">
+            <div class="show-person">{{name1}}</div>
+            <div class="show-img-01"></div>
+          </div>
+        </div>
+        <div class="ui-show-step3 step clearfix" ref="go4">
+          <div class="show-left" :style="background1"></div>
+          <div class="show-right">
+            <div class="show-person">{{name2}}</div>
+            <div class="show-img-02"></div>
+          </div>
+        </div>
+        <div class="ui-show-step3 step clearfix" ref="go5">
+          <div class="show-left" :style="background2"></div>
+          <div class="show-right">
+            <div class="show-person">{{name3}}</div>
+            <div class="show-img-03"></div>
+          </div>
+        </div>
+        <div class="ui-show-step3 step clearfix" ref="go6">
+          <div class="show-left" :style="background3"></div>
+          <div class="show-right">
+            <div class="show-person">{{name4}}</div>
+            <div class="show-text">
+              群里有没有{{city}}本地的小哥哥要约的，本人在校大学生，因经济困难想做下兼职补贴下零用，要求素质高，体贴，必须带TT，进群加我私聊。
+            </div>
+          </div>
+        </div>
+        <div class="ui-show-step4 step" ref="go7">
+          你被"<span>群主</span>"移除群聊
+        </div>
       </div>
     </div>
+    <div id="footer">iScroll</div>
+    <div class="ui-show-cen1" @click="modalbox"  ref="go8" id="cen"></div>
+  <!--  <div class="ui-show-alert" ref="alertBox">
+      <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
+      <div class="alert-content">当前群人数<span>321</span>人</div>
+      <div class="alert-btn" @click="toggles">好的</div>
+    </div>-->
   </div>
-
 </template>
 <style>
   @import '../assets/style/join.less';
@@ -107,13 +94,153 @@
       }
     },
     created(){
+      let self = this;
+      let name = ["辞予","那一夜","床摇得厉害","你的呻吟","甜腻","强哥","七尺大乳","漂洋过海","用贞操换真钞","清晨的眼泪","孟老师","性感↗小娘们","孤寂","淫领风骚","小影","爱到深处て腿自开","无心","吻我杀我","林萌"];
+      let num = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16'];
 
-      //document.getElementById('section').style.height = _h+"px";
+      let index1 = Math.floor((Math.random()*num.length));
+      let index2 = Math.floor((Math.random()*name.length));
+      let index3 = Math.floor((Math.random()*name.length));
+      let index4 = Math.floor((Math.random()*name.length));
+      let index5 = Math.floor((Math.random()*name.length));
+      let index6 = Math.floor((Math.random()*name.length));
+      let index7 = Math.floor((Math.random()*num.length));
+      let index8 = Math.floor((Math.random()*num.length));
+      let index9 = Math.floor((Math.random()*num.length));
+      self.background1.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index1]+".jpg')";
+      self.background2.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index7]+".jpg')";
+      self.background3.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index8]+".jpg')";
+      self.background4.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index9]+".jpg')";
+      self.name1 = name[index2];
+      self.name2 = name[index4];
+      self.name3 = name[index5];
+      self.name4 = name[index6];
+      self.invitor = name[index3];
+      self.getNowTime();
+     // self.go();
+      //self.getWxShare();
+
+      let city = IpQuery.city,
+        province = IpQuery.province,
+        _str = '';
+
+      if(city){
+        _str = city.replace(/市/, '');
+      }else{
+        _str = province.replace(/省/, '');
+      }
+      this.city = _str;
+
+      let _w = document.body.clientWidth,
+        _h = document.body.clientHeight;
+      //计算高度
+      let _b = 750/_w;
+      let _bh = _h-100/_b;
+     // document.getElementById('wrapper').style.height = _bh +'px';
+
     },
     methods:{
+      go(){
+        let self = this;
+        var _i = 1;
+        //获取宽度
+        var s = setInterval(() => {
+          switch (_i) {
+            case 1:
+              var el = self.$refs.go1;
+              if(el){
+                el.style.display = 'block';
+              }
+              break;
+            case 2:
+              var el = self.$refs.go2;
+              if(el){
+                el.style.display = 'block';
+              }
+              break;
+            case 3:
+              var el = self.$refs.go3;
+              if(el){
+                el.style.display = 'block';
+              }
+              break;
+            case 4:
+              var el = self.$refs.go4;
+              if(el){
+                el.style.display = 'block';
+              }
+              break;
+            case 5:
+              var el = self.$refs.go5;
+              if(el){
+                el.style.display = 'block';
+              }
+              break;
+            case 6:
+              var el = self.$refs.go6;
+              if(el){
+                el.style.display = 'block';
+              }
+              break;
+            case 7:
+              var el = self.$refs.go7;
+              if(el){
+                el.style.display = 'block';
+              }
+              break;
+            case 8:
+/*              var el = self.$refs.go8;
+              var e2 = self.$refs.alertBox;
+              if(el){
+                el.style.display = 'block';
+                e2.style.display = 'block';
+              }*/
+              break;
+            case 9:
+              clearInterval(s);
+              break;
+          }
 
+          _i ++;
+
+        },800)
+      },
+      //点击模态框
+      modalbox(){
+        this.$refs.alertBox.style.display = 'block';
+      },
+      //点击弹框关闭
+      toggles(){
+        this.$refs.alertBox.style.display = 'none';
+      },
+      //获取当前时间
+      getNowTime(){
+        var myDate = new Date();
+        var _minutes = '';
+
+        if(myDate.getMinutes() < 10){
+          _minutes = "0" + myDate.getMinutes();
+        }else{
+          _minutes = myDate.getMinutes();
+        }
+        var _time = myDate.getHours()+":"+ _minutes;
+        this.now = _time;
+      },
+      //跳转
+      jumpFun(){
+        let self = this;
+        self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
+          window.location.href = res.data.url;
+        });
+      }
     },
     mounted(){
+      let i = 1;
+      var s = setInterval(() => {
+        document.querySelector('#scroller div:nth-child('+i+')').style.display = 'block';
+        i++;
+      },800)
+
 
       let myScroll;
 
@@ -121,7 +248,7 @@
 
       function loaded () {
         myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
-        myScroll.scrollToElement(document.querySelector('#scroller li:nth-child(10)'));
+        //myScroll.scrollToElement(document.querySelector('#scroller li:nth-child(10)'));
       }
 
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
