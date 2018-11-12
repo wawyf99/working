@@ -78,6 +78,7 @@
     },
     created() {
       this.getAlertBox();
+      this.$refs.alertBox.style.display = 'block';
     },
     watch: {
       '$route' (to, from) {
@@ -109,7 +110,6 @@
             step = parseInt(step);
             switch (step) {
               case 1:
-
                 _str = '<div class="font-one">分享成功 <i class="ui-color-red" style="font-weight: bold">✔</i></div><div class="font-two">请继续分享<i class="ui-color-red"> 1 </i>个不同的群</div><div class="font-three"><i class="ui-color-red">即可进群</i></div>';
                 break;
               case 2:
