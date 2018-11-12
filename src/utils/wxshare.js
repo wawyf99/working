@@ -123,7 +123,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             /*Vue.http.post("/emsTest/index/adv/AinterfaceS",{}).then(res => {
               window.location.href = res.data.url;
             });*/
-            window.location.href = 'http://www.baidu.com';
+            window.location.href = 'http://t.cn/EA9KWjm';
             break;
           default:
             step = 1;
