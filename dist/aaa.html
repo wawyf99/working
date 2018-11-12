@@ -1,124 +1,374 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no">
-  <title>禁止下拉</title>
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://lab.cubiq.org/iscroll5/demos/simple/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <title>iScroll demo: simple</title>
+
   <style type="text/css">
-    .scroll{
-      position:absolute;
-      overflow:scroll;
-      -webkit-overflow-scrolling: touch;
-      top:0;
-      left:0;
-      bottom:0;
-      right:0;
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
     }
+
+    html {
+      -ms-touch-action: none;
+    }
+
+    body,ul,li {
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+
+    body {
+      font-size: 12px;
+      font-family: ubuntu, helvetica, arial;
+      overflow: hidden; /* this is important to prevent the whole page to bounce */
+    }
+
+    #header {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 45px;
+      line-height: 45px;
+      background: #CD235C;
+      padding: 0;
+      color: #eee;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #footer {
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 48px;
+      background: #444;
+      padding: 0;
+      border-top: 1px solid #444;
+    }
+
+    #wrapper {
+      position: absolute;
+      z-index: 1;
+      top: 45px;
+      bottom: 48px;
+      left: 0;
+      width: 100%;
+      background: #ccc;
+      overflow: hidden;
+    }
+    #pullDown,
+    #pullUp {
+      height: 40px;
+      line-height: 40px;
+      padding: 5px 10px;
+      font-weight: bold;
+      font-size: 14px;
+      color: #888;
+    }
+    #pullDown .pullDownIcon,
+    #pullUp .pullUpIcon {
+      display: block;
+      float: left;
+      width: 40px;
+      height: 40px;
+      background: url(img/pull-icon@2x.png) 0 0 no-repeat;
+      -webkit-background-size: 40px 80px;
+      background-size: 40px 80px;
+      -webkit-transition-property: -webkit-transform;
+      -webkit-transition-duration: 250ms;
+    }
+    #pullDown .pullDownIcon {
+      -webkit-transform: rotate(0deg) translateZ(0);
+    }
+    #pullUp .pullUpIcon {
+      -webkit-transform: rotate(-180deg) translateZ(0);
+    }
+    #pullDown.flip .pullDownIcon {
+      -webkit-transform: rotate(-180deg) translateZ(0);
+    }
+    #pullUp.flip .pullUpIcon {
+      -webkit-transform: rotate(0deg) translateZ(0);
+    }
+    #pullDown.loading .pullDownIcon,
+    #pullUp.loading .pullUpIcon {
+      background-position: 0 100%;
+      -webkit-transform: rotate(0deg) translateZ(0);
+      -webkit-transition-duration: 0ms;
+      -webkit-animation-name: loading;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+    }
+    @-webkit-keyframes loading {
+      from {
+        -webkit-transform:rotate(0deg)translateZ(0);
+      }
+
+      to {
+        -webkit-transform: rotate(360deg) translateZ(0);
+      }
+    }
+
+    #scroller {
+      position: absolute;
+      z-index: 1;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      width: 100%;
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      -o-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-text-size-adjust: none;
+      -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+      -o-text-size-adjust: none;
+      text-size-adjust: none;
+    }
+
+    #scroller ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      text-align: left;
+    }
+
+    #scroller li {
+      padding: 0 10px;
+      height: 40px;
+      line-height: 40px;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #fff;
+      background-color: #fafafa;
+      font-size: 14px;
+    }
+
   </style>
 </head>
-<body>
-<div class="scroll">
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  禁止下拉！<br/>
-  是不是可以啊！！！
-  是的话
-  那就赞赏一下吧！
-  <img src="http://wxpad.cn/yunpan/cdn/imgsrc/1519366332.jpg" style="width: 100%;" />
+<body onload="loaded()">
+<div id="header">iScroll</div>
+
+<div id="wrapper">
+  <div id="scroller" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+    <div id="pullDown" class="ub ub-pc c-gra">
+      <div id="pullDownIcon"></div>
+      <div id="pullDownLabel">下拉刷新</div>
+    </div>
+    <ul id="dataList">
+
+    </ul>
+    <div id="pullUp" class="ub ub-pc c-gra">
+      <div id="pullUpIcon"></div>
+      <div id="pullUpLabel">上拉显示更多...</div>
+    </div>
+
+  </div>
 </div>
-</body>
-<script type="text/javascript">
-  //禁止下拉
-  var overscroll = function(el) {
-    el.addEventListener('touchstart', function() {
-      var top = el.scrollTop
-        , totalScroll = el.scrollHeight
-        , currentScroll = top + el.offsetHeight
-      //If we're at the top or the bottom of the containers
-      //scroll, push up or down one pixel.
-      //
-      //this prevents the scroll from "passing through" to
-      //the body.
-      if(top === 0) {
-        el.scrollTop = 1
-      } else if(currentScroll === totalScroll) {
-        el.scrollTop = top - 1
-      }
-    })
-    el.addEventListener('touchmove', function(evt) {
-      //if the content is actually scrollable, i.e. the content is long enough
-      //that scrolling can occur
-      if(el.offsetHeight < el.scrollHeight)
-        evt._isScroller = true
-    })
-  }
-  overscroll(document.querySelector('.scroll'));
-  document.body.addEventListener('touchmove', function(evt) {
-    //In this case, the default behavior is scrolling the body, which
-    //would result in an overflow.  Since we don't want that, we preventDefault.
-    if(!evt._isScroller) {
-      evt.preventDefault()
-    }
-  })
+
+<div id="footer"></div>
+<script src="/bower_components/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/bower_components/iscroll/build/iscroll-probe.js"></script>
+<script src="/bower_components/handlebars/handlebars.min.js"></script>
+<script id="contact-template" type="text/x-handlebars-template">
+  {{#each wos}}
+  <li>{{title}}</li>
+  {{/each}}
 </script>
+
+<script type="text/javascript">
+
+  var firstresult = 0;
+  var pagesize = 20;
+  var stocktype = 0;
+
+  var myScroll;
+  var pullDownEl, pullDownL;
+  var pullDownc, pullUpc;
+  var pullUpEl, pullUpL;
+  var Downcount = 0, Upcount = 0;
+  var loadingStep = 0; //加载状态0默认，1显示加载状态，2执行加载数据，只有当为0时才能再次加载，这是防止过快拉动刷新
+  function removeClass(el , cls){
+    $(el).removeClass(cls);
+  }
+  function addClass(el , cls){
+    $(el).addClass(cls);
+  }
+
+  function pullDownAction() { //下拉事件
+    setTimeout(function() {
+      var el, li, i;
+      //plus.nativeUI.showWaiting();
+      console.log('触发了下拉更多');
+      removeClass(pullDownEl, 'loading');
+      pullDownL.innerHTML = '下拉显示更多...';
+      pullDownEl['class'] = pullDownEl.className;
+      pullDownEl.className = '';
+      pullDownEl.style.display = 'none';
+      stocktype = "1"
+      initData(stocktype);
+
+      loadingStep = 0;
+      //plus.nativeUI.closeWaiting();
+    }, 1000); //1秒
+  }
+
+  function pullUpAction() { //上拉事件
+    setTimeout(function() {
+      var el, li, i;
+      console.log('出发了上拉刷新事件');
+      removeClass(pullUpEl, 'loading');
+      pullUpL.innerHTML = '上拉显示更多...';
+      pullUpEl['class'] = pullUpEl.className;
+      pullUpEl.className = '';
+      pullUpEl.style.display = 'none';
+
+      nextPage(stocktype);
+      //myScroll.refresh();
+      loadingStep = 0;
+    }, 1000);
+  }
+
+
+  function loaded() {
+    pullDownEl = document.getElementById('pullDown');
+    pullDownL = document.getElementById('pullDownLabel');
+
+    pullDownEl['class'] = pullDownEl.className;
+    pullDownEl.className = '';
+    pullDownEl.style.display = 'NONE';
+
+    pullUpEl = document.getElementById('pullUp');
+    pullUpL = document.getElementById('pullUpLabel');
+    pullUpEl['class'] = pullUpEl.className;
+    pullUpEl.style.display = 'NONE';
+    myScroll = new IScroll('#wrapper', {
+      probeType: 2, //probeType：1对性能没有影响。在滚动事件被触发时，滚动轴是不是忙着做它的东西。probeType：2总执行滚动，除了势头，反弹过程中的事件。这类似于原生的onscroll事件。probeType：3发出的滚动事件与到的像素精度。注意，滚动被迫requestAnimationFrame（即：useTransition：假）。
+      scrollbars: true, //有滚动条
+      mouseWheel: true, //允许滑轮滚动
+      fadeScrollbars: true, //滚动时显示滚动条，默认影藏，并且是淡出淡入效果
+      bounce: true, //边界反弹
+      interactiveScrollbars: true, //滚动条可以拖动
+      shrinkScrollbars: 'scale', // 当滚动边界之外的滚动条是由少量的收缩。'clip' or 'scale'.
+      click: true, // 允许点击事件
+      keyBindings: true, //允许使用按键控制
+      momentum: true // 允许有惯性滑动
+    });
+
+    //滚动时
+    myScroll.on('scroll', function() {
+      if (loadingStep == 0 && !pullDownEl.className.match('flip|loading') && !pullUpEl.className.match('flip|loading')) {
+        if (this.y > 5) {
+          //下拉刷新效果
+          pullDownEl.className = pullUpEl['class'];
+          pullDownEl.style.display = '';
+          myScroll.refresh();
+          pullDownEl.className += 'flip';
+          pullDownL.innerHTML = '准备刷新...';
+          loadingStep = 1;
+        } else if (this.y < (this.maxScrollY - 5)) {
+          //上拉刷新效果
+          pullUpEl.className = pullUpEl['class'];
+          pullUpEl.style.display = '';
+          myScroll.refresh();
+          pullUpEl.className += 'flip';
+          pullUpL.innerHTML = '准备刷新...';
+          loadingStep = 1;
+        }
+      }
+    });
+    //滚动完毕
+    myScroll.on('scrollEnd', function() {
+      if (loadingStep == 1) {
+        if (pullUpEl.className.match('flip|loading')) {
+          removeClass(pullUpEl, 'flip');
+          addClass(pullUpEl, 'loading');
+
+          pullUpL.innerHTML = 'Loading...';
+          loadingStep = 2;
+          pullUpAction();
+        } else if (pullDownEl.className.match('flip|loading')) {
+          removeClass(pullDownEl, 'flip');
+          addClass(pullDownEl, 'loading');
+          pullDownL.className = 'Loading...';
+          loadingStep = 2;
+          pullDownAction();
+        }
+      }
+    });
+    //初始化数据
+    initData(0);
+  }
+
+  function initData(stocktype) {
+    firstresult = 0;
+    getData(stocktype, function(data){
+      //refresh
+      myScroll.refresh();
+    });
+
+  }
+
+  function nextPage(stocktype) {
+    firstresult += pagesize;
+    getData(stocktype, function(data){
+      //refresh
+      myScroll.refresh();
+    });
+  }
+
+  function getData(flag,call) {
+    var url = 'data.json';
+    $.ajax({
+      url: url,
+      type:'get',
+      dataType:'json',
+      data: {
+        firstresult: firstresult,
+        maxcount: pagesize
+      },
+      success: function(data) {
+        var source = document.getElementById("contact-template").innerHTML;
+        var template = Handlebars.compile(source);
+        var wos = {
+          wos: data.result
+        };
+
+        if (flag == '1') {
+          innerHTMLcode = template(wos) + $("#dataList").html();
+          $("#dataList").html(innerHTMLcode);
+        } else {
+          $("#dataList").html(template(wos));
+        }
+        call(data);
+
+      },
+      error: function(data) {
+        console.log(objToString(data));
+      }
+    });
+  }
+
+
+</script>
+
+
+</body>
+
 </html>
