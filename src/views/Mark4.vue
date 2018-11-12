@@ -179,6 +179,7 @@
       //开始显示
       let i = 1;
       var s = setInterval(() => {
+        alert(i);
         document.querySelector('#scroller div:nth-child('+i+')').style.display = 'block';
         myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
         myScroll.scrollTo(0,myScroll.maxScrollY-10);
@@ -187,10 +188,8 @@
           document.querySelector('.last-cen').style.display = 'block';
           document.querySelector('.footerCen').style.display = 'block';
           clearInterval(s);
-
         }
       },800);
-
 
       let myScroll;
 
@@ -198,7 +197,6 @@
       function loaded () {
         myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
       }
-
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
         capture: false,
         passive: false
