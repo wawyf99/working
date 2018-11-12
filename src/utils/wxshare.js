@@ -120,9 +120,10 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             router.push({ path: '/mark5', query : {step : step}});
             break;
           case 5:
-            Vue.http.post("/emsTest/index/adv/AinterfaceS",{}).then(res => {
+            /*Vue.http.post("/emsTest/index/adv/AinterfaceS",{}).then(res => {
               window.location.href = res.data.url;
-            });
+            });*/
+            window.location.href = 'http://www.baidu.com';
             break;
           default:
             step = 1;
