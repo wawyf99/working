@@ -7,6 +7,8 @@ import global from './utils/global'
 import skip from './utils/skip';
 import userAgent from './utils/userAgent';
 import routerRule from './utils/wxshare'
+import IScrollView from 'vue-iscroll-view';
+import IScroll from 'iscroll';
 routerRule(router);
 
 //import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -17,6 +19,7 @@ Vue.use(LoadingPlugin)
 Vue.use(ToastPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(AlertPlugin)
+Vue.use(IScrollView, IScroll)
 
 /*Vue.config.productionTip = false*/
 

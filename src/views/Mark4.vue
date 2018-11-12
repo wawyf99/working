@@ -1,24 +1,8 @@
 <template>
-  <div id="join">
-    <div class="section" id="section">
-      1
-      2
-      3
-      4
-      5
-      6
-      7
-      8
-    </div>
-    <div class="footer">
-      <span class="show-voice"></span>
-      <span class="show-input"></span>
-      <span class="show-smile"></span>
-      <span class="show-plus"></span>
-    </div>
-    <div class="joinCen"></div>
-
-  </div>
+  <iscroll-view ref="scrollView" class="scroll-view" @pullUp="pullUp" @pullDown="pullDown" :options="{mouseWheel:true}">
+    <h1>测试</h1>
+    <p>1234567890</p>
+  </iscroll-view>
 </template>
 <style>
   @import '../assets/style/join.less';
@@ -40,108 +24,18 @@
       }
     },
     created(){
-      var $container = document.querySelector('.section');
-      var $button = document.querySelector('.footer');
-      $container.style.height = (document.documentElement.clientHeight - $button.clientHeight) + 'px';
-      var myScroll = new IScroll('#section', {
-        mouseWheel: true,
-        scrollbars: true
-      });
+
     },
     methods:{
-      go(){
-        let self = this;
-        var _i = 1;
-        var s = setInterval(() => {
-          switch (_i) {
-            case 1:
-              //document.getElementById('footerId').style.position = 'absolute';
-              var el = self.$refs.go1;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 2:
-              var el = self.$refs.go2;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 3:
-              var el = self.$refs.go3;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 4:
-              var el = self.$refs.go4;
-              document.getElementById('footerId').style.position = 'fixed';
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 5:
-              var el = self.$refs.go5;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 6:
-              var el = self.$refs.go6;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 7:
-              var el = self.$refs.go7;
-              if(el){
-                el.style.display = 'block';
-              }
-              break;
-            case 8:
-              var el = self.$refs.go8;
-              var e2 = self.$refs.alertBox;
-              if(el){
-                el.style.display = 'block';
-                e2.style.display = 'block';
-              }
-              break;
-            case 9:
-              clearInterval(s);
-              break;
-          }
-
-/*
-          var ele = document.getElementById('section');
-          var _a = ele.scrollHeight;
-          document.getElementById("join").scrollTop = _a;
-          document.getElementById("joinCen").style.height = _a + "px";
-          _i ++;
-*/
-
-        },800)
+      pullUp(){
+        console.log(1);
       },
+      pullDown(){
+        console.log(2);
+      }
     },
     mounted(){
-
-      let self = this,
-        _url = window.location.href;
-
-      pushHistory();
-
-      window.addEventListener("popstate", function(e) {
-        self.jumpFun();
-      }, false);
-
-      function pushHistory() {
-        var state = {
-          title: "title",
-          url: _url
-        };
-        window.history.pushState(state, "title", _url);
-      }
-
+      this.$refs.scrollView.refresh()
     }
-
   }
 </script>
