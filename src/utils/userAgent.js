@@ -16,7 +16,7 @@ var browser = {
       iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
       iPad: u.indexOf('iPad') > -1, //是否iPad
       webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
-      webdebugger: u.indexOf('webdebugger') > -1, //微信调试工具
+      //webdebugger: u.indexOf('webdebugger') > -1, //微信调试工具
     };
   }(),
   isWechat: function () {
