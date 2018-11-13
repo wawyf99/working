@@ -1,7 +1,7 @@
 <template>
   <div id="main">
-    <div id="wrapper">
-      <div id="scroller">
+    <div id="wrappers">
+      <div id="scrollers">
         <Header></Header>
         <div class="main">
           <div class="ui-logo"></div>
@@ -88,7 +88,8 @@
         });
       },
       show(){
-        window.location.href = this.url;
+        alert(1);
+        //window.location.href = this.url;
       }
     },
     mounted(){
@@ -96,13 +97,16 @@
       let myScroll;
 
       loaded();
+
       function loaded () {
-        myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
+        myScroll = new IScroll('#wrappers', { mouseWheel: true, click: true, taps:true });
       }
+
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
         capture: false,
         passive: false
       } : false);
+
 
 
       let self = this,
