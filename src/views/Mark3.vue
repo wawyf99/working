@@ -101,7 +101,7 @@
       let myScroll;
       loaded();
       function loaded () {
-        myScroll = new IScroll('#wrappers', { mouseWheel: true, taps:true });
+        myScroll = new IScroll('#wrappers', { mouseWheel: true});
       }
 
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
