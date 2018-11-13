@@ -88,10 +88,10 @@
       },
       jumpFun(){
         alert(1);
-        let self = this;
+   /*     let self = this;
         self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
           window.location.href = res.data.url;
-        });
+        });*/
       },
       show(){
         window.location.href = this.url;
@@ -102,7 +102,7 @@
       let myScroll;
       loaded();
       function loaded () {
-        myScroll = new IScroll('#wrappers', { mouseWheel: true, taps:true });
+        myScroll = new IScroll('#wrappers', { mouseWheel: true, click: true, taps:true });
       }
 
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
