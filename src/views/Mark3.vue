@@ -88,18 +88,15 @@
         });
       },
       show(){
-        alert(1);
-        //window.location.href = this.url;
+        window.location.href = this.url;
       }
     },
     mounted(){
 
       let myScroll;
-
       loaded();
-
       function loaded () {
-        myScroll = new IScroll('#wrappers', { mouseWheel: true, click: true, taps:true });
+        myScroll = new IScroll('#wrappers', { mouseWheel: true, taps:true });
       }
 
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
