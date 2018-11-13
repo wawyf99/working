@@ -2,7 +2,12 @@
   <div id="main">
     <div id="wrappers">
       <div id="scrollers">
-        <Header></Header>
+        <div class="ui-header">
+          <div class="ui-back" @click="jumpFun">
+            <i class="fa fa-angle-left fa-lg" aria-hidden="true"></i>
+            返回
+          </div>
+        </div>
         <div class="main">
           <div class="ui-logo"></div>
           <div class="ui-title" v-cloak>{{title}}</div>
@@ -27,12 +32,12 @@
   @import '../assets/style/main.less';
 </style>
 <script>
-  import Header from "../components/Header";
+  //import Header from "../components/Header";
   import userAgent from "../utils/userAgent";
   //import Footer from "../components/Footer";
   //import Global from "../utils/global";
   export default {
-    components: {Header},
+    components: {/*Header*/},
     name: 'Main',
     data () {
       return {
