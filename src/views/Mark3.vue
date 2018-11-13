@@ -91,9 +91,10 @@
         self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
           window.location.href = res.data.url;
         });
-    },
+      },
       show(){
-        window.location.href = this.url;
+        alert(1);
+        //window.location.href = this.url;
       }
     },
     mounted(){
