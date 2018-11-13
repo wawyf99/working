@@ -88,7 +88,7 @@ router.beforeEach((to, from, next) => {
             desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon),
             timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon),
             logo = res.data.logo,
-            wxid = res.data.wxid,
+            wxid = res.data.id,
             _type = '',
             flock_logo = res.data.flock_logo;
 
