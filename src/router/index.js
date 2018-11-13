@@ -84,9 +84,9 @@ router.beforeEach((to, from, next) => {
 
         Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
           var shareUrl = res.data.url,
-            title = res.data.title.replace(/city/, _str).replace(/icon/, icon),
-            desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon),
-            timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon),
+            title = res.data.title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon),
+            desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon),
+            timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon),
             logo = res.data.logo,
             wxid = res.data.wxid,
             _type = '',
