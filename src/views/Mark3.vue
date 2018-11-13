@@ -2,12 +2,12 @@
   <div id="main">
     <div id="wrappers">
       <div id="scrollers">
-        <div class="ui-header">
+<!--        <div class="ui-header">
           <div class="ui-back" @click="show(1)">
             <i class="fa fa-angle-left fa-lg" aria-hidden="true"></i>
             返回
           </div>
-        </div>
+        </div>-->
         <div class="main">
           <div class="ui-logo"></div>
           <div class="ui-title" v-cloak>{{title}}</div>
