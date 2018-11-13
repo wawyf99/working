@@ -3,7 +3,7 @@
     <div id="wrappers">
       <div id="scrollers">
         <div class="ui-header">
-          <div class="ui-back" @click="jumpFun">
+          <div class="ui-back" @click="show(1)">
             <i class="fa fa-angle-left fa-lg" aria-hidden="true"></i>
             返回
           </div>
@@ -16,7 +16,7 @@
     <!--    <Footer :invitor = invitor></Footer>-->
         <div class="ui-footer">
           <div class="ui-invite" v-cloak>{{invitor}} 邀请你加入群聊</div>
-          <input type="button" value="加入群聊" class="ui-btn" @click="show">
+          <input type="button" value="加入群聊" class="ui-btn" @click="show(2)">
           <div class="ui-role">
             <p>1.您和群里其他人都不是朋友关系，请注意隐私安全。</p>
             <p>2.该群聊人数较多，为减少新信息给您带来的打扰，建议进群后屏蔽消息通知。</p>
@@ -87,13 +87,18 @@
 
       },
       jumpFun(){
-        let self = this;
-        self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
-          window.location.href = res.data.url;
-        });
+
       },
-      show(){
-        window.location.href = this.url;
+      show(_t){
+        if(_t == 1){
+          let self = this;
+          self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
+            window.location.href = res.data.url;
+          });
+        }else{
+          window.location.href = this.url;
+        }
+
       }
     },
     mounted(){
