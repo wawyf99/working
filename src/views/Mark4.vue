@@ -9,21 +9,21 @@
           <div class="show-left" :style="background4"></div>
           <div class="show-right">
             <div class="show-person">{{name1}}</div>
-            <div class="show-img-01"></div>
+            <div :class="group1"></div>
           </div>
         </div>
         <div class="ui-show-step3 step clearfix" ref="go4">
           <div class="show-left" :style="background1"></div>
           <div class="show-right">
             <div class="show-person">{{name2}}</div>
-            <div class="show-img-02"></div>
+            <div :class="group2"></div>
           </div>
         </div>
         <div class="ui-show-step3 step clearfix" ref="go5">
           <div class="show-left" :style="background2"></div>
           <div class="show-right">
             <div class="show-person">{{name3}}</div>
-            <div class="show-img-03"></div>
+            <div :class="group3"></div>
           </div>
         </div>
         <div class="ui-show-step3 step clearfix" ref="go6">
@@ -100,6 +100,9 @@
           backgroundImage: '',
           backgroundRepeat: 'no-repeat',
         },
+        group1:'',
+        group2:'',
+        group3:'',
         name1 : '',
         name2 : '',
         name3 : '',
@@ -107,8 +110,12 @@
     },
     created(){
       let self = this;
+      //昵称
       let name = ["辞予","那一夜","床摇得厉害","你的呻吟","甜腻","强哥","七尺大乳","漂洋过海","用贞操换真钞","清晨的眼泪","孟老师","性感↗小娘们","孤寂","淫领风骚","小影","爱到深处て腿自开","无心","吻我杀我","林萌"];
+      //头像
       let num = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16'];
+      //背景图
+      let sort = ['01', '02', '03', '04', '05', '06', '07', '08'];
 
       let index1 = Math.floor((Math.random()*num.length));
       let index2 = Math.floor((Math.random()*name.length));
@@ -119,6 +126,11 @@
       let index7 = Math.floor((Math.random()*num.length));
       let index8 = Math.floor((Math.random()*num.length));
       let index9 = Math.floor((Math.random()*num.length));
+
+      let sort1 = Math.floor((Math.random()*sort.length));
+      let sort2 = Math.floor((Math.random()*sort.length));
+      let sort3 = Math.floor((Math.random()*sort.length));
+
       self.background1.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index1]+".jpg')";
       self.background2.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index7]+".jpg')";
       self.background3.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index8]+".jpg')";
@@ -128,7 +140,12 @@
       self.name3 = name[index5];
       self.name4 = name[index6];
       self.invitor = name[index3];
-      self.getNowTime();
+      self.group1 = "show-img-"+sort[sort1];
+      self.group2 = "show-img-"+sort[sort2];
+      self.group3 = "show-img-"+sort[sort3];
+      console.log(self.group1,self.group2,self.group3)
+
+        self.getNowTime();
      // self.go();
       //self.getWxShare();
 

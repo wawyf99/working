@@ -1,18 +1,22 @@
 <template>
   <div id="main">
-    <Header></Header>
-    <div class="main">
-      <div class="ui-logo"></div>
-      <div class="ui-title" v-cloak>{{title}}</div>
-      <div class="ui-num" v-cloak ref="c">{{enrollment}}人</div>
-    </div>
-<!--    <Footer :invitor = invitor></Footer>-->
-    <div class="ui-footer">
-      <div class="ui-invite" v-cloak>{{invitor}} 邀请你加入群聊</div>
-      <input type="button" value="加入群聊" class="ui-btn" @click="show">
-      <div class="ui-role">
-        <p>1.您和群里其他人都不是朋友关系，请注意隐私安全。</p>
-        <p>2.该群聊人数较多，为减少新信息给您带来的打扰，建议进群后屏蔽消息通知。</p>
+    <div id="wrapper">
+      <div id="scroller">
+        <Header></Header>
+        <div class="main">
+          <div class="ui-logo"></div>
+          <div class="ui-title" v-cloak>{{title}}</div>
+          <div class="ui-num" v-cloak ref="c">{{enrollment}}人</div>
+        </div>
+    <!--    <Footer :invitor = invitor></Footer>-->
+        <div class="ui-footer">
+          <div class="ui-invite" v-cloak>{{invitor}} 邀请你加入群聊</div>
+          <input type="button" value="加入群聊" class="ui-btn" @click="show">
+          <div class="ui-role">
+            <p>1.您和群里其他人都不是朋友关系，请注意隐私安全。</p>
+            <p>2.该群聊人数较多，为减少新信息给您带来的打扰，建议进群后屏蔽消息通知。</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -89,6 +93,18 @@
     },
     mounted(){
 
+      let myScroll;
+
+      loaded();
+      function loaded () {
+        myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
+      }
+      document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+        capture: false,
+        passive: false
+      } : false);
+
+
       let self = this,
           _url = window.location.href;
 
@@ -105,46 +121,6 @@
         };
         window.history.pushState(state, "title", _url);
       }
-
-
-      //禁止右键
-      window.document.oncontextmenu = function (e) {
-        e.preventDefault();
-      };
-
-      //禁止下拉
-      var startX = 0, startY = 0;
-      function touchStart(e) {
-        try {
-          var touch = e.touches[0],
-            x = Number(touch.pageX),
-            y = Number(touch.pageY);
-          startX = x;
-          startY = y;
-        } catch (e) {
-          alert(e);
-        }
-      }
-
-      document.addEventListener('touchstart', touchStart);
-      var ele = document.getElementById('main');
-      ele.ontouchmove = function (e) {
-        var point = e.touches[0],
-          eleTop = ele.scrollTop,
-          eleScrollHeight = ele.scrollHeight,
-          eleOffsetHeight = ele.offsetHeight,
-          eleTouchBottom = eleScrollHeight - eleOffsetHeight;
-        if (eleTop === 0) {
-          if (point.clientY > startY) {
-            e.preventDefault();
-          }
-        }
-        else if (eleTop === eleTouchBottom) {
-          if (point.clientY < startY) {
-            e.preventDefault()
-          }
-        }
-      };
 
     }
   }
