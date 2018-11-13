@@ -90,7 +90,7 @@
     methods:{
       jumpFun(){
         let self = this;
-        self.$http.get("/emsTest/index/adv/AinterfaceS",{}).then(res => {
+        self.$http.get("/emsTest/scan/Rule_b?id=5",{}).then(res => {
           window.location.href = res.data.url;
         });
       },
