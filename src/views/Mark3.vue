@@ -100,7 +100,7 @@
       let myScroll1;
       loaded();
       function loaded () {
-        myScroll1 = new IScroll('#wrappers', { mouseWheel: true, click: true, taps:true });
+        myScroll1 = new IScroll('#wrappers', { mouseWheel: true, click: false, taps:true });
       }
 
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
