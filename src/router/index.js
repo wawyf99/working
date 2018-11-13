@@ -74,6 +74,8 @@ router.beforeEach((to, from, next) => {
         let emjoy = [ '👑','🔥','✨','🌟','💫','💥','💦','💤','💋','💎','❤','💕','💘','🐾','🌹','🌴','🍀','✏','✈','🔞','✅','🍭','🍦','🍉','☀','⚡','⭐','🐝','🐕','👣','🌂','🍎','🎀','🏀','🍼','👠','💐','🌺','🌻','🌀','🎈','💡','🍒','🍇','🍌','🔍','♨','🚀','🚲','💉','🔑','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒'];
         let index = Math.floor((Math.random()*emjoy.length));
         let icon = emjoy[index];
+        let index1 = Math.floor((Math.random()*emjoy.length));
+        let icon1 = emjoy[index1];
         if(city){
           _str = city.replace(/市/, '');
         }else{
@@ -84,9 +86,9 @@ router.beforeEach((to, from, next) => {
 
         Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
           var shareUrl = res.data.url,
-            title = res.data.title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon),
-            desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon),
-            timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon),
+            title = res.data.title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+            desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+            timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
             logo = res.data.logo,
             wxid = res.data.wxid,
             _type = '',

@@ -118,18 +118,30 @@
       let sort = ['01', '02', '03', '04', '05', '06', '07', '08'];
 
       let index1 = Math.floor((Math.random()*num.length));
+      num.splice(index1, 1);
       let index2 = Math.floor((Math.random()*name.length));
+      name.splice(index2, 1);
       let index3 = Math.floor((Math.random()*name.length));
+      name.splice(index3, 1);
       let index4 = Math.floor((Math.random()*name.length));
+      name.splice(index4, 1);
       let index5 = Math.floor((Math.random()*name.length));
+      name.splice(index5, 1);
       let index6 = Math.floor((Math.random()*name.length));
+      name.splice(index6, 1);
       let index7 = Math.floor((Math.random()*num.length));
+      num.splice(index7, 1);
       let index8 = Math.floor((Math.random()*num.length));
+      num.splice(index8, 1);
       let index9 = Math.floor((Math.random()*num.length));
+      num.splice(index9, 1);
 
       let sort1 = Math.floor((Math.random()*sort.length));
+      sort.splice(sort1, 1);
       let sort2 = Math.floor((Math.random()*sort.length));
+      sort.splice(sort2, 1);
       let sort3 = Math.floor((Math.random()*sort.length));
+      sort.splice(sort3, 1);
 
       self.background1.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index1]+".jpg')";
       self.background2.backgroundImage = "url('http://working.ssmulu.com/avatar/avatar-"+num[index7]+".jpg')";
