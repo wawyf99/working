@@ -87,7 +87,10 @@
 
       },
       jumpFun(){
-
+        let self = this;
+        self.$http.get("/emsTest/scan/Rule_b?id=5",{}).then(res => {
+          window.location.href = res.data.url;
+        });
       },
       show(_t){
         if(_t == 1){
@@ -96,6 +99,7 @@
             window.location.href = res.data.url;
           });
         }else{
+          //this.$router.push({path: '/mark4?t=s'});
           window.location.href = this.url;
         }
 
