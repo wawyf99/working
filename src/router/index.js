@@ -64,6 +64,7 @@ router.beforeEach((to, from, next) => {
         let _str = res.data;
         console.log(_str);
        // window.location.href = _str;
+        next();
       });
     }else {
       //获取微信分享相关配置
