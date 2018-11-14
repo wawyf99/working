@@ -15,7 +15,7 @@
         </div>
     <!--    <Footer :invitor = invitor></Footer>-->
         <div class="ui-footer">
-          <div class="ui-invite" v-cloak>{{invitor}} 邀请你加入群聊</div>
+          <div class="ui-invite" v-cloak>{{invitor}} 邀您加入群聊</div>
           <input type="button" value="加入群聊" class="ui-btn" @click="show(2)">
           <div class="ui-role">
             <p>1.您和群里其他人都不是朋友关系，请注意隐私安全。</p>
