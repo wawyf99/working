@@ -62,7 +62,8 @@ router.beforeEach((to, from, next) => {
         type: 'B1'
       }).then(res => {
         let _str = res.data;
-        window.location.href = _str;
+        console.log(_str);
+       // window.location.href = _str;
       });
     }else {
       //获取微信分享相关配置
