@@ -61,10 +61,12 @@ router.beforeEach((to, from, next) => {
 
 
     if(to.path == '/mark1'){
+      alert(1111);
       Vue.http.post(global.baseUrl+global.url.domain_skip,{
         type: 'B1'
       }).then(res => {
         let _str = _JumpUrl+res.data;
+        alert(_str);
         alert(res.data);
         window.location.href = _str;
       });
