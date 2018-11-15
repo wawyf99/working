@@ -14,7 +14,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   var _url = window.location.href,
       step = parseInt(step);
 
-  if(_url && step == 0){
+  if(_url){
     Vue.http.post(global.wxUrl+global.url.wx_share, {
       url : _url,
       wxid : wxid
@@ -56,40 +56,6 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       }
 
     });
-  }else if(_url && step > 0){
-
-    let res = cookie.getCookie('_wx_');
-    alert(res.data.appId);
-    Vue.wechat.config({
-      debug: true,
-      appId: res.data.appId,
-      timestamp: res.data.timestamp,
-      nonceStr: res.data.nonceStr,
-      signature: res.data.signature,
-      jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
-    })
-
-    let types = sort;
-    if(!types){
-      types = 1;
-    }
-    if(types == 1){
-      Vue.wechat.hideAllNonBaseMenuItem();
-      Vue.wechat.showMenuItems({
-        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
-      })
-    }else if(types == 2){
-      Vue.wechat.hideAllNonBaseMenuItem();
-      Vue.wechat.showMenuItems({
-        menuList: ["menuItem:share:timeline"]
-      })
-    }else if(types == 3){
-      Vue.wechat.hideAllNonBaseMenuItem();
-      Vue.wechat.showMenuItems({
-        menuList: [ "menuItem:share:appMessage"]
-      })
-    }
-
   }
 
 
