@@ -56,7 +56,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       }
 
     });
-  }else{
+  }else if(_url && step > 0){
 
     let res = cookie.getCookie('_wx_');
 
