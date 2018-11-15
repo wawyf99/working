@@ -26,7 +26,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       cookie.setCookie('_wx_');
 
       Vue.wechat.config({
-        debug: false,
+        debug: true,
         appId: res.data.appId,
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
@@ -61,7 +61,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
     let res = cookie.getCookie('_wx_');
 
     Vue.wechat.config({
-      debug: false,
+      debug: true,
       appId: res.data.appId,
       timestamp: res.data.timestamp,
       nonceStr: res.data.nonceStr,

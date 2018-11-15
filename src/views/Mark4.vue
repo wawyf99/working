@@ -59,8 +59,8 @@
     </div>
   </div>
   <div v-else-if="step" id="process">
-    <div id="wrapper" >
-      <div id="scroller">
+    <div id="wrappers" >
+      <div id="scrollers">
         <div class="box-one" v-if="step == 1"></div>
         <div class="box-two" v-if="step == 2"></div>
         <div class="box-three" v-if="step == 3"></div>
@@ -291,7 +291,7 @@
 
         loaded();
         function loaded () {
-          myScroll = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
+          myScroll = new IScroll('#wrappers', { mouseWheel: true,  click: true, taps:true });
         }
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
           capture: false,
