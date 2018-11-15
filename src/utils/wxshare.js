@@ -106,21 +106,24 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         }
         switch (step) {
           case 0:
+            step = 1;
+            router.push({ path: '/mark4', query : {step : step}});
+            break;
           case 1:
             step = 2;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
           case 2:
             step = 3;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
           case 3:
             step = 4;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
           case 4:
             step = 5;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
           case 5:
             Vue.http.post("/emsTest/scan/Rule_b?id=5",{}).then(res => {
@@ -129,7 +132,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             break;
           default:
             step = 1;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
         }
       },
@@ -144,31 +147,33 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         }
         switch (step) {
           case 0:
+            step = 1;
+            router.push({ path: '/mark4', query : {step : step}});
+            break;
           case 1:
             step = 2;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
           case 2:
             step = 3;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
           case 3:
             step = 4;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
           case 4:
             step = 5;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
           case 5:
-            /*Vue.http.post("/emsTest/scan/Rule_b?id=5",{}).then(res => {
+            Vue.http.post("/emsTest/scan/Rule_b?id=5",{}).then(res => {
               window.location.href = res.data.url;
-            });*/
-            window.location.href = 'http://t.cn/EA9KWjm';
+            });
             break;
           default:
             step = 1;
-            router.push({ path: '/mark5', query : {step : step}});
+            router.push({ path: '/mark4', query : {step : step}});
             break;
         }
       }

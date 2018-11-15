@@ -48,9 +48,9 @@ router.beforeEach((to, from, next) => {
   if(!userAgent.isWechat()){
      window.location.href = "https://xw.qq.com/";
   }else{
-   if(to.path == '/mark4' && !to.query.t){
+  /* if(to.path == '/mark4'){
      window.location.href = "https://xw.qq.com/";
-   }
+   }*/
 
     document.getElementById('titleId').innerHTML = to.name;
 
