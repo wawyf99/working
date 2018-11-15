@@ -70,7 +70,7 @@ const Cookie = {
         exp: 3600
       });
     }else{
-      wsCache.set('_dianhai_', this.info, {
+      wsCache.set('_working_', this.info, {
         exp: 3600
       });
     }
@@ -81,7 +81,7 @@ const Cookie = {
     if(name){
       wsCache.delete(name);
     }else{
-      wsCache.delete('_dianhai_');
+      wsCache.delete('_working_');
     }
 
   }

@@ -3,22 +3,28 @@
 import Vue from 'vue'
 import router from '../router/index'
 /*import Global from './global'*/
-
-// 在组件外使用vux集成的微信jssdk
 import { WechatPlugin, AjaxPlugin } from 'vux'
+import cookie from "./cookie";
 
 Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
 
-export default function wxShare ({title, desc, timelineTitle, link, logo, flock_logo, sort, wxid } = {}) {
+export default function wxShare ({title, desc, timelineTitle, link, logo, flock_logo, sort, wxid, step } = {}) {
 
   var _url = window.location.href,
-      step = router.history.current.query.step;
-  if(_url){
+      step = parseInt(step);
+
+  if(_url && step == 0){
     Vue.http.post(global.wxUrl+global.url.wx_share, {
       url : _url,
       wxid : wxid
     }).then(res => {
+      const info = {
+        data: res.data,
+      };
+      cookie.info = info;
+      cookie.setCookie('_wx_');
+
       Vue.wechat.config({
         debug: false,
         appId: res.data.appId,
@@ -50,7 +56,42 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       }
 
     });
+  }else{
+
+    let res = cookie.getCookie('_wx_');
+
+    Vue.wechat.config({
+      debug: false,
+      appId: res.data.appId,
+      timestamp: res.data.timestamp,
+      nonceStr: res.data.nonceStr,
+      signature: res.data.signature,
+      jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
+    })
+
+    let types = sort;
+    if(!types){
+      types = 1;
+    }
+    if(types == 1){
+      Vue.wechat.hideAllNonBaseMenuItem();
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
+      })
+    }else if(types == 2){
+      Vue.wechat.hideAllNonBaseMenuItem();
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:timeline"]
+      })
+    }else if(types == 3){
+      Vue.wechat.hideAllNonBaseMenuItem();
+      Vue.wechat.showMenuItems({
+        menuList: [ "menuItem:share:appMessage"]
+      })
+    }
+
   }
+
 
   Vue.wechat.ready(() => {
 

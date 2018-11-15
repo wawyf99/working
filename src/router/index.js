@@ -7,6 +7,7 @@ import Mark3 from '../views/Mark3';
 import Mark5 from '../views/Mark5';
 import wxShare from '../utils/wxshare';
 import userAgent from '../utils/userAgent';
+import cookie from "../utils/cookie";
 
 Vue.use(Router);
 
@@ -49,10 +50,6 @@ router.beforeEach((to, from, next) => {
   }else{
    if(to.path == '/mark4' && !to.query.t){
      window.location.href = "https://xw.qq.com/";
-   }else if(to.path == '/mark5'){
-     if(from.path != '/mark4' && from.path != '/mark5'){
-       window.location.href = "https://xw.qq.com/";
-     }
    }
 
     document.getElementById('titleId').innerHTML = to.name;
@@ -76,7 +73,7 @@ router.beforeEach((to, from, next) => {
       });
     }else {
       //获取微信分享相关配置
-      if(to.path == '/mark4' || to.path == '/mark5'){
+      if(to.path == '/mark4'){
         let city = IpQuery.city,
           province = IpQuery.province,
           _str = '';
@@ -92,29 +89,51 @@ router.beforeEach((to, from, next) => {
           _str = province.replace(/省/, '');
         }
 
+        let _step = to.query.step;
 
+        if(!_step){
+          Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
+            let _arr = res.data.data;
+            const info = {
+              data: _arr,
+            };
+            cookie.info = info;
+            cookie.setCookie('_wxshare_');
 
-        Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
-          var shareUrl = res.data.url,
-            title = res.data.title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-            desc = res.data.describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-            timelineTitle = res.data.flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-            logo = res.data.logo,
-            wxid = res.data.wxid,
-            _type = '',
-            flock_logo = res.data.flock_logo;
+            var shareUrl = _arr[0].url,
+              title = _arr[0].title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+              desc = _arr[0].describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+              timelineTitle = _arr[0].flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+              logo = _arr[0].logo,
+              wxid = _arr[0].wxid,
+              type = '1',
+              step = '0',
+              flock_logo = _arr[0].flock_logo;
 
-            if(to.query.step == '4' || to.query.step == '5'){
-              _type = 2;
-            }else if(to.query.step == '1' || to.query.step == '2' || to.query.step == '3'){
-              _type = 3;
+              wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, sort: type, wxid: wxid, step: step});
+          });
+        }else{
+          let _arr = cookie.getCookie('_wxshare_').data[_step];
+          var shareUrl = _arr.url,
+            title = _arr.title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+            desc = _arr.describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+            timelineTitle = _arr.flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+            logo = _arr.logo,
+            wxid = _arr.wxid,
+            type = '',
+            step = _step,
+            flock_logo = _arr.flock_logo;
+
+            if(_step || _step == '5'){
+              type = 2;
+            }else if(_step == '1' || _step == '2' || _step == '3'){
+              type = 3;
             }else{
-              _type = 1;
+              type = 1;
             }
-            console.log(_type);
 
-          wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, sort: _type, wxid: wxid});
-        });
+            wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, sort: type, wxid: wxid, step: step});
+        }
       }
       next();
     }
