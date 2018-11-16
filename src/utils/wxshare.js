@@ -14,7 +14,8 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   var _url = window.location.href,
       step = parseInt(step);
 
-  if(_url){
+  alert();
+  if(_url && step == 0){
     Vue.http.post(global.wxUrl+global.url.wx_share, {
       url : _url,
       wxid : wxid
@@ -26,7 +27,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       cookie.setCookie('_wx_');
 
       Vue.wechat.config({
-        debug: true,
+        debug: false,
         appId: res.data.appId,
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
@@ -56,6 +57,40 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       }
 
     });
+  }else if(_url && step > 0) {
+
+    let res = Public.WxConfig;
+
+    Vue.wechat.config({
+      debug: true,
+      appId: res.data.appId,
+      timestamp: res.data.timestamp,
+      nonceStr: res.data.nonceStr,
+      signature: res.data.signature,
+      jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
+    })
+
+    let types = sort;
+    if (!types) {
+      types = 1;
+    }
+    if (types == 1) {
+      Vue.wechat.hideAllNonBaseMenuItem();
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
+      })
+    } else if (types == 2) {
+      Vue.wechat.hideAllNonBaseMenuItem();
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:timeline"]
+      })
+    } else if (types == 3) {
+      Vue.wechat.hideAllNonBaseMenuItem();
+      Vue.wechat.showMenuItems({
+        menuList: ["menuItem:share:appMessage"]
+      })
+    }
+
   }
 
 
@@ -73,23 +108,28 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         switch (step) {
           case 0:
             step = 1;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 1;
+            router.push({ path: '/mark4'});
             break;
           case 1:
             step = 2;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 2;
+            router.push({ path: '/mark4'});
             break;
           case 2:
             step = 3;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 3;
+            router.push({ path: '/mark4'});
             break;
           case 3:
             step = 4;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 4;
+            router.push({ path: '/mark4'});
             break;
           case 4:
             step = 5;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 5;
+            router.push({ path: '/mark4'});
             break;
           case 5:
             Vue.http.post("/emsTest/scan/Rule_b?id=5",{}).then(res => {
@@ -98,7 +138,8 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             break;
           default:
             step = 1;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 1;
+            router.push({ path: '/mark4'});
             break;
         }
       },
@@ -114,23 +155,28 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         switch (step) {
           case 0:
             step = 1;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 1;
+            router.push({ path: '/mark4'});
             break;
           case 1:
             step = 2;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 2;
+            router.push({ path: '/mark4'});
             break;
           case 2:
             step = 3;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 3;
+            router.push({ path: '/mark4'});
             break;
           case 3:
             step = 4;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 4;
+            router.push({ path: '/mark4'});
             break;
           case 4:
             step = 5;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 5;
+            router.push({ path: '/mark4'});
             break;
           case 5:
             Vue.http.post("/emsTest/scan/Rule_b?id=5",{}).then(res => {
@@ -139,7 +185,8 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
             break;
           default:
             step = 1;
-            router.push({ path: '/mark4', query : {step : step}});
+            Public.step = 1;
+            router.push({ path: '/mark4'});
             break;
         }
       }

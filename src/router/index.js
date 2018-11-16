@@ -89,17 +89,17 @@ router.beforeEach((to, from, next) => {
           _str = province.replace(/省/, '');
         }
 
-        let _step = to.query.step;
+        let _step = Public.step;
 
-        if(!_step){
+        if(_step == 0){
           Vue.http.post(global.baseUrl+global.url.get_wx_share,{}).then(res => {
             let _arr = res.data.data;
-            const info = {
+            /*const info = {
               data: _arr,
             };
             cookie.info = info;
-            cookie.setCookie('_wxshare_');
-
+            cookie.setCookie('_wxshare_');*/
+            Public.Wxshare = _arr;
             var shareUrl = _arr[0].url,
               title = _arr[0].title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
               desc = _arr[0].describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
@@ -113,7 +113,9 @@ router.beforeEach((to, from, next) => {
               wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, sort: type, wxid: wxid, step: step});
           });
         }else{
-          let _arr = cookie.getCookie('_wxshare_').data[_step];
+          let _arr = Public.Wxshare;
+          console.log(222);
+          console.log(Public.Wxshare);
           var shareUrl = _arr.url,
             title = _arr.title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
             desc = _arr.describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
