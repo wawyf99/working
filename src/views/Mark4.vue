@@ -284,7 +284,18 @@
       },
       //重置滚动
       setScoll(){
-        alert(3);
+        let myScrolls;
+        loadeds();
+        function loadeds () {
+          myScrolls = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
+        }
+        myScrolls.maxScrollY = 0;
+        myScrolls.scrollTo(0,0);
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+          capture: false,
+          passive: false
+        } : false);
+
       }
     },
     mounted(){
