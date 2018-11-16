@@ -284,7 +284,7 @@
       },
       //重置滚动
       setScoll(){
-
+        alert(3);
       }
     },
     mounted(){
