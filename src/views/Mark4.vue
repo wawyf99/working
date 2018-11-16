@@ -287,7 +287,7 @@
         let myScrolls;
         loadeds();
         function loadeds () {
-          myScrolls = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
+          myScrolls = new IScroll('#wrappers', { mouseWheel: true,  click: true, taps:true });
         }
         myScrolls.maxScrollY = 0;
         myScrolls.scrollTo(0,0);
