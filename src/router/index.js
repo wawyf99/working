@@ -115,7 +115,7 @@ router.beforeEach((to, from, next) => {
             timelineTitle = _arr[0].flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
             logo = _arr[0].logo,
             wxid = _arr[0].wxid,
-            type = '1',
+            type = _step,
             flock_logo = _arr[0].flock_logo;
 
           wxShare({

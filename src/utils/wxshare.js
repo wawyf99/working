@@ -41,23 +41,23 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
     })
   }
-  
+
 
   let types = sort;
   if(!types){
     types = 1;
   }
-  if(types == 1){
+  if(types == 0){
     Vue.wechat.hideAllNonBaseMenuItem();
     Vue.wechat.showMenuItems({
       menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
     })
-  }else if(types == 2){
+  }else if(types == 1 || types == 2 || types == 3){
     Vue.wechat.hideAllNonBaseMenuItem();
     Vue.wechat.showMenuItems({
       menuList: ["menuItem:share:timeline"]
     })
-  }else if(types == 3){
+  }else if(types == 4 || types == 5){
     Vue.wechat.hideAllNonBaseMenuItem();
     Vue.wechat.showMenuItems({
       menuList: [ "menuItem:share:appMessage"]
