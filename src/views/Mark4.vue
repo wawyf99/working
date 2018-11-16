@@ -1,5 +1,5 @@
 <template>
-  <div id="join"  v-if="!step">
+  <div id="join"  v-if="step == 0">
     <div id="wrapper">
       <div id="scroller">
         <p style="height: 0.5rem;"></p>
@@ -58,7 +58,9 @@
       <div class="footerCen"></div>
     </div>
   </div>
-  <div v-else-if="step" id="process" style="height: 100%;">
+  <div v-else-if="step > 0" id="process" style="height: 100%;">
+    <div id="wrappers"  style="height: 100%;">
+      <div id="scrollers"  style="height: 100%;">
         <div class="box-one" v-if="step == 1"></div>
         <div class="box-two" v-if="step == 2"></div>
         <div class="box-three" v-if="step == 3"></div>
@@ -74,6 +76,8 @@
             <div v-html="words" class="ui-content"></div>
             <div class="alert-btn" @click="toggles">好的</div>
           </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -99,6 +103,7 @@
     },
     data () {
       return {
+        _self : this,
         step : 0,
         uaSort: {
           webkitOverflowScrolling: '',
@@ -185,12 +190,19 @@
       }
     },
     watch: {
-      listenStep:function(a,b){
-        this.step = a;
-        this.getAlertBox();
-        this.wxShareFun();
-        this.setBScoll();
-      },
+
+      listenStep:{
+
+        handler: function (val, oldVal) {
+          if(oldVal!=val){
+            this.step = val;
+            this.getAlertBox();
+            this.wxShareFun();
+            this.setBScoll();
+          }
+        },
+        deep: true
+      }
     },
     methods:{
       //点击模态框
@@ -310,7 +322,8 @@
 
       },
       setBScoll(){
-        //var myScrollB = new IScroll('#wrappers', { mouseWheel: true});
+
+        var myScrollA = new IScroll('#wrapper', { mouseWheel: true, click: true });
       }
     },
     mounted(){
@@ -319,7 +332,10 @@
         //开始显示
         this.setAScoll();
       }
-
+      document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+        capture: false,
+        passive: false
+      } : false);
 
       let self = this,
         _url = window.location.href;
