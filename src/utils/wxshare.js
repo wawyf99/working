@@ -42,9 +42,6 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
     })
   }
 
-  console.log(store.state.Wxshare)
-  alert(link);
-
   Vue.wechat.hideAllNonBaseMenuItem();
   Vue.wechat.showMenuItems({
     menuList: ["menuItem:share:timeline", "menuItem:share:appMessage"]
