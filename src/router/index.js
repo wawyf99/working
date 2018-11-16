@@ -116,15 +116,15 @@ router.beforeEach((to, from, next) => {
           let _arr = Public.Wxshare;
           console.log(222);
           console.log(Public.Wxshare);
-          var shareUrl = _arr.url,
-            title = _arr.title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-            desc = _arr.describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-            timelineTitle = _arr.flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-            logo = _arr.logo,
-            wxid = _arr.wxid,
-            type = '',
-            step = _step,
-            flock_logo = _arr.flock_logo;
+          var shareUrl = _arr[0].url,
+            title = _arr[0].title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+            desc = _arr[0].describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+            timelineTitle = _arr[0].flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+            logo = _arr[0].logo,
+            wxid = _arr[0].wxid,
+            type = '1',
+            step = '0',
+            flock_logo = _arr[0].flock_logo;
 
             if(_step || _step == '5'){
               type = 2;

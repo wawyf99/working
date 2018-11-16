@@ -14,7 +14,6 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   var _url = window.location.href,
       step = parseInt(step);
 
-  alert();
   if(_url && step == 0){
     Vue.http.post(global.wxUrl+global.url.wx_share, {
       url : _url,
@@ -62,7 +61,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
     let res = Public.WxConfig;
 
     Vue.wechat.config({
-      debug: true,
+      debug: false,
       appId: res.data.appId,
       timestamp: res.data.timestamp,
       nonceStr: res.data.nonceStr,
