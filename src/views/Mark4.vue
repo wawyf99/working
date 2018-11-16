@@ -292,7 +292,7 @@
       if(this.step == 0){
         //开始显示
 
-        let myScroll = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
+        //let myScroll = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
 
         let i = 1;
         var s = setInterval(() => {
@@ -302,6 +302,7 @@
           }else{
             clearInterval(s);
           }
+          let myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
           if(i>5){
             myScroll.scrollTo(0,myScroll.maxScrollY-10);
           }
@@ -320,11 +321,17 @@
           }
         },500);
 
+        let myScroll;
 
+        loaded();
+        function loaded () {
+          myScroll = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
+        }
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
           capture: false,
           passive: false
         } : false);
+
       }
 
 
