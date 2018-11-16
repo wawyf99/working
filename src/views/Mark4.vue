@@ -320,11 +320,20 @@
 
         },500);
 
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+          capture: false,
+          passive: false
+        } : false);
+
       },
       setBScoll:function () {
         var myScrollB  = new IScroll('#wrapper', { mouseWheel: true, click: true });
         myScrollB.maxScrollY = 0;
         myScrollB.scrollTo(0,0);
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+          capture: false,
+          passive: false
+        } : false);
       }
 
     },
@@ -332,10 +341,7 @@
 
       this.setAScoll();
 
-      document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
-        capture: false,
-        passive: false
-      } : false);
+
 
       let self = this,
         _url = window.location.href;
