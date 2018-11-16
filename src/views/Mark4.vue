@@ -323,6 +323,7 @@
       },
       setBScoll:function () {
         var myScrollB  = new IScroll('#wrapper', { mouseWheel: true, click: true });
+        myScrollB.maxScrollY = 0;
         myScrollB.scrollTo(0,0);
       }
 
