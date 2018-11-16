@@ -19,8 +19,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       wxid : wxid
     }).then(res => {
       store.state.WxConfig = res.data;
-      alert(res.data.appId);
-      alert(title);
+
       Vue.wechat.config({
         debug: false,
         appId: res.data.appId,
@@ -29,6 +28,10 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         signature: res.data.signature,
         jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
+
+      alert(res.data.appId);
+      alert(title);
+      alert(store.state.WxConfig.appId);
 
       let types = sort;
       if(!types){
@@ -55,6 +58,10 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   }else if(_url && step > 0) {
 
     let res = store.state.WxConfig;
+
+    alert(res.appId);
+    alert(title);
+
     Vue.wechat.config({
       debug: false,
       appId: res.appId,
