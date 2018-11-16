@@ -19,8 +19,10 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       wxid : wxid
     }).then(res => {
       store.state.WxConfig = res.data;
+      alert(res.data.appId);
+      alert(title);
       Vue.wechat.config({
-        debug: true,
+        debug: false,
         appId: res.data.appId,
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
@@ -54,7 +56,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
 
     let res = store.state.WxConfig;
     Vue.wechat.config({
-      debug: true,
+      debug: false,
       appId: res.appId,
       timestamp: res.timestamp,
       nonceStr: res.nonceStr,
