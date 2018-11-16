@@ -198,7 +198,6 @@
             this.step = val;
             this.getAlertBox();
             this.wxShareFun();
-            this.setBScoll();
           }
         },
         deep: true
@@ -321,17 +320,11 @@
         },500);
 
       },
-      setBScoll(){
 
-        var myScrollA = new IScroll('#wrapper', { mouseWheel: true, click: true });
-      }
     },
     mounted(){
 
-      if(this.step == 0){
-        //开始显示
-        this.setAScoll();
-      }
+      this.setAScoll();
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
         capture: false,
         passive: false
