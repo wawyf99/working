@@ -29,8 +29,9 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
         jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
       })
 
-      console.log(store.state.WxConfig);
-      console.log(store.state.Wxshare);
+      alert(res.data.appId);
+      alert(title);
+      alert(store.state.WxConfig.appId);
 
       let types = sort;
       if(!types){
@@ -57,9 +58,8 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   }else if(_url && step > 0) {
 
     let res = store.state.WxConfig;
-    console.log(store.state.WxConfig);
-    console.log(store.state.Wxshare);
-
+    alert(res.appId);
+    alert(title);
 
     Vue.wechat.config({
       debug: false,
@@ -93,9 +93,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
 
   }
 
-  console.log(store.state.WxConfig);
-  console.log(store.state.Wxshare);
-
+  alert(title);
   Vue.wechat.ready(() => {
     Vue.wechat.onMenuShareAppMessage({
       title: title, // 分享标题

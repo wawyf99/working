@@ -118,8 +118,6 @@ router.beforeEach((to, from, next) => {
             type = '1',
             flock_logo = _arr[0].flock_logo;
 
-
-
           wxShare({
             title: title,
             desc: desc,
@@ -132,6 +130,7 @@ router.beforeEach((to, from, next) => {
           });
           next();
         });
+
       }
 
     }
