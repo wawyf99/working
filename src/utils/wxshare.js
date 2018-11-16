@@ -94,7 +94,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
 
   }
 
-
+  alert(title);
   Vue.wechat.ready(() => {
 
     Vue.wechat.onMenuShareAppMessage({
