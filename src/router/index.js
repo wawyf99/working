@@ -63,7 +63,7 @@ router.beforeEach((to, from, next) => {
 
     document.getElementById('titleId').innerHTML = to.name;
 
-    let _JumpUrl = 'http://a3.xinhuanet.com/c?sid=574&impid=8ce74a5e7b8f407f92c9458ffe8f1e0a&cam=789&adgid=789&crid=3553&uid=55efaac86d6942048aecdb4d2b7824cf&d=xinhuanetv2&url=http%3A%2F%2Ftj.xinhuanet.com%2F&ref=&i=1966948576&tm=1535527310&sig=56a0e773a2ec6f81c34959f1e90754ae&click=';
+    var _JumpUrl = 'http://a3.xinhuanet.com/c?sid=574&impid=8ce74a5e7b8f407f92c9458ffe8f1e0a&cam=789&adgid=789&crid=3553&uid=55efaac86d6942048aecdb4d2b7824cf&d=xinhuanetv2&url=http%3A%2F%2Ftj.xinhuanet.com%2F&ref=&i=1966948576&tm=1535527310&sig=56a0e773a2ec6f81c34959f1e90754ae&click=';
 
     console.log(to.path);
 
@@ -71,14 +71,14 @@ router.beforeEach((to, from, next) => {
       Vue.http.post(global.baseUrl + global.url.domain_skip, {
         type: 'A2'
       }).then(res => {
-        let _str = _JumpUrl + res.data;
+        var _str = _JumpUrl + res.data;
         window.location.href = _str;
       });
     } else if (to.path == '/mark2') {
       Vue.http.post(global.baseUrl + global.url.domain_skip, {
         type: 'B1'
       }).then(res => {
-        let _str = _JumpUrl + res.data;
+        var _str = _JumpUrl + res.data;
         window.location.href = _str;
       });
     }else if(to.path == '/mark3'){
@@ -86,23 +86,23 @@ router.beforeEach((to, from, next) => {
     }else if(to.path == '/mark4') {
       //获取微信分享相关配置
 
-      let _step = store.state.step;
+      var _step = store.state.step;
 
       if (_step == 0) {
 
         Vue.http.post(global.baseUrl + global.url.get_wx_share, {}).then(res => {
           //储存到Vuex
-          let _arr = res.data.data;
+          var _arr = res.data.data;
           store.state.Wxshare = res.data.data;
-          let city = IpQuery.city,
+          var city = IpQuery.city,
             province = IpQuery.province,
             _str = '';
 
-          let emjoy = ['👑', '🔥', '✨', '🌟', '💫', '💥', '💦', '💤', '💋', '💎', '❤', '💕', '💘', '🐾', '🌹', '🌴', '🍀', '✏', '✈', '🔞', '✅', '🍭', '🍦', '🍉', '☀', '⚡', '⭐', '🐝', '🐕', '👣', '🌂', '🍎', '🎀', '🏀', '🍼', '👠', '💐', '🌺', '🌻', '🌀', '🎈', '💡', '🍒', '🍇', '🍌', '🔍', '♨', '🚀', '🚲', '💉', '🔑', '♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒'];
-          let index = Math.floor((Math.random() * emjoy.length));
-          let icon = emjoy[index];
-          let index1 = Math.floor((Math.random() * emjoy.length));
-          let icon1 = emjoy[index1];
+          var emjoy = ['👑', '🔥', '✨', '🌟', '💫', '💥', '💦', '💤', '💋', '💎', '❤', '💕', '💘', '🐾', '🌹', '🌴', '🍀', '✏', '✈', '🔞', '✅', '🍭', '🍦', '🍉', '☀', '⚡', '⭐', '🐝', '🐕', '👣', '🌂', '🍎', '🎀', '🏀', '🍼', '👠', '💐', '🌺', '🌻', '🌀', '🎈', '💡', '🍒', '🍇', '🍌', '🔍', '♨', '🚀', '🚲', '💉', '🔑', '♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒'];
+          var index = Math.floor((Math.random() * emjoy.length));
+          var icon = emjoy[index];
+          var index1 = Math.floor((Math.random() * emjoy.length));
+          var icon1 = emjoy[index1];
           if (city) {
             _str = city.replace(/市/, '');
           } else {

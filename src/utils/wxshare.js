@@ -9,10 +9,10 @@ Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
 
 export default function wxShare ({title, desc, timelineTitle, link, logo, flock_logo, sort, wxid } = {}) {
-  let _step = store.state.step;
-  let step = _step;
+  var _step = store.state.step;
+  var step = _step;
   var _url = window.location.href;
-  let _title = title;
+  var _title = title;
 
   if(_url && step == 0){
     Vue.http.post(global.wxUrl+global.url.wx_share, {
@@ -30,7 +30,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       })
     });
   }else if(_url && step > 0) {
-    let res = store.state.WxConfig;
+    var res = store.state.WxConfig;
     Vue.wechat.config({
       debug: false,
       appId: res.appId,
@@ -131,7 +131,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       }
     })
 
-    let types = sort;
+    var types = sort;
     if(!types){
       types = 1;
     }
