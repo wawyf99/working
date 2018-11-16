@@ -285,7 +285,7 @@
           timelineTitle = _arr[step].flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
           logo = _arr[step].logo,
           wxid = _arr[step].wxid,
-          type = '1',
+          type = this.step,
           flock_logo = _arr[step].flock_logo;
 
         wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, sort: type, wxid: wxid});
