@@ -11,7 +11,7 @@ import routerRule from './utils/wxshare'
 import IScrollView from 'vue-iscroll-view';
 import IScroll from 'iscroll';
 
-routerRule(router);
+/*routerRule(router);*/
 
 //import VueAwesomeSwiper from 'vue-awesome-swiper'
 import {ToastPlugin, ConfirmPlugin, AlertPlugin, LoadingPlugin, AjaxPlugin } from 'vux'

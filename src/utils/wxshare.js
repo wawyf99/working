@@ -2,7 +2,6 @@ import Vue from 'vue'
 import router from '../router/index'
 /*import Global from './global'*/
 import { WechatPlugin, AjaxPlugin } from 'vux'
-import cookie from "./cookie";
 
 import store from '../vuex/store';
 
@@ -21,7 +20,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
     }).then(res => {
       store.state.WxConfig = res.data;
       Vue.wechat.config({
-        debug: true,
+        debug: false,
         appId: res.data.appId,
         timestamp: res.data.timestamp,
         nonceStr: res.data.nonceStr,
@@ -55,7 +54,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
 
     let res = store.state.WxConfig;
     Vue.wechat.config({
-      debug: true,
+      debug: false,
       appId: res.appId,
       timestamp: res.timestamp,
       nonceStr: res.nonceStr,
