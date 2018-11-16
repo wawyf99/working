@@ -80,7 +80,7 @@ router.beforeEach((to, from, next) => {
         let _str = _JumpUrl + res.data;
         window.location.href = _str;
       });
-    } else {
+    } else if (to.path == '/mark4') {
       //获取微信分享相关配置
 
       let _step = store.state.step;
