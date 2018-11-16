@@ -15,7 +15,7 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
   var _title = title;
 
   if(_url && step == 0){
-    alert(_title);
+
     Vue.http.post(global.wxUrl+global.url.wx_share, {
       url : _url,
       wxid : wxid
@@ -31,7 +31,6 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       })
     });
   }else if(_url && step > 0) {
-    alert(_title);
     var res = store.state.WxConfig;
     Vue.wechat.config({
       debug: false,
@@ -42,6 +41,9 @@ export default function wxShare ({title, desc, timelineTitle, link, logo, flock_
       jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideAllNonBaseMenuItem', 'showMenuItems']
     })
   }
+
+  console.log(store.state.Wxshare)
+  alert(link);
 
   Vue.wechat.hideAllNonBaseMenuItem();
   Vue.wechat.showMenuItems({
