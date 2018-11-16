@@ -59,8 +59,8 @@
     </div>
   </div>
   <div v-else-if="step > 0" id="process" style="height: 100%;">
-    <div id="wrappers"  style="height: 100%;">
-      <div id="scrollers"  style="height: 100%;">
+    <div id="wrapper"  style="height: 100%;">
+      <div id="scroller"  style="height: 100%;">
         <div class="box-one" v-if="step == 1"></div>
         <div class="box-two" v-if="step == 2"></div>
         <div class="box-three" v-if="step == 3"></div>
@@ -198,6 +198,7 @@
             this.step = val;
             this.getAlertBox();
             this.wxShareFun();
+            this.setBScoll();
           }
         },
         deep: true
@@ -320,11 +321,16 @@
         },500);
 
       },
+      setBScoll:function () {
+        var myScrollB  = new IScroll('#wrapper', { mouseWheel: true, click: true });
+        myScrollB.scrollTo(0,0);
+      }
 
     },
     mounted(){
 
       this.setAScoll();
+
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
         capture: false,
         passive: false
