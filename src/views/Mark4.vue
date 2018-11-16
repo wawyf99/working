@@ -58,9 +58,7 @@
       <div class="footerCen"></div>
     </div>
   </div>
-  <div v-else-if="step" id="process">
-    <div id="wrappers" >
-      <div id="scrollers">
+  <div v-else-if="step" id="process" style="height: 100%;">
         <div class="box-one" v-if="step == 1"></div>
         <div class="box-two" v-if="step == 2"></div>
         <div class="box-three" v-if="step == 3"></div>
@@ -76,8 +74,6 @@
             <div v-html="words" class="ui-content"></div>
             <div class="alert-btn" @click="toggles">好的</div>
           </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -193,7 +189,7 @@
         this.step = a;
         this.getAlertBox();
         this.wxShareFun();
-        this.setScoll();
+        this.setBScoll();
       },
     },
     methods:{
@@ -283,66 +279,45 @@
         wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, sort: type, wxid: wxid});
       },
       //重置滚动
-      setScoll(){
-        let myScrolls;
-        loadeds();
-        function loadeds () {
-          myScrolls = new IScroll('#wrappers', { mouseWheel: true,  click: true, taps:true });
-        }
-        myScrolls.maxScrollY = 0;
-        myScrolls.scrollTo(0,0);
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
-          capture: false,
-          passive: false
-        } : false);
+      setAScoll(){
+        let i = 1;
+        var s = setInterval(() => {
+          let _obj = document.querySelector('#scroller div:nth-child('+i+')');
+          if(_obj){
+            _obj.style.display = 'block';
+            var myScrollA = new IScroll('#wrapper', { mouseWheel: true, click: true });
+            if(i>5){
+              myScrollA.scrollTo(0,myScrollA.maxScrollY-10);
+            }
+            i++;
 
+            if(i == 10){
+              let _obj1 = document.querySelector('.last-cen');
+              let _obj2 = document.querySelector('.footerCen');
+              if(_obj1){
+                _obj1.style.display = 'block';
+              }
+              if(_obj2){
+                _obj2.style.display = 'block';
+              }
+              clearInterval(s);
+            }
+          }else{
+            clearInterval(s);
+          }
+
+        },500);
+
+      },
+      setBScoll(){
+        //var myScrollB = new IScroll('#wrappers', { mouseWheel: true});
       }
     },
     mounted(){
 
       if(this.step == 0){
         //开始显示
-
-        //let myScroll = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
-
-        let i = 1;
-        var s = setInterval(() => {
-          let _obj = document.querySelector('#scroller div:nth-child('+i+')');
-          if(_obj){
-            _obj.style.display = 'block';
-          }else{
-            clearInterval(s);
-          }
-          let myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
-          if(i>5){
-            myScroll.scrollTo(0,myScroll.maxScrollY-10);
-          }
-          i++;
-
-          if(i == 10){
-            let _obj1 = document.querySelector('.last-cen');
-            let _obj2 = document.querySelector('.footerCen');
-            if(_obj1){
-              _obj1.style.display = 'block';
-            }
-            if(_obj2){
-              _obj2.style.display = 'block';
-            }
-            clearInterval(s);
-          }
-        },500);
-
-        let myScroll;
-
-        loaded();
-        function loaded () {
-          myScroll = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
-        }
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
-          capture: false,
-          passive: false
-        } : false);
-
+        this.setAScoll();
       }
 
 
