@@ -86,18 +86,24 @@
 </style>
 
 <script>
-  import { Alert, XDialog } from 'vux'
+  import { WechatPlugin, AjaxPlugin, Alert, XDialog } from 'vux'
   import Global from "../utils/global";
   import ua from "../utils/userAgent";
+  import wxShare from '../utils/wxshare';
+  import store from '../vuex/store';
+  import { mapState, mapMutations, mapGetters, mapActions } from 'vuex';
+
   export default {
     name: 'Show',
     components: {
+      WechatPlugin,
+      AjaxPlugin,
       Alert,
       XDialog
     },
     data () {
       return {
-        step : this.$route.query.step,
+        step : 0,
         uaSort: {
           webkitOverflowScrolling: '',
         },
@@ -130,11 +136,15 @@
         name3 : '',
       }
     },
+    store,
+    computed: {
+      listenStep() {
+        return store.state.step;
+      }
+    },
     created(){
-      console.log(this.step);
       let self = this;
-
-      if(!this.step){
+      if(this.step == 0){
         //昵称
         let name = ["辞予","那一夜","床摇得厉害","你的呻吟","甜腻","强哥","七尺大乳","漂洋过海","用贞操换真钞","清晨的眼泪","孟老师","性感↗小娘们","孤寂","淫领风骚","小影","爱到深处て腿自开","无心","吻我杀我","林萌"];
         //头像
@@ -165,7 +175,6 @@
         self.group1 = "show-img-"+sort.splice(1, 1)[0];
         self.group2 = "show-img-"+sort.splice(1, 1)[0];
         self.group3 = "show-img-"+sort.splice(1, 1)[0];
-        console.log(self.group1,self.group2,self.group3)
         self.getNowTime();
         let city = IpQuery.city,
           province = IpQuery.province,
@@ -177,17 +186,15 @@
           _str = province.replace(/省/, '');
         }
         this.city = _str;
-      }else{
-        this.getAlertBox();
       }
-
     },
     watch: {
-      '$route' (to, from) {
-        this.step = this.$route.query.step;
+      listenStep:function(a,b){
+        this.step = a;
         this.getAlertBox();
-        this.$refs.alertBox.style.display = 'block';
-      }
+        this.wxShareFun();
+        this.setScoll();
+      },
     },
     methods:{
       //点击模态框
@@ -218,7 +225,6 @@
           window.location.href = res.data.url;
         });
       },
-      //获取弹框
       //获取弹窗描述内容
       getAlertBox(){
         let self = this,
@@ -243,24 +249,64 @@
             break;
         }
         this.words = _str;
+      },
+      //微信分享
+      wxShareFun(){
+        let self = this,
+            step = this.step,
+            _arr = store.state.Wxshare;
+
+        let city = IpQuery.city,
+          province = IpQuery.province,
+          _str = '';
+
+        let emjoy = [ '👑','🔥','✨','🌟','💫','💥','💦','💤','💋','💎','❤','💕','💘','🐾','🌹','🌴','🍀','✏','✈','🔞','✅','🍭','🍦','🍉','☀','⚡','⭐','🐝','🐕','👣','🌂','🍎','🎀','🏀','🍼','👠','💐','🌺','🌻','🌀','🎈','💡','🍒','🍇','🍌','🔍','♨','🚀','🚲','💉','🔑','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒'];
+        let index = Math.floor((Math.random()*emjoy.length));
+        let icon = emjoy[index];
+        let index1 = Math.floor((Math.random()*emjoy.length));
+        let icon1 = emjoy[index1];
+        if(city){
+          _str = city.replace(/市/, '');
+        }else{
+          _str = province.replace(/省/, '');
+        }
+
+        var shareUrl = _arr[step].url,
+          title = _arr[step].title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+          desc = _arr[step].describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+          timelineTitle = _arr[step].flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+          logo = _arr[step].logo,
+          wxid = _arr[step].wxid,
+          type = '1',
+          flock_logo = _arr[step].flock_logo;
+
+        wxShare({ title: title, desc: desc, timelineTitle: timelineTitle, link: shareUrl , logo: logo , flock_logo: flock_logo, sort: type, wxid: wxid});
+      },
+      //重置滚动
+      setScoll(){
+
       }
     },
     mounted(){
 
-      if(!this.step){
-
+      if(this.step == 0){
         //开始显示
+
+        let myScroll = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
+
         let i = 1;
         var s = setInterval(() => {
           let _obj = document.querySelector('#scroller div:nth-child('+i+')');
           if(_obj){
             _obj.style.display = 'block';
+          }else{
+            clearInterval(s);
           }
-          myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
           if(i>5){
             myScroll.scrollTo(0,myScroll.maxScrollY-10);
           }
           i++;
+
           if(i == 10){
             let _obj1 = document.querySelector('.last-cen');
             let _obj2 = document.querySelector('.footerCen');
@@ -274,25 +320,7 @@
           }
         },500);
 
-        let myScroll;
 
-        loaded();
-        function loaded () {
-          myScroll = new IScroll('#wrapper', { mouseWheel: true,  click: true, taps:true });
-        }
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
-          capture: false,
-          passive: false
-        } : false);
-
-
-      }else{
-        let myScroll;
-
-        loaded();
-        function loaded () {
-          myScroll = new IScroll('#wrappers', { mouseWheel: true,  click: true, taps:true });
-        }
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
           capture: false,
           passive: false
@@ -302,6 +330,7 @@
 
       let self = this,
         _url = window.location.href;
+
       //监听返回
       pushHistory();
       window.addEventListener("popstate", function(e) {
@@ -315,7 +344,6 @@
         };
         window.history.pushState(state, "title", _url);
       }
-
 
     }
   }

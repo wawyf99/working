@@ -18,6 +18,12 @@ global.url = {
   wx_share: "/wechat/wxinfo",  //获取微信相关信息
 };
 
+global.public = {
+  Wxshare : '',
+  WxConfig : '',
+  step : '',
+};
+
 global.page = {
   size: 20
 }
