@@ -128,11 +128,9 @@ router.beforeEach((to, from, next) => {
             sort: type,
             wxid: wxid
           });
-
+          next();
         });
-
       }
-      next();
 
     }
   }
