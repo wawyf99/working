@@ -80,7 +80,7 @@
             self.$http.post(global.baseUrl+global.url.domain_skip,{
               type: 'C1'
             }).then(res => {
-              this.url = res.data+'?t=s';
+              this.url = res.data;
             });
           }
         });
