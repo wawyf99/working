@@ -67,14 +67,15 @@ router.beforeEach((to, from, next) => {
 
     console.log(to.path);
 
-    if (to.path == '/mark1') {
+    /*if (to.path == '/mark1') {
       Vue.http.post(global.baseUrl + global.url.domain_skip, {
         type: 'A2'
       }).then(res => {
         var _str = _JumpUrl + res.data;
         window.location.href = _str;
       });
-    } else if (to.path == '/mark2') {
+    } else*/
+    if (to.path == '/mark1') {
       Vue.http.post(global.baseUrl + global.url.domain_skip, {
         type: 'B1'
       }).then(res => {
