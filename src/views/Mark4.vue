@@ -299,7 +299,8 @@
           let _obj = document.querySelector('#scroller div:nth-child('+i+')');
           if(_obj){
             _obj.style.display = 'block';
-            var myScrollA = new IScroll('#wrapper', { mouseWheel: true, click: true });
+            var myScrollA = new IScroll('#wrapper', { mouseWheel: true, click: true, preventDefault:false });
+            if (myScrollA != null) myScrollA.refresh();
             if(i>5){
               myScrollA.scrollTo(0,myScrollA.maxScrollY-10);
             }
@@ -329,7 +330,8 @@
 
       },
       setBScoll:function () {
-        var myScrollB  = new IScroll('#wrapper', { mouseWheel: true, click: true });
+        var myScrollB  = new IScroll('#wrapper', { mouseWheel: true, click: true, preventDefault:false });
+        if (myScrollB != null) myScrollB.refresh();
         myScrollB.maxScrollY = 0;
         myScrollB.scrollTo(0,0);
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
