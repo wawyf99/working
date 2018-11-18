@@ -192,13 +192,15 @@
     watch: {
 
       listenStep:{
-
         handler: function (val, oldVal) {
           if(oldVal!=val){
             this.step = val;
             this.getAlertBox();
             this.wxShareFun();
-            this.setBScoll();
+            if(val == 1){
+              this.setBScoll();
+            }
+            this.$refs.alertBox.style.display = 'block';
           }
         },
         deep: true

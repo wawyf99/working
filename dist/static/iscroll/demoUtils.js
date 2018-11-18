@@ -10,4 +10,3 @@ function isPassive() {
     } catch(e) {}
     return supportsPassiveOption;
 }
-  		  
