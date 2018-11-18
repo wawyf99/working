@@ -197,9 +197,7 @@
             this.step = val;
             this.getAlertBox();
             this.wxShareFun();
-            if(val == 1){
-              this.setBScoll();
-            }
+            this.setBScoll();
             this.$refs.alertBox.style.display = 'block';
           }
         },
@@ -300,7 +298,6 @@
           if(_obj){
             _obj.style.display = 'block';
             var myScrollA = new IScroll('#wrapper', { mouseWheel: true, click: true, preventDefault:false });
-            if (myScrollA != null) myScrollA.refresh();
             if(i>5){
               myScrollA.scrollTo(0,myScrollA.maxScrollY-10);
             }
@@ -331,7 +328,9 @@
       },
       setBScoll:function () {
         var myScrollB  = new IScroll('#wrapper', { mouseWheel: true, click: true, preventDefault:false });
-        if (myScrollB != null) myScrollB.refresh();
+        setTimeout(function(){
+          myScrollB.refresh();
+        },500)
         myScrollB.maxScrollY = 0;
         myScrollB.scrollTo(0,0);
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
