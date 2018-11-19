@@ -6,7 +6,12 @@ Vue.use(Vuex);
 const state = {
   step : 0,
   WxConfig : '',
-  WxShare : ''
+  WxShare : '',
+  Roter: {
+    'A' : '',
+    'B' : '',
+    'C' : '',
+  },
 }
 
 //改变
@@ -19,7 +24,20 @@ const mutations = {
   },
   update(state, step){
     state.step = step;
-  }
+  },
+  setRouter(state, obj){
+    switch (obj.type) {
+      case 'A':
+        state.Roter.A = obj.str;
+        break;
+      case 'B':
+        state.Roter.B = obj.str;
+        break;
+      case 'C':
+        state.Roter.C = obj.str;
+        break;
+    }
+  },
 }
 
 //过滤

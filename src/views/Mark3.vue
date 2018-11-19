@@ -100,7 +100,8 @@
           });
         }else{
           //this.$router.push({path: '/mark4?t=s'});
-          window.location.href = this.url;
+          console.log(this.url);
+          //window.location.href = this.url;
         }
 
       }

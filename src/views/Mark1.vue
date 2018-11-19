@@ -1,6 +1,6 @@
 <template>
   <div id="">
-    123
+ 这里是域名首页
   </div>
 </template>
 <style>

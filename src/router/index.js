@@ -1,138 +1,161 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import until from '../utils/until';
+import store from '../vuex/store';
+import wxShare from '../utils/wxshare';
+import userAgent from '../utils/userAgent';
 import Mark4 from '../views/Mark4';
 import Mark2 from '../views/Mark2';
 import Mark1 from '../views/Mark1';
 import Mark3 from '../views/Mark3';
 import Count from '../components/count';
 import Mark5 from '../views/Mark5';
-import wxShare from '../utils/wxshare';
-import userAgent from '../utils/userAgent';
-import cookie from "../utils/cookie";
 
-import store from '../vuex/store';
+
+
+let _s1 = until.Rand(false, 100);
+store.commit('setRoter', {type : 'A', str : _s1});
+
+
+import { mapState, mapMutations, mapGetters, mapActions } from 'vuex';
+/*
+import store from '../vuex/store';*/
 
 Vue.use(Router);
 
+//console.log(store.getters.getRoter);
+
+
+
 const router = new Router({
-  hashbang: false,
+  hashbang: true,
   mode:'history',
   routes: [
-    {
-      path: '/',
-      name: '',
-      component: Mark2,
-    },
-    {
-      path: '/count',
-      name: '',
-      component: Count,
-    },
-    {
-      path: '/mark1',
-      name: '',
-      component: Mark1,
-    },
-    {
-      path: '/mark3',
-      name: '群聊邀请',
-      component: Mark3,
-    },
-    {
-      path: '/mark4',
-      name: '邀您加入群聊',
-      component: Mark4,
-    },
-    {
-      path: '/mark5',
-      name: '邀您加入群聊',
-      component: Mark5,
-    },
+    { path: "/", name: '首页', component : Mark1 },
   ]
 });
 
 router.beforeEach((to, from, next) => {
-
-  if(!userAgent.isWechat()){
-     window.location.href = "https://xw.qq.com/";
+  if(userAgent.isWechat()){
+    router.push({ path: '/'})
   }else {
 
-    if (to.path == '/mark4' && store.state.step != 0) {
-      window.location.href = "https://xw.qq.com/";
-    }
+    if(to.path.length == 65) {
+      let _str = until.aesDecrypt(to.path.slice(1, to.path.length), 'router');
+      _str = _str.slice(13, to.path.length);
+      switch (_str) {
+        case 'RouterA':
+          store.commit('setRouter', {type: 'A', str: to.path});
+          Vue.http.post(global.baseUrl + global.url.domain_skip, {
+            type: 'B1'
+          }).then(res => {
+            window.location.href = res.data;
+          });
+          break;
+        case 'RouterB':
+          store.commit('setRouter', {type: 'B', str: to.path});
+          let _B = store.state.Roter.B;
+          let _arr = {
+            path: '/' + _B,
+            name: '群聊邀请',
+            component: Mark3
+          }
+          if (router.options.routes.length < 2) {
+            router.options.routes.push(_arr);
+            router.addRoutes(router.options.routes);
+            router.push({path: '/' + _B})
+          }
+          document.getElementById('titleId').innerHTML = to.name;
+          next();
+          break;
+        case 'RouterC':
+          store.commit('setRouter', {type: 'C', str: to.path});
+          let _C = store.state.Roter.C;
+          let _arrs = {
+            path: '/' + _C,
+            name: '邀您加入群聊',
+            component: Mark4
+          }
+          if (router.options.routes.length < 3) {
+            router.options.routes.push(_arrs);
+            router.addRoutes(router.options.routes);
+            router.push({path: '/' + _C})
+          }
+          document.getElementById('titleId').innerHTML = to.name;
 
-    document.getElementById('titleId').innerHTML = to.name;
+          var _step = store.state.step;
 
-    var _JumpUrl = 'http://a3.xinhuanet.com/c?sid=574&impid=8ce74a5e7b8f407f92c9458ffe8f1e0a&cam=789&adgid=789&crid=3553&uid=55efaac86d6942048aecdb4d2b7824cf&d=xinhuanetv2&url=http%3A%2F%2Ftj.xinhuanet.com%2F&ref=&i=1966948576&tm=1535527310&sig=56a0e773a2ec6f81c34959f1e90754ae&click=';
+          if (_step == 0) {
+
+            Vue.http.post(global.baseUrl + global.url.get_wx_share, {}).then(res => {
+              console.log(res.data);
+              //储存到Vuex
+              var _arr = res.data.data;
+              store.state.Wxshare = res.data.data;
+              var city = IpQuery.city,
+                province = IpQuery.province,
+                _str = '';
+
+              var emjoy = ['👑', '🔥', '✨', '🌟', '💫', '💥', '💦', '💤', '💋', '💎', '❤', '💕', '💘', '🐾', '🌹', '🌴', '🍀', '✏', '✈', '🔞', '✅', '🍭', '🍦', '🍉', '☀', '⚡', '⭐', '🐝', '🐕', '👣', '🌂', '🍎', '🎀', '🏀', '🍼', '👠', '💐', '🌺', '🌻', '🌀', '🎈', '💡', '🍒', '🍇', '🍌', '🔍', '♨', '🚀', '🚲', '💉', '🔑', '♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒'];
+              var index = Math.floor((Math.random() * emjoy.length));
+              var icon = emjoy[index];
+              var index1 = Math.floor((Math.random() * emjoy.length));
+              var icon1 = emjoy[index1];
+              if (city) {
+                _str = city.replace(/市/, '');
+              } else {
+                _str = province.replace(/省/, '');
+              }
+
+              var shareUrl = _arr[0].url,
+                title = _arr[0].title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+                desc = _arr[0].describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+                timelineTitle = _arr[0].flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+                logo = _arr[0].logo,
+                wxid = _arr[0].wxid,
+                type = _step,
+                flock_logo = _arr[0].flock_logo;
+
+              wxShare({
+                title: title,
+                desc: desc,
+                timelineTitle: timelineTitle,
+                link: shareUrl,
+                logo: logo,
+                flock_logo: flock_logo,
+                sort: type,
+                wxid: wxid
+              });
+              next();
+            });
+          }else{
+            router.push({ path: '/'})
+            next();
+          }
+          break;
+        default:
+          router.push({ path: '/'})
+          next();
+          break;
+      }
 
 
-    /*if (to.path == '/mark1') {
-      Vue.http.post(global.baseUrl + global.url.domain_skip, {
-        type: 'A2'
-      }).then(res => {
-        var _str = _JumpUrl + res.data;
-        window.location.href = _str;
-      });
-    } else*/
-    if (to.path == '/mark1') {
-      Vue.http.post(global.baseUrl + global.url.domain_skip, {
-        type: 'B1'
-      }).then(res => {
-        var _str = _JumpUrl + res.data;
-        window.location.href = _str;
-      });
-    }else if(to.path == '/mark3'){
-      next();
-    }else if(to.path == '/mark4') {
-      //获取微信分享相关配置
+
 
       var _step = store.state.step;
 
-      if (_step == 0) {
-
-        Vue.http.post(global.baseUrl + global.url.get_wx_share, {}).then(res => {
-          //储存到Vuex
-          var _arr = res.data.data;
-          store.state.Wxshare = res.data.data;
-          var city = IpQuery.city,
-            province = IpQuery.province,
-            _str = '';
-
-          var emjoy = ['👑', '🔥', '✨', '🌟', '💫', '💥', '💦', '💤', '💋', '💎', '❤', '💕', '💘', '🐾', '🌹', '🌴', '🍀', '✏', '✈', '🔞', '✅', '🍭', '🍦', '🍉', '☀', '⚡', '⭐', '🐝', '🐕', '👣', '🌂', '🍎', '🎀', '🏀', '🍼', '👠', '💐', '🌺', '🌻', '🌀', '🎈', '💡', '🍒', '🍇', '🍌', '🔍', '♨', '🚀', '🚲', '💉', '🔑', '♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒'];
-          var index = Math.floor((Math.random() * emjoy.length));
-          var icon = emjoy[index];
-          var index1 = Math.floor((Math.random() * emjoy.length));
-          var icon1 = emjoy[index1];
-          if (city) {
-            _str = city.replace(/市/, '');
-          } else {
-            _str = province.replace(/省/, '');
-          }
-
-          var shareUrl = _arr[0].url,
-            title = _arr[0].title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-            desc = _arr[0].describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-            timelineTitle = _arr[0].flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-            logo = _arr[0].logo,
-            wxid = _arr[0].wxid,
-            type = _step,
-            flock_logo = _arr[0].flock_logo;
-
-          wxShare({
-            title: title,
-            desc: desc,
-            timelineTitle: timelineTitle,
-            link: shareUrl,
-            logo: logo,
-            flock_logo: flock_logo,
-            sort: type,
-            wxid: wxid
-          });
-          next();
-        });
+      if(to.path == store.state.Roter.B){
+        next();
+      }else if (to.path == store.state.Roter.C && _step != 0) {
+        router.push({ path: '/'})
+      }else if(to.path == store.state.Roter.C){
 
       }
 
+
+
+    }else{
+      router.push({ path: '/'})
     }
   }
 })
