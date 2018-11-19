@@ -99,7 +99,7 @@
             window.location.href = res.data.url;
           });
         }else{
-          window.location.href = this.url;
+          window.location.href = "http://localhost:3000/19e290156db7609ed2a130d3dd71402ea5572c3e4bf834366a2b4d869fb44ff3";
         }
 
       }

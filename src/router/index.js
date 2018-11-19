@@ -44,6 +44,7 @@ router.beforeEach((to, from, next) => {
       _str = _str.slice(13, to.path.length);
       switch (_str) {
         case 'RouterA':
+          console.log(from.path);
           store.commit('setRouter', {type: 'A', str: to.path});
           Vue.http.post(global.baseUrl + global.url.domain_skip, {
             type: 'B1'
@@ -52,87 +53,102 @@ router.beforeEach((to, from, next) => {
           });
           break;
         case 'RouterB':
-          document.getElementById('titleId').innerHTML = '群聊邀请';
-          store.commit('setRouter', {type: 'B', str: to.path});
-          let _B = store.state.Roter.B;
-          let _arr = {
-            path: '/' + _B,
-            name: '群聊邀请',
-            component: Mark3
-          }
-          if (router.options.routes.length < 2) {
-            router.options.routes.push(_arr);
+          if(document.referrer){
+            document.getElementById('titleId').innerHTML = '群聊邀请';
+            store.commit('setRouter', {type: 'B', str: to.path});
+            let _B = store.state.Roter.B;
+            let _arr = {
+              path: '/' + _B,
+              name: '群聊邀请',
+              component: Mark3
+            }
+            if (router.options.routes.length < 2) {
+              router.options.routes.push(_arr);
+              router.addRoutes(router.options.routes);
+              router.push({path: '/' + _B})
+            }
+            next();
+          }else{
+            document.getElementById('titleId').innerHTML = '首页';
+            router.options.routes.push({path: '/main', name: '首页', component: Mark1});
             router.addRoutes(router.options.routes);
-            router.push({path: '/' + _B})
+            router.push({path: '/main'})
+            next();
           }
-
-          next();
           break;
         case 'RouterC':
-          document.getElementById('titleId').innerHTML = '邀您加入群聊';
-          store.commit('setRouter', {type: 'C', str: to.path});
-          let _C = store.state.Roter.C;
-          let _arrs = {
-            path: '/' + _C,
-            name: '邀您加入群聊',
-            component: Mark4
-          }
-          if (router.options.routes.length < 3) {
-            router.options.routes.push(_arrs);
-            router.addRoutes(router.options.routes);
-            router.push({path: '/' + _C})
-          }
-          var _step = store.state.step;
-
-          if (_step == 0) {
-
-            Vue.http.post(global.baseUrl + global.url.get_wx_share, {}).then(res => {
-              //储存到Vuex
-              var _arr = res.data.data;
-              store.state.Wxshare = res.data.data;
-              var city = IpQuery.city,
-                province = IpQuery.province,
-                _str = '';
-
-              var emjoy = ['👑', '🔥', '✨', '🌟', '💫', '💥', '💦', '💤', '💋', '💎', '❤', '💕', '💘', '🐾', '🌹', '🌴', '🍀', '✏', '✈', '🔞', '✅', '🍭', '🍦', '🍉', '☀', '⚡', '⭐', '🐝', '🐕', '👣', '🌂', '🍎', '🎀', '🏀', '🍼', '👠', '💐', '🌺', '🌻', '🌀', '🎈', '💡', '🍒', '🍇', '🍌', '🔍', '♨', '🚀', '🚲', '💉', '🔑', '♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒'];
-              var index = Math.floor((Math.random() * emjoy.length));
-              var icon = emjoy[index];
-              var index1 = Math.floor((Math.random() * emjoy.length));
-              var icon1 = emjoy[index1];
-              if (city) {
-                _str = city.replace(/市/, '');
-              } else {
-                _str = province.replace(/省/, '');
-              }
-
-              var shareUrl = _arr[0].url,
-                title = _arr[0].title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-                desc = _arr[0].describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-                timelineTitle = _arr[0].flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
-                logo = _arr[0].logo,
-                wxid = _arr[0].wxid,
-                type = _step,
-                flock_logo = _arr[0].flock_logo;
-
-              wxShare({
-                title: title,
-                desc: desc,
-                timelineTitle: timelineTitle,
-                link: shareUrl,
-                logo: logo,
-                flock_logo: flock_logo,
-                sort: type,
-                wxid: wxid
-              });
-              next();
-            });
-          }else{
-            if (router.options.routes.length < 2) {
-              document.getElementById('titleId').innerHTML = '首页';
-              router.options.routes.push({path: '/main', name: '首页', component: Mark1});
-              router.addRoutes(router.options.routes);
-              router.push({path: '/main'})
+          if(document.referrer) {
+            document.getElementById('titleId').innerHTML = '邀您加入群聊';
+            store.commit('setRouter', {type: 'C', str: to.path});
+            let _C = store.state.Roter.C;
+            let _arrs = {
+              path: '/' + _C,
+              name: '邀您加入群聊',
+              component: Mark4
             }
+            if (router.options.routes.length < 3) {
+              router.options.routes.push(_arrs);
+              router.addRoutes(router.options.routes);
+              router.push({path: '/' + _C})
+            }
+            var _step = store.state.step;
+
+            if (_step == 0) {
+
+              Vue.http.post(global.baseUrl + global.url.get_wx_share, {}).then(res => {
+                //储存到Vuex
+                var _arr = res.data.data;
+                store.state.Wxshare = res.data.data;
+                var city = IpQuery.city,
+                  province = IpQuery.province,
+                  _str = '';
+
+                var emjoy = ['👑', '🔥', '✨', '🌟', '💫', '💥', '💦', '💤', '💋', '💎', '❤', '💕', '💘', '🐾', '🌹', '🌴', '🍀', '✏', '✈', '🔞', '✅', '🍭', '🍦', '🍉', '☀', '⚡', '⭐', '🐝', '🐕', '👣', '🌂', '🍎', '🎀', '🏀', '🍼', '👠', '💐', '🌺', '🌻', '🌀', '🎈', '💡', '🍒', '🍇', '🍌', '🔍', '♨', '🚀', '🚲', '💉', '🔑', '♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒'];
+                var index = Math.floor((Math.random() * emjoy.length));
+                var icon = emjoy[index];
+                var index1 = Math.floor((Math.random() * emjoy.length));
+                var icon1 = emjoy[index1];
+                if (city) {
+                  _str = city.replace(/市/, '');
+                } else {
+                  _str = province.replace(/省/, '');
+                }
+
+                var shareUrl = _arr[0].url,
+                  title = _arr[0].title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+                  desc = _arr[0].describe.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+                  timelineTitle = _arr[0].flock_title.replace(/city/, _str).replace(/icon/, icon).replace(/icon/, icon1),
+                  logo = _arr[0].logo,
+                  wxid = _arr[0].wxid,
+                  type = _step,
+                  flock_logo = _arr[0].flock_logo;
+
+                wxShare({
+                  title: title,
+                  desc: desc,
+                  timelineTitle: timelineTitle,
+                  link: shareUrl,
+                  logo: logo,
+                  flock_logo: flock_logo,
+                  sort: type,
+                  wxid: wxid
+                });
+                next();
+              });
+            } else {
+              if (router.options.routes.length < 2) {
+                document.getElementById('titleId').innerHTML = '首页';
+                router.options.routes.push({path: '/main', name: '首页', component: Mark1});
+                router.addRoutes(router.options.routes);
+                router.push({path: '/main'})
+              }
+              next();
+            }
+          }else{
+            document.getElementById('titleId').innerHTML = '首页';
+            router.options.routes.push({path: '/main', name: '首页', component: Mark1});
+            router.addRoutes(router.options.routes);
+            router.push({path: '/main'})
             next();
           }
           break;
