@@ -38,6 +38,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   if(userAgent.isWechat()){
     router.push({ path: '/'})
+    next();
   }else {
 
     if(to.path.length == 65) {
@@ -138,24 +139,9 @@ router.beforeEach((to, from, next) => {
           next();
           break;
       }
-
-
-
-
-      var _step = store.state.step;
-
-      if(to.path == store.state.Roter.B){
-        next();
-      }else if (to.path == store.state.Roter.C && _step != 0) {
-        router.push({ path: '/'})
-      }else if(to.path == store.state.Roter.C){
-
-      }
-
-
-
     }else{
       router.push({ path: '/'})
+      next();
     }
   }
 })
