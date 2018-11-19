@@ -39,13 +39,13 @@ router.beforeEach((to, from, next) => {
     }
     next();
   }else {
-    console.log(document.referrer);
+
     if(to.path.length == 65) {
       let _str = until.aesDecrypt(to.path.slice(1, to.path.length), 'router');
       _str = _str.slice(13, to.path.length);
       switch (_str) {
         case 'RouterA':
-          console.log(from.path);
+          console.log(document.referrer);
           store.commit('setRouter', {type: 'A', str: to.path});
           Vue.http.post(global.baseUrl + global.url.domain_skip, {
             type: 'B1'
@@ -55,7 +55,6 @@ router.beforeEach((to, from, next) => {
           break;
         case 'RouterB':
           console.log(document.referrer);
-          if(document.referrer != ''){
             document.getElementById('titleId').innerHTML = '群聊邀请';
             store.commit('setRouter', {type: 'B', str: to.path});
             let _B = store.state.Roter.B;
@@ -70,20 +69,10 @@ router.beforeEach((to, from, next) => {
               router.push({path: '/' + _B})
             }
             next();
-          }else{
-            if (router.options.routes.length < 2) {
-              document.getElementById('titleId').innerHTML = '首页';
-              router.options.routes.push({path: '/main', name: '首页', component: Mark1});
-              router.addRoutes(router.options.routes);
-              router.push({path: '/main'})
-            }
-            next();
-          }
 
           break;
         case 'RouterC':
           console.log(document.referrer);
-          if(document.referrer != ''){
           document.getElementById('titleId').innerHTML = '邀您加入群聊';
           store.commit('setRouter', {type: 'C', str: to.path});
           let _C = store.state.Roter.C;
@@ -150,15 +139,6 @@ router.beforeEach((to, from, next) => {
             }
             next();
           }
-      }else{
-            if (router.options.routes.length < 2) {
-              document.getElementById('titleId').innerHTML = '首页';
-              router.options.routes.push({path: '/main', name: '首页', component: Mark1});
-              router.addRoutes(router.options.routes);
-              router.push({path: '/main'})
-            }
-            next();
-      }
           break;
         default:
           if (router.options.routes.length < 2) {
@@ -171,7 +151,6 @@ router.beforeEach((to, from, next) => {
           break;
       }
     }else{
-
       if (router.options.routes.length < 2) {
         document.getElementById('titleId').innerHTML = '首页';
         router.options.routes.push({path: '/main', name: '首页', component: Mark1});
