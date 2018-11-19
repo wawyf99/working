@@ -22,7 +22,7 @@ Vue.use(Router);
 
 
 const router = new Router({
-  hashbang: false,
+  hashbang: true,
   mode:'history',
   routes: [
     { path: "/main", name: '首页', component : Mark1 },
@@ -54,21 +54,20 @@ router.beforeEach((to, from, next) => {
           });
           break;
         case 'RouterB':
-          console.log(document.referrer);
-            document.getElementById('titleId').innerHTML = '群聊邀请';
-            store.commit('setRouter', {type: 'B', str: to.path});
-            let _B = store.state.Roter.B;
-            let _arr = {
-              path: '/' + _B,
-              name: '群聊邀请',
-              component: Mark3
-            }
-            if (router.options.routes.length < 2) {
-              router.options.routes.push(_arr);
-              router.addRoutes(router.options.routes);
-              router.push({path: '/' + _B})
-            }
-            next();
+          document.getElementById('titleId').innerHTML = '群聊邀请';
+          store.commit('setRouter', {type: 'B', str: to.path});
+          let _B = store.state.Roter.B;
+          let _arr = {
+            path: '/' + _B,
+            name: '群聊邀请',
+            component: Mark3
+          }
+          if (router.options.routes.length < 2) {
+            router.options.routes.push(_arr);
+            router.addRoutes(router.options.routes);
+            router.push({path: '/' + _B})
+          }
+          next();
 
           break;
         case 'RouterC':

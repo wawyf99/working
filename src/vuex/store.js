@@ -12,6 +12,13 @@ const state = {
     'B' : '',
     'C' : '',
   },
+  GroupInfo:{
+    'enrollment': '',
+    'id': '',
+    'img': "",
+    'invitor': "",
+    'title': "444444444",
+  }
 }
 
 //改变
@@ -38,6 +45,13 @@ const mutations = {
         break;
     }
   },
+  setGroupInfo(state, data){
+    state.GroupInfo.enrollment = data.data.data.enrollment;
+    state.GroupInfo.id = data.data.data.id;
+    state.GroupInfo.img = data.data.data.img;
+    state.GroupInfo.invitor = data.data.data.invitor;
+    state.GroupInfo.title = data.data.data.title;
+  }
 }
 
 //过滤
