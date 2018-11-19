@@ -22,16 +22,20 @@ Vue.use(Router);
 
 
 const router = new Router({
-  hashbang: true,
+  hashbang: false,
   mode:'history',
   routes: [
-    { path: "/", name: '首页', component : Mark1 },
+    { path: "/main", name: '首页', component : Mark1 },
   ]
 });
 
 router.beforeEach((to, from, next) => {
   if(userAgent.isWechat()){
-    router.push({ path: '/'})
+    if (router.options.routes.length < 2) {
+      router.options.routes.push({path: '/main', name: '首页', component: Mark1});
+      router.addRoutes(router.options.routes);
+      router.push({path: '/main'})
+    }
     next();
   }else {
     if(to.path.length == 65) {
@@ -82,7 +86,6 @@ router.beforeEach((to, from, next) => {
           if (_step == 0) {
 
             Vue.http.post(global.baseUrl + global.url.get_wx_share, {}).then(res => {
-              console.log(res.data);
               //储存到Vuex
               var _arr = res.data.data;
               store.state.Wxshare = res.data.data;
@@ -123,16 +126,30 @@ router.beforeEach((to, from, next) => {
               next();
             });
           }else{
-            router.push({ path: '/'})
+            if (router.options.routes.length < 2) {
+              router.options.routes.push({path: '/main', name: '首页', component: Mark1});
+              router.addRoutes(router.options.routes);
+              router.push({path: '/main'})
+            }
             next();
           }
           break;
         default:
-          router.push({ path: '/'})
+          if (router.options.routes.length < 2) {
+            router.options.routes.push({path: '/main', name: '首页', component: Mark1});
+            router.addRoutes(router.options.routes);
+            router.push({path: '/main'})
+          }
           next();
           break;
       }
     }else{
+
+      if (router.options.routes.length < 2) {
+        router.options.routes.push({path: '/main', name: '首页', component: Mark1});
+        router.addRoutes(router.options.routes);
+        router.push({path: '/main'})
+      }
       next();
     }
   }
