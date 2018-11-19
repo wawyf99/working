@@ -30,7 +30,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  if(userAgent.isWechat()){
+  if(!userAgent.isWechat()){
     if (router.options.routes.length < 2) {
       document.getElementById('titleId').innerHTML = '首页';
       router.options.routes.push({path: '/main', name: '首页', component: Mark1});
