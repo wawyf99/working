@@ -99,9 +99,7 @@
             window.location.href = res.data.url;
           });
         }else{
-          //this.$router.push({path: '/mark4?t=s'});
-          console.log(this.url);
-          //window.location.href = this.url;
+          window.location.href = this.url;
         }
 
       }

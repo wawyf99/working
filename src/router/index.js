@@ -11,12 +11,6 @@ import Mark3 from '../views/Mark3';
 import Count from '../components/count';
 import Mark5 from '../views/Mark5';
 
-
-
-let _s1 = until.Rand(false, 100);
-store.commit('setRoter', {type : 'A', str : _s1});
-
-
 import { mapState, mapMutations, mapGetters, mapActions } from 'vuex';
 /*
 import store from '../vuex/store';*/
@@ -40,7 +34,6 @@ router.beforeEach((to, from, next) => {
     router.push({ path: '/'})
     next();
   }else {
-
     if(to.path.length == 65) {
       let _str = until.aesDecrypt(to.path.slice(1, to.path.length), 'router');
       _str = _str.slice(13, to.path.length);
@@ -140,7 +133,6 @@ router.beforeEach((to, from, next) => {
           break;
       }
     }else{
-      router.push({ path: '/'})
       next();
     }
   }
