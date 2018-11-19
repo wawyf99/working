@@ -72,7 +72,8 @@ router.beforeEach((to, from, next) => {
 
           break;
         case 'RouterC':
-          if(!document.referrer){
+          console.log(document.referrer);
+          if(document.referrer != ''){
             document.getElementById('titleId').innerHTML = '邀您加入群聊';
             store.commit('setRouter', {type: 'C', str: to.path});
             let _C = store.state.Roter.C;
@@ -87,9 +88,7 @@ router.beforeEach((to, from, next) => {
               router.push({path: '/' + _C})
             }
             var _step = store.state.step;
-
             if (_step == 0) {
-
               Vue.http.post(global.baseUrl + global.url.get_wx_share, {}).then(res => {
                 //储存到Vuex
                 var _arr = res.data.data;
