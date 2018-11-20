@@ -15,11 +15,11 @@
         </div>
     <!--    <Footer :invitor = invitor></Footer>-->
         <div class="ui-footer">
-          <div class="ui-invite" v-cloak>{{invitor}} 邀您加入群聊</div>
-          <input type="button" value="加入群聊" class="ui-btn" @click="show(2)">
+          <div class="ui-invite" v-cloak>{{invitor}} {{word1}}</div>
+          <input type="button" :value="word4" class="ui-btn" @click="show(2)">
           <div class="ui-role">
-            <p>1.您和群里其他人都不是朋友关系，注意隐私安全。</p>
-            <p>2.该群聊人数较多，为减少新信息给您带来的打扰，建议进群后屏蔽消息通知。</p>
+            <p>{{word2}}</p>
+            <p>{{word3}}</p>
           </div>
         </div>
       </div>
@@ -34,6 +34,7 @@
 <script>
   //import Header from "../components/Header";
   import userAgent from "../utils/userAgent";
+  import until from '../utils/until';
   //import Footer from "../components/Footer";
   //import Global from "../utils/global";
   export default {
@@ -45,14 +46,19 @@
         enrollment: '*',
         invitor : '*',
         wxid : this.$route.query.wxid,
-        url : ''
+        url : '',
+        word1 : '\u9080\u60a8\u52a0\u5165\u7fa4\u804a',
+        word2 : '\u0031\u002e\u60a8\u548c\u7fa4\u91cc\u5176\u4ed6\u4eba\u90fd\u4e0d\u662f\u670b\u53cb\u5173\u7cfb\uff0c\u6ce8\u610f\u9690\u79c1\u5b89\u5168\u3002',
+        word3 : '\u0032\u002e\u8be5\u7fa4\u804a\u4eba\u6570\u8f83\u591a\uff0c\u4e3a\u51cf\u5c11\u65b0\u4fe1\u606f\u7ed9\u60a8\u5e26\u6765\u7684\u6253\u6270\uff0c\u5efa\u8bae\u8fdb\u7fa4\u540e\u5c4f\u853d\u6d88\u606f\u901a\u77e5\u3002',
+        word4 : '\u52a0\u5165\u7fa4\u804a'
       }
     },
     created() {
       var self = this;
       self.$vux.loading.show()
       self.getApi();
-      let name = ["辞予","那一夜","床摇得厉害","你的呻吟","甜腻","强哥","七尺大乳","漂洋过海","用贞操换真钞","清晨的眼泪","孟老师","性感↗小娘们","孤寂","淫领风骚","小影","爱到深处て腿自开","无心","吻我杀我","林萌"];
+      //let name = ["辞予","那一夜","床摇得厉害","你的呻吟","甜腻","强哥","七尺大乳","漂洋过海","用贞操换真钞","清晨的眼泪","孟老师","性感↗小娘们","孤寂","淫领风骚","小影","爱到深处て腿自开","无心","吻我杀我","林萌"];
+      let name = ["\u8f9e\u4e88","\u90a3\u4e00\u591c","\u5e8a\u6447\u5f97\u5389\u5bb3","\u4f60\u7684\u547b\u541f","\u751c\u817b","\u5f3a\u54e5","\u4e03\u5c3a\u5927\u4e73","\u6f02\u6d0b\u8fc7\u6d77","\u7528\u8d1e\u64cd\u6362\u771f\u949e","\u6e05\u6668\u7684\u773c\u6cea","\u5b5f\u8001\u5e08","\u6027\u611f\u2197\u5c0f\u5a18\u4eec","\u5b64\u5bc2","\u6deb\u9886\u98ce\u9a9a","\u5c0f\u5f71","\u7231\u5230\u6df1\u5904\u3066\u817f\u81ea\u5f00","\u65e0\u5fc3","\u543b\u6211\u6740\u6211","\u6797\u840c"];
       let index2 = Math.floor((Math.random()*name.length));
       self.invitor = name[index2];
 

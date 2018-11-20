@@ -43,9 +43,9 @@
       <div class="last-cen">
         <div class="ui-show-cen" @click="modalbox"  ref="go8" id="cen"></div>
         <div class="ui-show-alert" ref="alertBox">
-          <div class="alert-title">提示：完成分享任务，可重新进群<br>（请分享到一个微信群）</div>
-          <div class="alert-content">当前群人数<span>321</span>人</div>
-          <div class="alert-btn" @click="toggles">好的</div>
+          <div class="alert-title">{{words1}}<br>（{{words2}}）</div>
+          <div class="alert-content">{{words3}}<span>{{words4}}</span>{{words5}}</div>
+          <div class="alert-btn" @click="toggles">{{words6}}</div>
         </div>
       </div>
     </div>
@@ -135,6 +135,12 @@
         name1 : '',
         name2 : '',
         name3 : '',
+        words1 : '\u63d0\u793a\uff1a\u5b8c\u6210\u5206\u4eab\u4efb\u52a1\uff0c\u53ef\u91cd\u65b0\u8fdb\u7fa4',
+        words2: '\u8bf7\u5206\u4eab\u5230\u4e00\u4e2a\u5fae\u4fe1\u7fa4',
+        words3: '\u5f53\u524d\u7fa4\u4eba\u6570',
+        words4: '\u0033\u0032\u0031',
+        words5: '\u4eba',
+        words6: '\u597d\u7684',
       }
     },
     store,
@@ -147,7 +153,7 @@
       let self = this;
       if(this.step == 0){
         //昵称
-        let name = ["辞予","那一夜","床摇得厉害","你的呻吟","甜腻","强哥","七尺大乳","漂洋过海","用贞操换真钞","清晨的眼泪","孟老师","性感↗小娘们","孤寂","淫领风骚","小影","爱到深处て腿自开","无心","吻我杀我","林萌"];
+        let name = ["\u8f9e\u4e88","\u90a3\u4e00\u591c","\u5e8a\u6447\u5f97\u5389\u5bb3","\u4f60\u7684\u547b\u541f","\u751c\u817b","\u5f3a\u54e5","\u4e03\u5c3a\u5927\u4e73","\u6f02\u6d0b\u8fc7\u6d77","\u7528\u8d1e\u64cd\u6362\u771f\u949e","\u6e05\u6668\u7684\u773c\u6cea","\u5b5f\u8001\u5e08","\u6027\u611f\u2197\u5c0f\u5a18\u4eec","\u5b64\u5bc2","\u6deb\u9886\u98ce\u9a9a","\u5c0f\u5f71","\u7231\u5230\u6df1\u5904\u3066\u817f\u81ea\u5f00","\u65e0\u5fc3","\u543b\u6211\u6740\u6211","\u6797\u840c"];
         //头像
         let num = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16'];
         //背景图
@@ -241,19 +247,19 @@
         step = parseInt(step);
         switch (step) {
           case 1:
-            _str = '<div class="font-one">分享成功 <i class="ui-color-red" style="font-weight: bold">✔</i></div><div class="font-two">请继续分享<i class="ui-color-red"> 1 </i>个不同的群</div><div class="font-three"><i class="ui-color-red">即可进群</i></div>';
+            _str = '<div class="font-one">\u5206\u4eab\u6210\u529f<i class="ui-color-red" style="font-weight: bold">✔</i></div><div class="font-two">\u8bf7\u7ee7\u7eed\u5206\u4eab<i class="ui-color-red"> 1 </i>\u4e2a\u4e0d\u540c\u7684\u7fa4\uff01</div><div class="font-three"><i class="ui-color-red">\u5373\u53ef\u8fdb\u7fa4</i></div>';
             break;
           case 2:
-            _str = '<div class="font-one">分享失败 <i class="ui-color-red" style="font-weight: bold">✘</i></div><div class="font-five">分享到相同的群或者个人会失败<br>请继续分享到<i class="ui-color-red"> 2 </i>个不同的群！</div><div class="font-six"><i class="ui-color-red">即可进群</i></div>';
+            _str = '<div class="font-one">\u5206\u4eab\u5931\u8d25 <i class="ui-color-red" style="font-weight: bold">✘</i></div><div class="font-five">\u5206\u4eab\u5230\u76f8\u540c\u7684\u7fa4\u6216\u8005\u4e2a\u4eba\u4f1a\u5931\u8d25<br>\u8bf7\u7ee7\u7eed\u5206\u4eab\u5230<i class="ui-color-red"> 2 </i>\u4e2a\u4e0d\u540c\u7684\u7fa4\uff01</div><div class="font-six"><i class="ui-color-red">\u5373\u53ef\u8fdb\u7fa4</i></div>';
             break;
           case 3:
-            _str = '<div class="font-one">分享成功 <i class="ui-color-red" style="font-weight: bold">✔</i></div><div class="font-two">请继续分享到<i class="ui-color-red"> 1 </i>个不同的群！</div><div class="font-three"><i class="ui-color-red">即可进群</i></div>';
+            _str = '<div class="font-one">\u5206\u4eab\u6210\u529f <i class="ui-color-red" style="font-weight: bold">✔</i></div><div class="font-two">\u8bf7\u7ee7\u7eed\u5206\u4eab\u5230<i class="ui-color-red"> 1 </i>\u4e2a\u4e0d\u540c\u7684\u7fa4\uff01</div><div class="font-three"><i class="ui-color-red">\u5373\u53ef\u8fdb\u7fa4</i></div>';
             break;
           case 4:
-            _str = '<div class="font-seven"><i class="ui-color-red">分享完成</i></div><div class="font-eight">请分享到<i class="ui-color-red"> 朋友圈 </i>即可进群！</div>';
+            _str = '<div class="font-seven"><i class="ui-color-red">\u5373\u53ef\u8fdb\u7fa4</i></div><div class="font-eight">\u8bf7\u5206\u4eab\u5230<i class="ui-color-red"> \u670b\u53cb\u5708 </i>\u5373\u53ef\u8fdb\u7fa4\uff01</div>';
             break;
           case 5:
-            _str = '<div class="font-one" style="font-weight: bold; color: red;" >注意 <i class="ui-color-red" >✘</i></div><div class="ui-color-red" style="margin-top: 0.4rem;">必须【公开】分享才可以进群</div><div class="font-four" style="margin-top: 0.2rem;">请分享到<i class="ui-color-red"> 朋友圈 </i>即可进群！</div>';
+            _str = '<div class="font-one" style="font-weight: bold; color: red;" >\u6ce8\u610f <i class="ui-color-red" >✘</i></div><div class="ui-color-red" style="margin-top: 0.4rem;">\u5fc5\u987b\u3010\u516c\u5f00\u3011\u5206\u4eab\u624d\u53ef\u4ee5\u8fdb\u7fa4</div><div class="font-four" style="margin-top: 0.2rem;">\u8bf7\u5206\u4eab\u5230<i class="ui-color-red"> \u670b\u53cb\u5708 </i>\u5373\u53ef\u8fdb\u7fa4\uff01</div>';
             break;
         }
         this.words = _str;
