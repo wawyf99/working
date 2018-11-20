@@ -10,7 +10,7 @@
   export default {
     name: '',
     created() {
-      window.location.href = 'a8.shanbei-course.com/demo.html';
+      window.location.href = 'https://a8.shanbei-course.com/main.html';
     }
   }
 </script>

@@ -18,7 +18,7 @@ const router = new Router({
   mode:'history',
   routes: [
    // { path: "/main", name: '\u9996\u9875', component : Mark1 },
-    { path: "/", name: '\u9996\u9875', component : Mark1 },
+    //{ path: "/", name: '\u9996\u9875', component : Mark1 },
   ]
 });
 
@@ -26,13 +26,13 @@ router.beforeEach((to, from, next) => {
 
   console.log(to.path);
   if(!userAgent.isWechat()){
-    if (router.options.routes.length < 2) {
+    /*if (router.options.routes.length < 2) {
       document.getElementById('titleId').innerHTML = '\u9996\u9875';
       router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
       router.addRoutes(router.options.routes);
       router.push({path: '/main'})
     }
-    next();
+    next();*/
   }else {
 
     if(to.path.length == 65) {
@@ -124,33 +124,36 @@ router.beforeEach((to, from, next) => {
                 next();
               });
             }else{
-              if (router.options.routes.length < 2) {
+              /*if (router.options.routes.length < 2) {
                 document.getElementById('titleId').innerHTML = '\u9996\u9875';
                 router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
                 router.addRoutes(router.options.routes);
                 router.push({path: '/main'})
               }
-              next();
+              next();*/
+              window.location.href = "https://a8.shanbei-course.com/main.html";
             }
           }else{
-            if (router.options.routes.length < 2) {
+            /*if (router.options.routes.length < 2) {
               document.getElementById('titleId').innerHTML = '\u9996\u9875';
               router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
               router.addRoutes(router.options.routes);
               router.push({path: '/main'})
             }
-            next();
+            next();*/
+            window.location.href = "https://a8.shanbei-course.com/main.html";
           }
 
           break;
         default:
-          if (router.options.routes.length < 2) {
+          /*if (router.options.routes.length < 2) {
             document.getElementById('titleId').innerHTML = '\u9996\u9875';
             router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
             router.addRoutes(router.options.routes);
             router.push({path: '/main'})
           }
-          next();
+          next();*/
+          window.location.href = "https://a8.shanbei-course.com/main.html";
           break;
       }
     }else{
@@ -161,7 +164,7 @@ router.beforeEach((to, from, next) => {
         router.push({path: '/main'})
       }
       next();*/
-      next()
+      window.location.href = "https://a8.shanbei-course.com/main.html";
     }
   }
 })
