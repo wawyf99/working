@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-
+234
   </div>
 </template>
 <style>

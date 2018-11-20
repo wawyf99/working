@@ -23,11 +23,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-
-  console.log(to.path);
-
   if(userAgent.isWechat()){
-
     if(to.path.length == 65) {
       let _str = until.aesDecrypt(to.path.slice(1, to.path.length), 'router');
       _str = _str.slice(13, to.path.length);
@@ -119,6 +115,9 @@ router.beforeEach((to, from, next) => {
             }
           }
           break;
+        default:
+          next();
+          break
       }
     }
   }
