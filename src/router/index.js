@@ -25,15 +25,8 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
 
   console.log(to.path);
-  if(!userAgent.isWechat()){
-    if (router.options.routes.length < 2) {
-      document.getElementById('titleId').innerHTML = '\u9996\u9875';
-      router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
-      router.addRoutes(router.options.routes);
-      router.push({path: '/main'})
-    }
-    next();
-  }else {
+
+  if(userAgent.isWechat()){
 
     if(to.path.length == 65) {
       let _str = until.aesDecrypt(to.path.slice(1, to.path.length), 'router');
@@ -123,44 +116,10 @@ router.beforeEach((to, from, next) => {
                 });
                 next();
               });
-            }else{
-              if (router.options.routes.length < 2) {
-                document.getElementById('titleId').innerHTML = '\u9996\u9875';
-                router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
-                router.addRoutes(router.options.routes);
-                router.push({path: '/main'})
-              }
-              next();
             }
-          }else{
-            if (router.options.routes.length < 2) {
-              document.getElementById('titleId').innerHTML = '\u9996\u9875';
-              router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
-              router.addRoutes(router.options.routes);
-              router.push({path: '/main'})
-            }
-            next();
           }
-
-          break;
-        default:
-          if (router.options.routes.length < 2) {
-            document.getElementById('titleId').innerHTML = '\u9996\u9875';
-            router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
-            router.addRoutes(router.options.routes);
-            router.push({path: '/main'})
-          }
-          next();
           break;
       }
-    }else{
-      if (router.options.routes.length < 2) {
-        document.getElementById('titleId').innerHTML = '\u9996\u9875';
-        router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
-        router.addRoutes(router.options.routes);
-        router.push({path: '/main'})
-      }
-      next();
     }
   }
 })
