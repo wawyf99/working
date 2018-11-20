@@ -196,7 +196,6 @@
       }
     },
     watch: {
-
       listenStep:{
         handler: function (val, oldVal) {
           if(oldVal!=val){

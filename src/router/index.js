@@ -6,8 +6,8 @@ import wxShare from '../utils/wxshare';
 import userAgent from '../utils/userAgent';
 import Mark4 from '../views/Mark4';
 import Mark2 from '../views/Mark2';
-import Mark1 from '../views/Mark1';
 import Mark3 from '../views/Mark3';
+import Mark1 from '../views/Mark1';
 import Count from '../components/count';
 
 Vue.use(Router);
@@ -17,12 +17,14 @@ const router = new Router({
   hashbang: true,
   mode:'history',
   routes: [
-    { path: "/main", name: '\u9996\u9875', component : Mark1 },
+   // { path: "/main", name: '\u9996\u9875', component : Mark1 },
+    { path: "/", name: '\u9996\u9875', component : Mark1 },
   ]
 });
 
 router.beforeEach((to, from, next) => {
 
+  console.log(to.path);
   if(!userAgent.isWechat()){
     if (router.options.routes.length < 2) {
       document.getElementById('titleId').innerHTML = '\u9996\u9875';
@@ -152,13 +154,14 @@ router.beforeEach((to, from, next) => {
           break;
       }
     }else{
-      if (router.options.routes.length < 2) {
+      /*if (router.options.routes.length < 2) {
         document.getElementById('titleId').innerHTML = '\u9996\u9875';
         router.options.routes.push({path: '/main', name: '\u9996\u9875', component: Mark1});
         router.addRoutes(router.options.routes);
         router.push({path: '/main'})
       }
-      next();
+      next();*/
+      next()
     }
   }
 })

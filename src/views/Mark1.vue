@@ -1,6 +1,6 @@
 <template>
-  <div id="">
- 这里是域名首页
+  <div id="main">
+
   </div>
 </template>
 <style>
@@ -9,13 +9,8 @@
 <script>
   export default {
     name: '',
-    data() {
-      return {
-        wxid: this.$route.query.wxid,
-      }
-    },
     created() {
-
+      window.location.href = 'a8.shanbei-course.com/demo.html';
     }
   }
 </script>

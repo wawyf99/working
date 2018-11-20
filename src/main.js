@@ -20,6 +20,10 @@ Vue.use(ToastPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(AlertPlugin)
 
+Vue.component('HtmlPanel', { /* ... */ })
+/*Vue.component('HtmlViewSample', { /!* ... *!/ })*/
+
+
 /*Vue.config.productionTip = false*/
 
 //全局api请求地址类
